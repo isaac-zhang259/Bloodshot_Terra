@@ -20,14 +20,11 @@ func _physics_process(delta: float) -> void:
 func _state_logic(_delta: float) -> void:
 	pass
 
-
 func _get_transition() -> int:
 	return -1
 
-
 func _add_state(new_state: String) -> void:
 	states[new_state] = states.size()
-
 
 func set_state(new_state: int) -> void:
 	_exit_state(state)
@@ -35,10 +32,8 @@ func set_state(new_state: int) -> void:
 	state = new_state
 	_enter_state(previous_state, state)
 
-
 func _enter_state(_previous_state: int, _new_state: int) -> void:
 	pass
-
 
 func _exit_state(_state_exited: int) -> void:
 	pass
