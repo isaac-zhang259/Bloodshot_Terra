@@ -4,3 +4,5 @@ This is my attempt at really making the game I've wanted to make in some form fo
 It will be a Crystal/Blood themed roguelite that focuses on precise and fun gameplay, with (hopefully) beautiful visuals and music.
 
 I'm using Hack Club's Terra event to motivate myself to get this started at the very least, hopefully I get that free laptop :P
+
+Also, this project will initially be following Matinator's Godot Roguelike tutorial for me to better understand how to structure a game properly.
