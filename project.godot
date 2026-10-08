@@ -11,14 +11,16 @@ config_version=5
 [application]
 
 config/name="Bloodshot"
-run/main_scene="uid://c8dunqk21vdjp"
+run/main_scene="uid://dacj7wq0jxkte"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/mode=2
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -53,4 +55,5 @@ down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"

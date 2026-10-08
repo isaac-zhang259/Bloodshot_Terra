@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cee3fxvn5415r"]
+
+[ext_resource type="Script" uid="uid://cirqarhblwo1l" path="res://Characters/character.gd" id="1_acr0g"]
+[ext_resource type="Script" uid="uid://dklfr58fpmrh2" path="res://Characters/FSM.gd" id="2_ticvp"]
+
+[sub_resource type="GDScript" id="GDScript_ticvp"]
+script/source = "extends AnimationPlayer
+
+"
+
+[node name="Character" type="CharacterBody2D" unique_id=542487015]
+script = ExtResource("1_acr0g")
+
+[node name="FiniteStateMachine" type="Node" parent="." unique_id=666213567]
+script = ExtResource("2_ticvp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=80329547]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1813346776]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1893857451]
+script = SubResource("GDScript_ticvp")
