@@ -291,6 +291,8 @@ _data = {
 
 [node name="FlyingCreature" unique_id=542487015 instance=ExtResource("1_6scen")]
 script = ExtResource("2_neg60")
+acceleration = 20
+max_speed = 50
 
 [node name="FiniteStateMachine" parent="." index="0" unique_id=666213567]
 script = ExtResource("2_jube8")
