@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b61iseq75kiip" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="5_klx3t"]
 [ext_resource type="Texture2D" uid="uid://cexmmvi3dl58u" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="6_osktb"]
 [ext_resource type="Texture2D" uid="uid://dv5frtd6af5aw" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="7_7vev3"]
+[ext_resource type="Script" uid="uid://dtteoe71rhmfs" path="res://Characters/Player/hitbox.gd" id="7_klx3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r5ew0"]
 atlas = ExtResource("4_7vev3")
@@ -108,6 +109,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_e2o6t"]
 radius = 4.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_thutw"]
+radius = 2.0
+height = 16.0
+
 [sub_resource type="Animation" id="Animation_7vev3"]
 length = 0.001
 tracks/0/type = "value"
@@ -157,6 +162,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_klx3t"]
@@ -210,6 +227,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r5ew0"]
@@ -339,6 +368,17 @@ position = Vector2(7, 3)
 rotation = -0.7853982
 texture = ExtResource("6_osktb")
 offset = Vector2(5, -4)
+
+[node name="Hitbox" type="Area2D" parent="Sword/Node2D/Sprite2D" index="0" unique_id=795605111]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("7_klx3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/Node2D/Sprite2D/Hitbox" index="0" unique_id=1277285276]
+position = Vector2(4.9497476, -3.535533)
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_thutw")
+disabled = true
 
 [node name="SlashSprite2D" type="Sprite2D" parent="Sword" index="1" unique_id=740671441]
 visible = false
