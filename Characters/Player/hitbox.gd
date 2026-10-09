@@ -8,7 +8,7 @@ var knockback_direction: Vector2 = Vector2.ZERO
 @onready var collision_shape: CollisionShape2D = get_child(0)
 
 func _init() -> void:
-	connect("body_entered", Callable(self, "_on_body_entered"))
+	var __ = connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _ready() -> void:
 	assert(collision_shape != null)

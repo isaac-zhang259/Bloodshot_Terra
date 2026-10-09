@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dacj7wq0jxkte"]
 
+[ext_resource type="Texture2D" uid="uid://d26nrt0e6d5m8" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/health_ui.png" id="1_7jktm"]
 [ext_resource type="Texture2D" uid="uid://bs5x0or36dfd7" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://b8i2h5ucuwx1j" path="res://ui.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://ba40hwbkspukq" path="res://Characters/Enemies/Flying Creature/flying_creature.tscn" id="2_feb5d"]
+[ext_resource type="Texture2D" uid="uid://cji0yctf6ovrg" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/progress bar.png" id="2_ryrav"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_feb5d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -79,6 +82,19 @@ sources/0 = SubResource("TileSetAtlasSource_e2o6t")
 
 [node name="Game" type="Node2D" unique_id=2018493198]
 
+[node name="UI" type="CanvasLayer" parent="." unique_id=880780631]
+script = ExtResource("1_ryrav")
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI" unique_id=1760223269]
+offset_right = 80.0
+offset_bottom = 16.0
+offset_transform_position = Vector2(10, 10)
+min_value = -23.0
+value = 50.0
+texture_over = ExtResource("1_7jktm")
+texture_progress = ExtResource("2_ryrav")
+tint_progress = Color(1, 0, 0, 1)
+
 [node name="TileMap" type="TileMap" parent="." unique_id=1983089608]
 tile_set = SubResource("TileSet_thutw")
 format = 2
@@ -86,12 +102,27 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 1, 196608, 1, 65537, 196608, 
 
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("2_e2o6t")]
 position = Vector2(72, 13)
+hp = 4
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=719613164]
 navigation_polygon = SubResource("NavigationPolygon_thutw")
 
 [node name="FlyingCreature" parent="." unique_id=58792100 instance=ExtResource("2_feb5d")]
-position = Vector2(119, 39)
+position = Vector2(368, 158)
 collision_mask = 4
 acceleration = 20
 max_speed = 50
+
+[node name="FlyingCreature2" parent="." unique_id=1632166945 instance=ExtResource("2_feb5d")]
+position = Vector2(213, 32)
+collision_mask = 4
+acceleration = 20
+max_speed = 50
+
+[node name="FlyingCreature3" parent="." unique_id=1902124845 instance=ExtResource("2_feb5d")]
+position = Vector2(137, 186)
+collision_mask = 4
+acceleration = 20
+max_speed = 50
+
+[connection signal="hp_changed" from="Player" to="UI" method="_on_player_hp_changed"]
