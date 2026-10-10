@@ -31,3 +31,9 @@ func get_input() -> void:
 		
 	if Input.is_action_just_pressed("attack") and not sword_animation_player.is_playing():
 		sword_animation_player.play("attack")
+
+func switch_camera() -> void:
+	var main_scene_camera: Camera2D = get_parent().get_node("Camera2D")
+	main_scene_camera.position = position
+	main_scene_camera.make_current()
+	#get_node("Camera2D").current = false

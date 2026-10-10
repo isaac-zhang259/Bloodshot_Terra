@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dacj7wq0jxkte"]
 
 [ext_resource type="Texture2D" uid="uid://d26nrt0e6d5m8" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/health_ui.png" id="1_7jktm"]
+[ext_resource type="Script" uid="uid://di4ybqdi4atee" path="res://game.gd" id="1_eow3j"]
 [ext_resource type="Script" uid="uid://b8i2h5ucuwx1j" path="res://ui.gd" id="1_ryrav"]
 [ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="2_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://cji0yctf6ovrg" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/progress bar.png" id="2_ryrav"]
-[ext_resource type="PackedScene" uid="uid://b6mj5unnwy81c" path="res://Rooms/room_0.tscn" id="4_7jktm"]
+[ext_resource type="Script" uid="uid://dxrwgrb0sx7ov" path="res://rooms.gd" id="5_j5wjh"]
 
 [node name="Game" type="Node2D" unique_id=2018493198]
+script = ExtResource("1_eow3j")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=880780631]
 script = ExtResource("1_ryrav")
@@ -22,11 +24,12 @@ texture_progress = ExtResource("2_ryrav")
 tint_progress = Color(1, 0, 0, 1)
 
 [node name="Rooms" type="Node2D" parent="." unique_id=1353587236]
-
-[node name="Room0" parent="Rooms" unique_id=354325685 instance=ExtResource("4_7jktm")]
+script = ExtResource("5_j5wjh")
 
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("2_e2o6t")]
-position = Vector2(290, 256)
+position = Vector2(187, 162)
 hp = 4
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=467662129]
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_player_hp_changed"]
