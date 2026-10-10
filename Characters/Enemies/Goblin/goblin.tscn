@@ -344,6 +344,7 @@ _data = {
 
 [node name="Goblin" unique_id=542487015 instance=ExtResource("1_l0dd4")]
 script = ExtResource("2_uoud0")
+projectile_speed = 150
 acceleration = 30
 max_speed = 75
 
@@ -363,3 +364,9 @@ libraries/ = SubResource("AnimationLibrary_e87rf")
 
 [node name="PathTimer" parent="." index="4" unique_id=1712665637]
 wait_time = 0.2
+
+[node name="AttackTimer" type="Timer" parent="." index="6" unique_id=1822480611]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,9 +1,17 @@
 extends Enemy
 
+const THROWABLE_KNIFE_SCENE: PackedScene = preload("res://Characters/Enemies/Goblin/throwable_knife.tscn")
+
 const MAX_DISTANCE_TO_PLAYER: int = 80
 const MIN_DISTANCE_TO_PLAYER: int = 40
 
+@export var projectile_speed: int = 150
+
+var can_attack: bool = true
+
 var distance_to_player: float
+
+@onready var attack_timer: Timer = get_node("AttackTimer")
 
 func _on_path_timer_timeout() -> void:
 	if is_instance_valid(player):
@@ -12,6 +20,11 @@ func _on_path_timer_timeout() -> void:
 			_get_path_to_player()
 		elif distance_to_player < MIN_DISTANCE_TO_PLAYER:
 			_get_path_to_move_away_from_player()
+		else:
+			if can_attack:
+				can_attack = false
+				_throw_knife()
+				attack_timer.start()
 	else:
 		path_timer.stop()
 		mov_direction = Vector2.ZERO
@@ -19,3 +32,11 @@ func _on_path_timer_timeout() -> void:
 func _get_path_to_move_away_from_player() -> void:
 	var dir: Vector2 = (global_position - player.position).normalized()
 	navigation_agent.target_position = global_position + dir * 100
+
+func _throw_knife() -> void:
+	var projectile: Area2D = THROWABLE_KNIFE_SCENE.instantiate()
+	projectile.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
+	get_tree().current_scene.add_child(projectile)
+
+func _on_attack_timer_timeout() -> void:
+	can_attack = true

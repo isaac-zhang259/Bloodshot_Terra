@@ -3,7 +3,8 @@ extends Node2D
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/spawn_explosion.tscn")
 
 const ENEMY_SCENES: Dictionary = {
-	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/flying_creature.tscn")
+	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/flying_creature.tscn"),
+	"GOBLIN": preload("res://Characters/Enemies/Goblin/goblin.tscn")
 }
 
 var num_enemies: int
@@ -34,7 +35,11 @@ func _close_entrance() -> void:
 		
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
-		var enemy: CharacterBody2D = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+		var enemy: CharacterBody2D
+		if randi() % 2 == 0:
+			enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+		else:
+			enemy = ENEMY_SCENES.GOBLIN.instantiate()
 		var __ = enemy.connect("tree_exited", Callable(self, "_on_enemy_killed"))
 		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)
