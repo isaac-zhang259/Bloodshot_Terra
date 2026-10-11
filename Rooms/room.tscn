@@ -254,6 +254,8 @@ navigation_polygon = SubResource("NavigationPolygon_thutw")
 
 [node name="EnemyPositions" type="Node2D" parent="." unique_id=784821068]
 
+[node name="Traps" type="Node2D" parent="." unique_id=369417155]
+
 [node name="PlayerDetector" type="Area2D" parent="." unique_id=2100298285]
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

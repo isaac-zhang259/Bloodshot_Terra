@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dj1nhp736my3m"]
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_foo3d"]
-[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/door.tscn" id="2_m6a5l"]
+[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_m6a5l"]
+[ext_resource type="PackedScene" uid="uid://cjwu1nxio7im6" path="res://Rooms/Furnitures and Traps/spikes.tscn" id="3_o1ta2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(32, 16)
@@ -33,7 +34,13 @@ position = Vector2(286, 102)
 [node name="Marker2D3" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="2" unique_id=1693206890]
 position = Vector2(171, 112)
 
-[node name="PlayerDetector" parent="." index="6" unique_id=2100298285]
+[node name="Spikes" parent="Traps" parent_id_path=PackedInt32Array(369417155) index="0" unique_id=78393390 instance=ExtResource("3_o1ta2")]
+position = Vector2(264, 72)
+
+[node name="Spikes2" parent="Traps" parent_id_path=PackedInt32Array(369417155) index="1" unique_id=1231922632 instance=ExtResource("3_o1ta2")]
+position = Vector2(264, 88)
+
+[node name="PlayerDetector" parent="." index="7" unique_id=2100298285]
 position = Vector2(175, 212)
 collision_layer = 0
 collision_mask = 2

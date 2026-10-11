@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_sajoo"]
 [ext_resource type="Texture2D" uid="uid://bs5x0or36dfd7" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="2_gp87o"]
-[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/door.tscn" id="3_go1md"]
+[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="3_go1md"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gp87o"]
 vertices = PackedVector2Array(8, 4, -8, 4, -8, -8, 8, -8)

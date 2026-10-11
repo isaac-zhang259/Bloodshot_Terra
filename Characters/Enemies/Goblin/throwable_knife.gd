@@ -16,7 +16,7 @@ func launch(initial_position: Vector2, dir: Vector2, speed: int) -> void:
 func _physics_process(delta: float) -> void:
 	position += direction * knife_speed * delta
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	if not enemy_exited:
 		enemy_exited = true
 		set_collision_mask_value(1, true)

@@ -8,7 +8,7 @@ class_name Enemy
 func chase() -> void:
 	if not navigation_agent.is_target_reached():
 		var vector_to_next_point: Vector2 = navigation_agent.get_next_path_position() - global_position
-		var distance_to_next_point: float = vector_to_next_point.length()
+		var _distance_to_next_point: float = vector_to_next_point.length()
 		mov_direction = vector_to_next_point
 		
 		if vector_to_next_point.x > 0 and animated_sprite.flip_h:

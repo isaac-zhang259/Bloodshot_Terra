@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="2_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://cji0yctf6ovrg" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/ui (new)/progress bar.png" id="2_ryrav"]
 [ext_resource type="Script" uid="uid://dxrwgrb0sx7ov" path="res://rooms.gd" id="5_j5wjh"]
-[ext_resource type="PackedScene" uid="uid://d3rh2cbfpps1c" path="res://Characters/Enemies/Goblin/goblin.tscn" id="7_eow3j"]
 
 [node name="Game" type="Node2D" unique_id=2018493198]
 script = ExtResource("1_eow3j")
@@ -32,8 +31,5 @@ position = Vector2(187, 162)
 hp = 4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=467662129]
-
-[node name="Goblin" parent="." unique_id=99640533 instance=ExtResource("7_eow3j")]
-position = Vector2(239, 165)
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_player_hp_changed"]
