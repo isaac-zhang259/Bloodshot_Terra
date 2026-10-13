@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cl7h55k1xsny0"]
+
+[ext_resource type="PackedScene" uid="uid://b7q5cdpg0khsb" path="res://Weapons/weapon.tscn" id="1_3xcnm"]
+[ext_resource type="Texture2D" uid="uid://dy2gs7ykgwxhf" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/Hammer.png" id="2_ugpec"]
+[ext_resource type="AnimationLibrary" uid="uid://dlid6pfcbakpv" path="res://Weapons/warhammer_attack_animations.res" id="3_ugpec"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ue5o"]
+radius = 5.0
+height = 16.000002
+
+[node name="warhammer" unique_id=1246912622 instance=ExtResource("1_3xcnm")]
+
+[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(731682081) index="0" unique_id=754574074]
+texture = ExtResource("2_ugpec")
+
+[node name="Hitbox" parent="Node2D/Sprite2D" index="0" unique_id=1318984580]
+damage = 2
+
+[node name="CollisionShape2D" parent="Node2D/Sprite2D/Hitbox" index="0" unique_id=2002478165]
+position = Vector2(4.949748, -3.5355327)
+shape = SubResource("CapsuleShape2D_2ue5o")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=41626454]
+libraries/warhammer_attack_animations = ExtResource("3_ugpec")

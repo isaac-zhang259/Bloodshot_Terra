@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://eeasdcr2b0jf"]
+
+[ext_resource type="PackedScene" uid="uid://b7q5cdpg0khsb" path="res://Weapons/weapon.tscn" id="1_iekfp"]
+[ext_resource type="Texture2D" uid="uid://cexmmvi3dl58u" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="2_p5cha"]
+[ext_resource type="Texture2D" uid="uid://dv5frtd6af5aw" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_effect_anim_spritesheet.png" id="3_qa7nt"]
+[ext_resource type="AnimationLibrary" uid="uid://bl48fji4n56p6" path="res://Weapons/sword_attack_animations.res" id="4_qa7nt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p5cha"]
+radius = 2.0
+height = 15.999998
+
+[node name="sword" unique_id=1246912622 instance=ExtResource("1_iekfp")]
+
+[node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(731682081) index="0" unique_id=754574074]
+texture = ExtResource("2_p5cha")
+
+[node name="CollisionShape2D" parent="Node2D/Sprite2D/Hitbox" parent_id_path=PackedInt32Array(1318984580) index="0" unique_id=2002478165]
+position = Vector2(4.9497485, -3.535534)
+shape = SubResource("CapsuleShape2D_p5cha")
+
+[node name="SlashSprite2D" type="Sprite2D" parent="." index="1" unique_id=504418931]
+visible = false
+position = Vector2(18, 0)
+texture = ExtResource("3_qa7nt")
+hframes = 3
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=41626454]
+libraries/sword_attack_animations = ExtResource("4_qa7nt")

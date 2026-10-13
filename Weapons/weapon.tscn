@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://b7q5cdpg0khsb"]
+
+[ext_resource type="Script" uid="uid://b0f12ew8q1sb3" path="res://Weapons/weapon.gd" id="1_2ue5o"]
+[ext_resource type="Shader" uid="uid://c0ch7wan6362a" path="res://Characters/Player/sword.gdshader" id="2_g6cf3"]
+[ext_resource type="Script" uid="uid://brkf5gn71y1ce" path="res://Weapons/weapon_hitbox.gd" id="3_iakxr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qm7ci"]
+shader = ExtResource("2_g6cf3")
+shader_parameter/active = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2rxqg"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 79.99999
+
+[sub_resource type="Animation" id="Animation_2ue5o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5707964]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.7853982]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SlashSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SlashSprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f62qm"]
+_data = {
+&"RESET": SubResource("Animation_2ue5o")
+}
+
+[node name="Weapon" type="Node2D" unique_id=1246912622]
+script = ExtResource("1_2ue5o")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=731682081]
+rotation = -1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=754574074]
+material = SubResource("ShaderMaterial_qm7ci")
+position = Vector2(7, 3)
+rotation = -0.7853982
+offset = Vector2(5, -4)
+
+[node name="Hitbox" type="Area2D" parent="Node2D/Sprite2D" unique_id=1318984580]
+collision_layer = 0
+collision_mask = 12
+script = ExtResource("3_iakxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D/Hitbox" unique_id=2002478165]
+position = Vector2(4.9497476, -3.535533)
+rotation = 0.7853982
+disabled = true
+
+[node name="ChargeParticles" type="GPUParticles2D" parent="Node2D/Sprite2D" unique_id=387633123]
+position = Vector2(4.9497476, -3.5355337)
+emitting = false
+amount = 15
+lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_2rxqg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=41626454]
+root_node = NodePath("../Node2D")
+libraries/ = SubResource("AnimationLibrary_f62qm")
+
+[connection signal="area_entered" from="Node2D/Sprite2D/Hitbox" to="Node2D/Sprite2D/Hitbox" method="_on_area_entered"]
