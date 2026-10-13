@@ -8,6 +8,7 @@ var current_weapon: Node2D
 
 func _ready() -> void:
 	current_weapon = weapons.get_child(0)
+	current_weapon.weapon_set_name(current_weapon.name)
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -16,7 +17,7 @@ func _process(_delta: float) -> void:
 	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
 	
-	current_weapon.move(mouse_direction, current_weapon.name)
+	current_weapon.move(mouse_direction)
 	
 func get_input() -> void:
 	mov_direction = Vector2.ZERO
@@ -35,7 +36,7 @@ func get_input() -> void:
 		elif Input.is_action_just_released("next_weapon"):
 			_switch_weapon(DOWN)
 			
-	current_weapon.get_input(current_weapon.name)
+	current_weapon.get_input()
 
 func _switch_weapon(direction: int) -> void:
 	var index: int = current_weapon.get_index()
@@ -50,10 +51,11 @@ func _switch_weapon(direction: int) -> void:
 			
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
+	current_weapon.weapon_set_name(current_weapon.name)
 	current_weapon.show()
 
 func cancel_attack() -> void:
-	current_weapon.cancel_attack(current_weapon.name)
+	current_weapon.cancel_attack()
 
 func switch_camera() -> void:
 	var main_scene_camera: Camera2D = get_parent().get_node("Camera2D")

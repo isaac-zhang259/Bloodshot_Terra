@@ -5,7 +5,12 @@ class_name Weapon
 @onready var charge_particles: GPUParticles2D = get_node("Node2D/Sprite2D/ChargeParticles")
 @onready var hitbox: Area2D = get_node("Node2D/Sprite2D/Hitbox")
 
-func get_input(weapon_name: String) -> void:
+var weapon_name: String
+
+func weapon_set_name(w_n: String) -> void:
+	weapon_name = w_n
+
+func get_input() -> void:
 	if Input.is_action_just_pressed("attack") and not animation_player.is_playing():
 			animation_player.play(weapon_name + "_attack_animations/charge")
 	elif Input.is_action_just_released("attack"):
@@ -14,7 +19,7 @@ func get_input(weapon_name: String) -> void:
 		elif charge_particles.emitting:
 			animation_player.play(weapon_name + "_attack_animations/strong_attack")
 			
-func move(mouse_direction: Vector2, weapon_name: String) -> void:
+func move(mouse_direction: Vector2) -> void:
 	if not animation_player.is_playing() or animation_player.current_animation == weapon_name + "_attack_animations/charge":
 		rotation = mouse_direction.angle()
 		hitbox.knockback_direction = mouse_direction
@@ -23,7 +28,7 @@ func move(mouse_direction: Vector2, weapon_name: String) -> void:
 		elif scale.y == -1 and mouse_direction.x > 0:
 			scale.y = 1
 			
-func cancel_attack(weapon_name: String) -> void:
+func cancel_attack() -> void:
 	animation_player.play(weapon_name + "_attack_animations/cancel_attack")
 	
 func is_busy() -> bool:
