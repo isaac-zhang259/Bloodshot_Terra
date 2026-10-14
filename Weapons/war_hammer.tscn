@@ -8,6 +8,10 @@
 radius = 5.0
 height = 16.000002
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6cf3"]
+radius = 5.0
+height = 18.0
+
 [node name="warhammer" unique_id=1246912622 instance=ExtResource("1_3xcnm")]
 
 [node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(731682081) index="0" unique_id=754574074]
@@ -20,5 +24,10 @@ damage = 2
 position = Vector2(4.949748, -3.5355327)
 shape = SubResource("CapsuleShape2D_2ue5o")
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=41626454]
+[node name="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(700877036) index="0" unique_id=1806834000]
+position = Vector2(-2, -8)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_g6cf3")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=41626454]
 libraries/warhammer_attack_animations = ExtResource("3_ugpec")

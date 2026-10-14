@@ -1,10 +1,14 @@
 extends Character
 
+const DUST_SCENE: PackedScene = preload("res://Characters/Player/dust.tscn")
+
 enum{UP, DOWN}
 
 var current_weapon: Node2D
 
+@onready var parent: Node2D = get_parent()
 @onready var weapons: Node2D = get_node("Weapons")
+@onready var dust_position: Marker2D = get_node("DustPosition")
 
 func _ready() -> void:
 	current_weapon = weapons.get_child(0)
@@ -12,6 +16,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	
 	if mouse_direction.x > 0 and animated_sprite.flip_h:
 		animated_sprite.flip_h = false
 	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
@@ -35,6 +40,8 @@ func get_input() -> void:
 			_switch_weapon(UP)
 		elif Input.is_action_just_released("next_weapon"):
 			_switch_weapon(DOWN)
+		elif Input.is_action_just_pressed("throw") and current_weapon.get_index() != 0:
+			_drop_weapon()
 			
 	current_weapon.get_input()
 
@@ -54,8 +61,34 @@ func _switch_weapon(direction: int) -> void:
 	current_weapon.weapon_set_name(current_weapon.name)
 	current_weapon.show()
 
+func pick_up_weapon(weapon: Node2D) -> void:
+	weapon.get_parent().call_deferred("remove_child", weapon)
+	weapons.call_deferred("add_child", weapon)
+	weapon.set_deferred("owner", weapons)
+	current_weapon.hide()
+	current_weapon.cancel_attack()
+	current_weapon = weapon
+	current_weapon.weapon_set_name(current_weapon.name)
+
+func _drop_weapon() -> void:
+	var weapon_to_drop: Node2D = current_weapon
+	_switch_weapon(UP)
+	weapons.call_deferred("remove_child", weapon_to_drop)
+	get_parent().call_deferred("add_child", weapon_to_drop)
+	weapon_to_drop.set_owner(get_parent())
+	await weapon_to_drop.tree_entered
+	weapon_to_drop.show()
+	
+	var throw_dir: Vector2 = (get_global_mouse_position() - position).normalized()
+	weapon_to_drop.interpolate_pos(position, position + throw_dir * 50)
+
 func cancel_attack() -> void:
 	current_weapon.cancel_attack()
+
+func spawn_dust() -> void:
+	var dust: Sprite2D = DUST_SCENE.instantiate()
+	dust.position = dust_position.global_position
+	parent.get_child(get_index() - 1).add_sibling(dust)
 
 func switch_camera() -> void:
 	var main_scene_camera: Camera2D = get_parent().get_node("Camera2D")

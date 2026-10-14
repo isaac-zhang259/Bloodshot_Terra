@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_328x7"]
 [ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_8v812"]
+[ext_resource type="PackedScene" uid="uid://cl7h55k1xsny0" path="res://Weapons/war_hammer.tscn" id="3_0ygu5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(80, 40)
@@ -18,7 +19,10 @@ layer_0/tile_data = PackedInt32Array(655370, 131072, 6, 524295, 131072, 6, 52429
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_8v812")]
 position = Vector2(192, 48)
 
-[node name="PlayerDetector" parent="." index="6" unique_id=2100298285]
+[node name="PlayerSpawnPos" type="Marker2D" parent="." index="7" unique_id=346253103]
+position = Vector2(240, 191)
+
+[node name="PlayerDetector" parent="." index="8" unique_id=2100298285]
 position = Vector2(192, 88)
 collision_layer = 0
 collision_mask = 2
@@ -27,5 +31,6 @@ collision_mask = 2
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_thutw")
 
-[node name="PlayerSpawnPos" type="Marker2D" parent="." index="7" unique_id=346253103]
-position = Vector2(240, 191)
+[node name="warhammer" parent="." index="9" unique_id=1246912622 instance=ExtResource("3_0ygu5")]
+position = Vector2(320, 94)
+on_floor = true

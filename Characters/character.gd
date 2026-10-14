@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Character
 
+const HIT_EFFECT_SCENE: PackedScene = preload("res://Characters/hit_effect.tscn")
+
 const FRICTION: float = 0.15
 
 @export var hp: int = 2: set = set_hp
@@ -38,3 +40,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 func set_hp(new_hp: int) -> void:
 	hp = new_hp
 	emit_signal("hp_changed", new_hp)
+
+func _spawn_hit_effect() -> void:
+	var hit_effect: Sprite2D = HIT_EFFECT_SCENE.instantiate()
+	add_child(hit_effect)

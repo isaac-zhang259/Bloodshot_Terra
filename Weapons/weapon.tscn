@@ -138,8 +138,15 @@ amount = 15
 lifetime = 0.6
 process_material = SubResource("ParticleProcessMaterial_2rxqg")
 
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=700877036]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=1806834000]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=41626454]
 root_node = NodePath("../Node2D")
 libraries/ = SubResource("AnimationLibrary_f62qm")
 
 [connection signal="area_entered" from="Node2D/Sprite2D/Hitbox" to="Node2D/Sprite2D/Hitbox" method="_on_area_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

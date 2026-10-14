@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="4_r5ew0"]
 [ext_resource type="Texture2D" uid="uid://b61iseq75kiip" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_spritesheet.png" id="5_klx3t"]
 [ext_resource type="PackedScene" uid="uid://eeasdcr2b0jf" path="res://Weapons/sword.tscn" id="7_7vev3"]
-[ext_resource type="PackedScene" uid="uid://cl7h55k1xsny0" path="res://Weapons/war_hammer.tscn" id="8_klx3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jec2i"]
 atlas = ExtResource("4_r5ew0")
@@ -338,6 +337,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5jopl"]
 _data = {
@@ -372,7 +385,7 @@ libraries/ = SubResource("AnimationLibrary_5jopl")
 
 [node name="sword" parent="Weapons" index="0" unique_id=1246912622 instance=ExtResource("7_7vev3")]
 
-[node name="warhammer" parent="Weapons" index="1" unique_id=296823803 instance=ExtResource("8_klx3t")]
-visible = false
-
 [node name="Camera2D" type="Camera2D" parent="." index="5" unique_id=123490052]
+
+[node name="DustPosition" type="Marker2D" parent="." index="6" unique_id=1672540074]
+position = Vector2(0, 6)
