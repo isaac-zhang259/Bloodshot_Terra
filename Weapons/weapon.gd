@@ -42,7 +42,6 @@ func cancel_attack() -> void:
 func is_busy() -> bool:
 	return animation_player.is_playing() or charge_particles.emitting
 
-
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		player_detector.set_collision_mask_value(1, false)

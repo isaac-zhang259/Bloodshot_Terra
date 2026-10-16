@@ -5,8 +5,8 @@
 [ext_resource type="AnimationLibrary" uid="uid://dlid6pfcbakpv" path="res://Weapons/warhammer_attack_animations.res" id="3_ugpec"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ue5o"]
-radius = 5.0
-height = 16.000002
+radius = 5.999999
+height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6cf3"]
 radius = 5.0

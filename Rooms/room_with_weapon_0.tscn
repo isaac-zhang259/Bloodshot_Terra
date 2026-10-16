@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://i1rxsyusuu1i"]
+
+[ext_resource type="PackedScene" uid="uid://ct6uv0fe6f6te" path="res://Rooms/room_with_weapon.tscn" id="1_x8m2o"]
+[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_6e4sv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuv7g"]
+size = Vector2(32, 16)
+
+[node name="RoomWithWeapon0" unique_id=354325685 instance=ExtResource("1_x8m2o")]
+
+[node name="TileMap" parent="." index="0" unique_id=293665720]
+layer_0/tile_data = PackedInt32Array(262156, 458752, 4, 327692, 196608, 1, 393228, 196608, 1, 458764, 196608, 1, 524300, 196608, 1, 262157, 458752, 4, 327693, 196608, 1, 393229, 196608, 1, 458765, 196608, 1, 524301, 196608, 1, 327694, 196608, 1, 393230, 196608, 1, 458766, 196608, 1, 524302, 196608, 1, 327695, 196608, 1, 393231, 196608, 1, 458767, 196608, 1, 524303, 196608, 1, 262160, 458752, 4, 327696, 196608, 1, 393232, 196608, 1, 458768, 196608, 1, 524304, 196608, 1, 262161, 458752, 4, 327697, 196608, 1, 393233, 196608, 1, 458769, 196608, 1, 524305, 196608, 1, 196625, 131072, 7, 196624, 65536, 7, 196621, 327680, 7, 196620, 131072, 7, 196619, 262144, 4, 262155, 262144, 5, 327691, 262144, 5, 393227, 262144, 5, 458763, 262144, 5, 524299, 262144, 6, 262162, 196608, 5, 327698, 196608, 5, 393234, 196608, 5, 458770, 196608, 5, 524306, 196608, 6, 196626, 196608, 4, 589839, 196608, 1, 589838, 196608, 1, 262159, 196608, 1, 262158, 196608, 1, 196622, 196608, 1, 196623, 196608, 1, 589837, 262144, 5, 589840, 196608, 5, 131087, 196608, 1, 131086, 196608, 1, 131085, 262144, 5, 131088, 196608, 5)
+
+[node name="TileMap2" parent="." index="1" unique_id=1038422760]
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(524300, 131072, 6, 524301, 327680, 6, 524304, 65536, 6, 524305, 131072, 6, 196622, 458752, 6, 196623, 524288, 6)
+
+[node name="Marker2D" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="0" unique_id=321279591]
+position = Vector2(232, 136)
+
+[node name="Marker2D2" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="1" unique_id=1614240795]
+position = Vector2(248, 136)
+
+[node name="Door" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_6e4sv")]
+position = Vector2(240, 64)
+
+[node name="PlayerDetector" parent="." index="7" unique_id=2100298285]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=1840524419]
+position = Vector2(240, 128)
+shape = SubResource("RectangleShape2D_cuv7g")
+
+[node name="WeaponPos" parent="." index="8" unique_id=92401180]
+position = Vector2(247, 106)

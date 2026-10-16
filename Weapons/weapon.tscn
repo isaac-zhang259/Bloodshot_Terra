@@ -18,6 +18,7 @@ tangential_accel_min = -2.2351742e-06
 tangential_accel_max = 79.99999
 
 [sub_resource type="Animation" id="Animation_2ue5o"]
+resource_local_to_scene = true
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false

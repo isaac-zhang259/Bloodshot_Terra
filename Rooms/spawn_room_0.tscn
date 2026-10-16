@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_328x7"]
 [ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_8v812"]
-[ext_resource type="PackedScene" uid="uid://cl7h55k1xsny0" path="res://Weapons/war_hammer.tscn" id="3_0ygu5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(80, 40)
@@ -30,7 +29,3 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=2143427862]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_thutw")
-
-[node name="warhammer" parent="." index="9" unique_id=1246912622 instance=ExtResource("3_0ygu5")]
-position = Vector2(320, 94)
-on_floor = true

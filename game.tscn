@@ -29,6 +29,7 @@ script = ExtResource("5_j5wjh")
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("2_e2o6t")]
 position = Vector2(187, 162)
 hp = 4
+max_hp = 4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=467662129]
 

@@ -384,6 +384,7 @@ libraries/ = SubResource("AnimationLibrary_5jopl")
 [node name="Weapons" type="Node2D" parent="." index="4" unique_id=1569104222]
 
 [node name="sword" parent="Weapons" index="0" unique_id=1246912622 instance=ExtResource("7_7vev3")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5" unique_id=123490052]
 

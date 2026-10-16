@@ -20,6 +20,11 @@ run/main_scene="uid://dacj7wq0jxkte"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneTransistor="*uid://ctvdleu06r021"
+SavedData="*uid://ddtjd4wy0wbtr"
+
 [display]
 
 window/size/viewport_width=480

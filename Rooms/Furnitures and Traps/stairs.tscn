@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ciopog33ng2rc"]
+
+[ext_resource type="Script" uid="uid://bw05vkdtfeth4" path="res://Rooms/Furnitures and Traps/stairs.gd" id="1_gnaj3"]
+[ext_resource type="Texture2D" uid="uid://bhneyhrrtygm7" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/tiles/floor/stair_nextlevel.png" id="2_sgi0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
+size = Vector2(16, 16)
+
+[node name="Stairs" type="Area2D" unique_id=1372739004]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gnaj3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1750481446]
+texture = ExtResource("2_sgi0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=981500088]
+shape = SubResource("RectangleShape2D_thutw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

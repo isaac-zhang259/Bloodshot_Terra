@@ -11,8 +11,18 @@ var current_weapon: Node2D
 @onready var dust_position: Marker2D = get_node("DustPosition")
 
 func _ready() -> void:
-	current_weapon = weapons.get_child(0)
+	_restore_previous_state()
+
+func _restore_previous_state() -> void:
+	self.hp = SavedData.hp
+	for weapon in SavedData.weapons:
+		weapon = weapon.duplicate()
+		weapon.hide()
+		weapon.position = Vector2.ZERO
+		weapons.add_child(weapon)
+	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.weapon_set_name(current_weapon.name)
+	current_weapon.show()
 
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -60,8 +70,11 @@ func _switch_weapon(direction: int) -> void:
 	current_weapon = weapons.get_child(index)
 	current_weapon.weapon_set_name(current_weapon.name)
 	current_weapon.show()
+	SavedData.equipped_weapon_index = index
 
 func pick_up_weapon(weapon: Node2D) -> void:
+	SavedData.weapons.append(weapon.duplicate())
+	SavedData.equipped_weapon_index = weapons.get_child_count()
 	weapon.get_parent().call_deferred("remove_child", weapon)
 	weapons.call_deferred("add_child", weapon)
 	weapon.set_deferred("owner", weapons)
@@ -71,6 +84,7 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	current_weapon.weapon_set_name(current_weapon.name)
 
 func _drop_weapon() -> void:
+	SavedData.weapons.remove_at(current_weapon.get_index() - 1)
 	var weapon_to_drop: Node2D = current_weapon
 	_switch_weapon(UP)
 	weapons.call_deferred("remove_child", weapon_to_drop)
