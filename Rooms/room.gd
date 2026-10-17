@@ -31,8 +31,8 @@ func _open_doors() -> void:
 func _close_entrance() -> void:
 	for entry_position in entrance.get_children():
 		print(tilemap.local_to_map(entry_position.position))
-		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(2, 6))
-		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(7, 4))
+		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 8))
+		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(1, 4))
 		
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
