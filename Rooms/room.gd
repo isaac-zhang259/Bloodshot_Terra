@@ -5,7 +5,8 @@ const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/spa
 
 const ENEMY_SCENES: Dictionary = {
 	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/flying_creature.tscn"),
-	"GOBLIN": preload("res://Characters/Enemies/Goblin/goblin.tscn")
+	"GOBLIN": preload("res://Characters/Enemies/Goblin/goblin.tscn"),
+	"CRAWLER": preload("res://Characters/Enemies/Crawler/crawler.tscn")
 }
 
 var num_enemies: int
@@ -37,10 +38,11 @@ func _close_entrance() -> void:
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: CharacterBody2D
-		if randi() % 2 == 0:
-			enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
-		else:
-			enemy = ENEMY_SCENES.GOBLIN.instantiate()
+		var random = randi() % 3
+		match random:
+			0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+			1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
+			2: enemy = ENEMY_SCENES.CRAWLER.instantiate()
 		var __ = enemy.connect("tree_exited", Callable(self, "_on_enemy_killed"))
 		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)
