@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_k7x4m"]
 [ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_e1hp5"]
-[ext_resource type="PackedScene" uid="uid://dy64535t0x3ai" path="res://Characters/Enemies/Crawler/crawler.tscn" id="3_vs5mo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(64, 31)
@@ -30,6 +29,3 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=2069406301]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_thutw")
-
-[node name="Crawler" parent="." index="9" unique_id=542487015 instance=ExtResource("3_vs5mo")]
-position = Vector2(190, 129)
