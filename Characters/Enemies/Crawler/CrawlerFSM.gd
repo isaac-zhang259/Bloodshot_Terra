@@ -4,6 +4,7 @@ func _init() -> void:
 	_add_state("asleep")
 	_add_state("waking")
 	_add_state("move")
+	_add_state("resting")
 	_add_state("hurt")
 	_add_state("dead")
 
@@ -25,6 +26,9 @@ func _get_transition() -> int:
 				return states.move
 		states.move:
 			if parent.distance_to_player > parent.MIN_DISTANCE_TO_PLAYER:
+				return states.resting
+		states.resting:
+			if not animation_player.is_playing():
 				return states.asleep
 		states.hurt:
 			if not animation_player.is_playing():
@@ -39,6 +43,8 @@ func _enter_state(_previous_state: int, _new_state: int) -> void:
 			animation_player.play("waking")
 		states.move:
 			animation_player.play("move")
+		states.resting:
+			animation_player.play("resting")
 		states.hurt:
 			animation_player.play("hurt")
 		states.dead:
