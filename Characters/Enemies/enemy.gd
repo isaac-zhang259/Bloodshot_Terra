@@ -5,6 +5,9 @@ class_name Enemy
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 @onready var path_timer: Timer = get_node("PathTimer")
 
+func _ready() -> void:
+	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
+
 func chase() -> void:
 	if not navigation_agent.is_target_reached():
 		var vector_to_next_point: Vector2 = navigation_agent.get_next_path_position() - global_position

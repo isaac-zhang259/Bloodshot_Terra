@@ -1,12 +1,15 @@
 extends Node2D
 class_name Room
 
+@export var boss_room: bool = false
+
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/spawn_explosion.tscn")
 
 const ENEMY_SCENES: Dictionary = {
 	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/flying_creature.tscn"),
 	"GOBLIN": preload("res://Characters/Enemies/Goblin/goblin.tscn"),
-	"CRAWLER": preload("res://Characters/Enemies/Crawler/crawler.tscn")
+	"CRAWLER": preload("res://Characters/Enemies/Crawler/crawler.tscn"),
+	"SLIME_BOSS": preload("res://Characters/Enemies/Bosses/slime_boss.tscn")
 }
 
 var num_enemies: int
@@ -38,12 +41,16 @@ func _close_entrance() -> void:
 func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: CharacterBody2D
-		var random = randi() % 3
-		match random:
-			0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
-			1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
-			2: enemy = ENEMY_SCENES.CRAWLER.instantiate()
-		var __ = enemy.connect("tree_exited", Callable(self, "_on_enemy_killed"))
+		if boss_room:
+			enemy = ENEMY_SCENES.SLIME_BOSS.instantiate()
+			num_enemies = 15
+		else:
+			var random = randi() % 3
+			match random:
+				0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+				1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
+				2: enemy = ENEMY_SCENES.CRAWLER.instantiate()
+		
 		enemy.position = enemy_position.position
 		call_deferred("add_child", enemy)
 		

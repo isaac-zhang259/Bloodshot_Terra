@@ -37,6 +37,7 @@ func _enter_state(_previous_state: int, _new_state: int) -> void:
 		states.idle:
 			animation_player.play("idle")
 		states.jump:
+			path_timer.stop()
 			animation_player.play("jump")
 		states.hurt:
 			animation_player.play("hurt")

@@ -4,6 +4,7 @@ const SPAWN_ROOMS: Array = [preload("res://Rooms/spawn_room_0.tscn"), preload("r
 const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/room_0.tscn"), preload("res://Rooms/room_1.tscn"), preload("res://Rooms/room_2.tscn")]
 const SPECIAL_ROOMS: Array = [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/special_room_1.tscn")]
 const END_ROOMS: Array = [preload("res://Rooms/end_room_0.tscn"), preload("res://Rooms/end_room_1.tscn")]
+const SLIME_BOSS_SCENE: PackedScene = preload("res://Rooms/slime_boss_room.tscn")
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX = Vector2i(3, 1)
@@ -15,6 +16,9 @@ const LEFT_WALL_TILE_INDEX = Vector2i(4, 5)
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 
 func _ready() -> void:
+	SavedData.num_floor += 1
+	if SavedData.num_floor == 3:
+		num_levels = 3
 	_spawn_rooms()
 	
 func _spawn_rooms() -> void:
@@ -29,11 +33,14 @@ func _spawn_rooms() -> void:
 			if i == num_levels - 1:
 				room = END_ROOMS[randi() % END_ROOMS.size()].instantiate()
 			else:
-				if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
-					room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instantiate()
-					special_room_spawned = true
+				if SavedData.num_floor == 3:
+					room = SLIME_BOSS_SCENE.instantiate()
 				else:
-					room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instantiate()
+					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
+						room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instantiate()
+						special_room_spawned = true
+					else:
+						room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instantiate()
 			var previous_room_tilemap: TileMap = previous_room.get_node("TileMap")
 			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/Door")
 			var exit_tile_pos: Vector2i = previous_room_tilemap.local_to_map(previous_room_door.position) + Vector2i.UP * 2
