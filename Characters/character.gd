@@ -34,6 +34,10 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 		self.hp -= dam
 		if name == "Player":
 			SavedData.hp = hp
+		else:
+			SavedData.hp += 1
+			print(Game.player.hp)
+			Game.player.hp += 1
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
 			velocity += dir * force
