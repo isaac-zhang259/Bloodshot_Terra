@@ -392,9 +392,3 @@ visible = false
 
 [node name="DustPosition" type="Marker2D" parent="." index="6" unique_id=1672540074]
 position = Vector2(0, 6)
-
-[node name="HurtTimer" type="Timer" parent="." index="7" unique_id=859458425]
-wait_time = 5.0
-autostart = true
-
-[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]

@@ -11,8 +11,10 @@ var current_weapon: Node2D
 @onready var dust_position: Marker2D = get_node("DustPosition")
 @onready var hurt_timer: Timer = get_node("HurtTimer")
 
-func _ready() -> void:
+func _init() -> void:
 	Game.player = self
+
+func _ready() -> void:
 	_restore_previous_state()
 
 func _restore_previous_state() -> void:
@@ -111,6 +113,3 @@ func switch_camera() -> void:
 	main_scene_camera.position = position
 	main_scene_camera.make_current()
 	#get_node("Camera2D").current = false
-
-func _on_hurt_timer_timeout() -> void:
-	take_damage(1, Vector2.ZERO, 0)
