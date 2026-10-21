@@ -3,18 +3,28 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 var full: bool = true
+var red: bool = false
 
 func drain_bar() -> void:
-	animation_player.play("blue_drain")
+	if red:
+		animation_player.play("red_drain")
+	else:
+		animation_player.play("blue_drain")
 	full = false
 
 func fill_bar() -> void:
 	animation_player.play("RESET")
-	animation_player.play("blue_fill")
+	if red:
+		animation_player.play("red_full")
+	else:
+		animation_player.play("blue_full")
 	full = true
 	
 func set_full() -> void:
-	animation_player.play("blue_set_full")
+	if red:
+		animation_player.play("red_set_full")
+	else:
+		animation_player.play("blue_set_full")
 	full = true
 	
 func set_empty() -> void:

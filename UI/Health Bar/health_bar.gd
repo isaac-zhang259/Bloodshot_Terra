@@ -19,13 +19,20 @@ func _ready() -> void:
 func _spawn_segments(num: int) -> void:
 	for i in num:
 		var new_segment = bar_segment.instantiate()
-		new_segment.position = Vector2(i * 8,0)
+		if i < num/2:
+			new_segment.position = Vector2(i * 8, 0)
+			new_segment.z_index = 1
+		else:
+			new_segment.position = Vector2((i - num/2) * 8 - 2, -2)
+			new_segment.z_index = 0
+			new_segment.red = true
 		add_child(new_segment)
 		segment_array.append(self.get_child(i))
 	
 func _process(_delta: float) -> void:
 	if local_hp != player.hp:
 		_set_bar(player.hp)
+	_red_or_blue(max_hp)
 	_update_segment(player.hp)
 	
 func _update_segment(hp: int) -> void:
@@ -37,3 +44,22 @@ func _set_bar(hp: int) -> void:
 		segment_array[i].set_empty()
 		if i < hp:
 			segment_array[i].set_full()
+
+func _set_blue() -> void:
+	for i in max_hp:
+		segment_array[i].z_index = 0
+		if i <= max_hp / 2 - 1:
+			segment_array[i].z_index = 1
+
+func _set_red() -> void:
+	for i in max_hp:
+		segment_array[i].z_index = 0
+		if i > max_hp / 2 - 1:
+			segment_array[i].z_index = 1
+
+func _red_or_blue(num: int) -> void:
+	_set_blue()
+	if player.hp <= num / 2:
+		_set_blue()
+	else:
+		_set_red()

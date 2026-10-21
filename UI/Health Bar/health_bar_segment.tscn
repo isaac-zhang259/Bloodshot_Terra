@@ -226,6 +226,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"damage_player"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_21avc"]
 resource_name = "red_fill"
@@ -256,6 +270,33 @@ tracks/1/keys = {
 "values": [3, 2, 1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_nmsob"]
+resource_name = "red_set_full"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"red"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1fefn"]
 _data = {
 &"RESET": SubResource("Animation_eodfu"),
@@ -263,7 +304,8 @@ _data = {
 &"blue_fill": SubResource("Animation_1fefn"),
 &"blue_set_full": SubResource("Animation_yvn6w"),
 &"red_drain": SubResource("Animation_ec458"),
-&"red_fill": SubResource("Animation_21avc")
+&"red_fill": SubResource("Animation_21avc"),
+&"red_set_full": SubResource("Animation_nmsob")
 }
 
 [node name="HealthBarSegment" type="Node2D" unique_id=1199607065]

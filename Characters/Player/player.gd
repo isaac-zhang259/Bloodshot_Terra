@@ -18,6 +18,7 @@ func _ready() -> void:
 	_restore_previous_state()
 
 func _restore_previous_state() -> void:
+	self.max_hp = SavedData.max_hp
 	self.hp = SavedData.hp
 	for weapon in SavedData.weapons:
 		weapon = weapon.duplicate()
