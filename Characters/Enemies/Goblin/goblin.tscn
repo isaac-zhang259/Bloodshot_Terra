@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="4_egnex"]
 [ext_resource type="Texture2D" uid="uid://8pe8c5kq4wjm" path="res://Art/my own art :thumbsup:/thrower.png" id="5_fhkoe"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhkoe"]
+atlas = ExtResource("5_fhkoe")
+region = Rect2(32, 64, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2otui"]
 atlas = ExtResource("4_egnex")
 region = Rect2(0, 0, 16, 16)
@@ -76,6 +80,14 @@ region = Rect2(112, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h8h62"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhkoe")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2otui")
@@ -203,7 +215,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [&"hurt", &"explosion"]
+"values": [&"dead", &"explosion"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false

@@ -43,7 +43,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 			velocity += dir * force
 		else:
 			state_machine.set_state(state_machine.states.dead)
-			velocity += dir * force * 2
+			velocity += dir * force * 1.5
 
 func set_hp(new_hp: int) -> void:
 	hp = clamp(new_hp, 0, max_hp)

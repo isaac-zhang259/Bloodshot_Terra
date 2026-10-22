@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://v6bsq8r4yj8e" path="res://Art/my own art :thumbsup:/floater.png" id="6_m0f6v"]
 [ext_resource type="Script" uid="uid://dtteoe71rhmfs" path="res://Characters/Player/hitbox.gd" id="6_na7ak"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iskt"]
+atlas = ExtResource("6_m0f6v")
+region = Rect2(64, 48, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rabgd"]
 atlas = ExtResource("3_4le7x")
 region = Rect2(0, 0, 16, 16)
@@ -67,6 +71,14 @@ region = Rect2(112, 32, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8iskt")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rabgd")
 }, {
 "duration": 1.0,
@@ -79,7 +91,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_irsvy")
 }],
 "loop": 1,
-"name": &"dead",
+"name": &"explosion",
 "speed": 5.0
 }, {
 "frames": [{
@@ -102,7 +114,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ein7l")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"flying",
 "speed": 8.0
 }, {
 "frames": [{
@@ -141,7 +153,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"default"]
+"values": [&"flying"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -193,7 +205,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [&"hurt", &"dead"]
+"values": [&"dead", &"explosion"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -261,7 +273,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"default"]
+"values": [&"flying"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -348,6 +360,7 @@ script = ExtResource("2_jube8")
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=80329547]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_2op5e")
+animation = &"flying"
 frame = 4
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1813346776]

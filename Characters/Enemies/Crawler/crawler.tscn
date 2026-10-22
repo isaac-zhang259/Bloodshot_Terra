@@ -11,6 +11,10 @@
 atlas = ExtResource("4_cbsdm")
 region = Rect2(16, 32, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbsdm"]
+atlas = ExtResource("4_cbsdm")
+region = Rect2(48, 112, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwo3l"]
 atlas = ExtResource("5_ukflb")
 region = Rect2(0, 0, 16, 16)
@@ -26,6 +30,18 @@ region = Rect2(32, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwy6y"]
 atlas = ExtResource("5_ukflb")
 region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukflb"]
+atlas = ExtResource("4_cbsdm")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4wkf"]
+atlas = ExtResource("4_cbsdm")
+region = Rect2(64, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st60j"]
+atlas = ExtResource("4_cbsdm")
+region = Rect2(80, 96, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gchrb"]
 atlas = ExtResource("4_cbsdm")
@@ -67,6 +83,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cbsdm")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qwo3l")
 }, {
 "duration": 1.0,
@@ -80,6 +104,20 @@ animations = [{
 }],
 "loop": 1,
 "name": &"explosion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukflb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4wkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st60j")
+}],
+"loop": 1,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -115,10 +153,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3d063"]
-radius = 8.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbsdm"]
-radius = 6.0
+radius = 8.0
 
 [sub_resource type="Animation" id="Animation_cbsdm"]
 length = 0.001
@@ -223,7 +261,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [&"move", &"explosion"]
+"values": [&"dead", &"explosion"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -244,10 +282,10 @@ tracks/2/path = NodePath("AnimatedSprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.39999998, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true, false, true]
+"values": [false, true, false, true, false, true]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -289,7 +327,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"move"]
+"values": [&"hurt"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -298,10 +336,10 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [0, 1, 2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -310,10 +348,10 @@ tracks/2/path = NodePath("AnimatedSprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.39999998, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true, false, true]
+"values": [false, true, false, true, false, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false

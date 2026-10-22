@@ -15,9 +15,9 @@ func drain_bar() -> void:
 func fill_bar() -> void:
 	animation_player.play("RESET")
 	if red:
-		animation_player.play("red_full")
+		animation_player.play("red_fill")
 	else:
-		animation_player.play("blue_full")
+		animation_player.play("blue_fill")
 	full = true
 	
 func set_full() -> void:
