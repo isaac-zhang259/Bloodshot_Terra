@@ -20,6 +20,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0hl2"]
+radius = 15.0
+
 [node name="BrokenMechBoss" unique_id=542487015 instance=ExtResource("1_mlt0k")]
 script = ExtResource("2_fhal3")
 enraged = false
@@ -33,3 +36,7 @@ script = ExtResource("3_41ay4")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=80329547]
 sprite_frames = SubResource("SpriteFrames_yg8ko")
+
+[node name="CollisionShape2D" parent="." index="3" unique_id=1813346776]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_l0hl2")

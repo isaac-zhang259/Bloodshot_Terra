@@ -1,5 +1,225 @@
 [gd_scene format=3 uid="uid://c7tkblf45vt3o"]
 
-[ext_resource type="PackedScene" uid="uid://esdbtchl8d5c" path="res://Characters/Enemies/enemy.tscn" id="1_4qol3"]
+[ext_resource type="Script" uid="uid://dhb0f77uqpwh6" path="res://Characters/Enemies/Bosses/head_bomb.gd" id="1_4qol3"]
+[ext_resource type="Texture2D" uid="uid://bncwlt0kq6sfc" path="res://Art/my own art :thumbsup:/broken_machinery_boss_concept.png" id="2_l0hl2"]
+[ext_resource type="Texture2D" uid="uid://bvvhohmnkv2oa" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_spritesheet.png" id="3_tdbmy"]
 
-[node name="HeadBomb" unique_id=542487015 instance=ExtResource("1_4qol3")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_pug4v"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo4jy"]
+atlas = ExtResource("2_l0hl2")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyv5c"]
+atlas = ExtResource("3_tdbmy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqo7r"]
+atlas = ExtResource("3_tdbmy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xynj4"]
+atlas = ExtResource("3_tdbmy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lleh6"]
+atlas = ExtResource("3_tdbmy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc1dh"]
+atlas = ExtResource("3_tdbmy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x31p"]
+atlas = ExtResource("3_tdbmy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo5sh"]
+atlas = ExtResource("3_tdbmy")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qol3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo4jy")
+}],
+"loop": 1,
+"name": &"bomb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyv5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqo7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xynj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lleh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc1dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x31p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo5sh")
+}],
+"loop": 1,
+"name": &"explosion",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_6ad4f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"bomb"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [7.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wys1f"]
+resource_name = "explode"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"bomb", &"explosion"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [7.0, 14.035668]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_as8b1"]
+_data = {
+&"RESET": SubResource("Animation_6ad4f"),
+&"explode": SubResource("Animation_wys1f")
+}
+
+[node name="head_bomb" type="Area2D" unique_id=423880170]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_4qol3")
+damage = 2
+knockback_force = 500
+metadata/_custom_type_script = "uid://dtteoe71rhmfs"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1653427087]
+shape = SubResource("CircleShape2D_pug4v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=175949832]
+sprite_frames = SubResource("SpriteFrames_4qol3")
+animation = &"bomb"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=253527960]
+libraries/ = SubResource("AnimationLibrary_as8b1")
+
+[node name="BombTimer" type="Timer" parent="." unique_id=1023350000]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]
