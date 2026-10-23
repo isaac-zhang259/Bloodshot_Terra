@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dtteoe71rhmfs" path="res://Characters/Player/hitbox.gd" id="4_6xwn6"]
 [ext_resource type="Texture2D" uid="uid://5msap3gx4ev8" path="res://Art/my own art :thumbsup:/small_crawler.png" id="4_cbsdm"]
 [ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="5_ukflb"]
+[ext_resource type="Texture2D" uid="uid://bt17xr253rgot" path="res://Art/my own art :thumbsup:/crystal_particle_green.png" id="6_ukflb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfma4"]
 atlas = ExtResource("4_cbsdm")
@@ -152,11 +153,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3d063"]
-radius = 6.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbsdm"]
 radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3d063"]
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_cbsdm"]
 length = 0.001
@@ -215,6 +216,18 @@ tracks/4/path = NodePath("Hitbox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HurtParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -313,6 +326,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HurtParticles:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_qwo3l"]
 resource_name = "hurt"
@@ -361,6 +386,18 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HurtParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -501,9 +538,8 @@ script = ExtResource("3_ioyia")
 sprite_frames = SubResource("SpriteFrames_6xwn6")
 animation = &"asleep"
 
-[node name="CollisionShape2D" parent="." index="2" unique_id=1813346776]
-shape = SubResource("CircleShape2D_3d063")
-disabled = true
+[node name="HurtParticles" parent="." index="2" unique_id=197291628]
+texture = ExtResource("6_ukflb")
 
 [node name="Hitbox" type="Area2D" parent="." index="3" unique_id=1341419551]
 collision_layer = 0
@@ -514,8 +550,12 @@ metadata/_custom_type_script = "uid://dtteoe71rhmfs"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1834421254]
 shape = SubResource("CircleShape2D_cbsdm")
 
-[node name="AnimationPlayer" parent="." index="4" unique_id=1893857451]
+[node name="CollisionShape2D" parent="." index="4" unique_id=1813346776]
+shape = SubResource("CircleShape2D_3d063")
+disabled = true
+
+[node name="AnimationPlayer" parent="." index="5" unique_id=1893857451]
 libraries/ = SubResource("AnimationLibrary_st60j")
 
-[node name="PathTimer" parent="." index="5" unique_id=1712665637]
+[node name="PathTimer" parent="." index="6" unique_id=1712665637]
 wait_time = 0.2
