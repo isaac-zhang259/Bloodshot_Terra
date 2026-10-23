@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b0axc1yh0iue5"]
+
+[ext_resource type="PackedScene" uid="uid://esdbtchl8d5c" path="res://Characters/Enemies/enemy.tscn" id="1_mlt0k"]
+[ext_resource type="Script" uid="uid://ct7qs8bgq6dco" path="res://Characters/Enemies/Bosses/broken_mech_boss.gd" id="2_fhal3"]
+[ext_resource type="Script" uid="uid://y17f6how3uyp" path="res://Characters/Enemies/Bosses/BrokenMechBossFSM.gd" id="3_41ay4"]
+[ext_resource type="Texture2D" uid="uid://bncwlt0kq6sfc" path="res://Art/my own art :thumbsup:/broken_machinery_boss_concept.png" id="4_fhal3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41ay4"]
+atlas = ExtResource("4_fhal3")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yg8ko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41ay4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BrokenMechBoss" unique_id=542487015 instance=ExtResource("1_mlt0k")]
+script = ExtResource("2_fhal3")
+enraged = false
+max_hp = 20
+hp = 20
+acceleration = 0
+max_speed = 0
+
+[node name="FiniteStateMachine" parent="." index="0" unique_id=666213567]
+script = ExtResource("3_41ay4")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=80329547]
+sprite_frames = SubResource("SpriteFrames_yg8ko")

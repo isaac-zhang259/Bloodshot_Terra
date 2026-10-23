@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c7tkblf45vt3o"]
+
+[ext_resource type="PackedScene" uid="uid://esdbtchl8d5c" path="res://Characters/Enemies/enemy.tscn" id="1_4qol3"]
+
+[node name="HeadBomb" unique_id=542487015 instance=ExtResource("1_4qol3")]
