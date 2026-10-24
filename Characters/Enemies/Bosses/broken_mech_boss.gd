@@ -2,12 +2,11 @@ extends Enemy
 
 const floater_scene: PackedScene = preload("res://Characters/Enemies/Flying Creature/flying_creature.tscn")
 const head_bomb_scene: PackedScene = preload("res://Characters/Enemies/Bosses/head_bomb.tscn")
-const knife_scene: PackedScene = preload("res://Characters/Enemies/Goblin/throwable_knife.tscn")
 
 @export var enraged: bool = false
 
-func _ready() -> void:
-	_throw_bomb()
+func _process(_delta: float) -> void:
+	_check_enraged()
 
 func _check_enraged() -> void:
 	if hp < 10:
@@ -22,9 +21,4 @@ func _summon_minion() -> void:
 func _throw_bomb() -> void:
 	var projectile: Area2D = head_bomb_scene.instantiate()
 	projectile.launch(global_position, (player.position - global_position).normalized(), 80)
-	get_tree().current_scene.add_child.call_deferred(projectile)
-
-func _throw_knife() -> void:
-	var projectile: Area2D = knife_scene.instantiate()
-	projectile.launch(global_position, (player.position - global_position).normalized(), 100)
 	get_tree().current_scene.add_child.call_deferred(projectile)

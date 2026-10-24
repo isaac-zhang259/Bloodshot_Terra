@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://c7tkblf45vt3o"]
 
 [ext_resource type="Script" uid="uid://dhb0f77uqpwh6" path="res://Characters/Enemies/Bosses/head_bomb.gd" id="1_4qol3"]
-[ext_resource type="Texture2D" uid="uid://bncwlt0kq6sfc" path="res://Art/my own art :thumbsup:/broken_machinery_boss_concept.png" id="2_l0hl2"]
+[ext_resource type="Texture2D" uid="uid://cngbu43viend3" path="res://Art/my own art :thumbsup:/broken mech boss/broken_machinery_boss_concept.png" id="2_l0hl2"]
 [ext_resource type="Texture2D" uid="uid://bvvhohmnkv2oa" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/explosion_anim_spritesheet.png" id="3_tdbmy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pug4v"]
 radius = 7.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jo4jy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdbmy"]
 atlas = ExtResource("2_l0hl2")
-region = Rect2(112, 0, 16, 16)
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fyv5c"]
 atlas = ExtResource("3_tdbmy")
@@ -43,7 +43,7 @@ region = Rect2(192, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jo4jy")
+"texture": SubResource("AtlasTexture_tdbmy")
 }],
 "loop": 1,
 "name": &"bomb",

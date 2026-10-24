@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bncwlt0kq6sfc"
-path="res://.godot/imported/broken_machinery_boss_concept.png-df0754474f14b71f13551c7bbb6d92ec.ctex"
+uid="uid://c01yqjxxv1mep"
+path="res://.godot/imported/broken_machinery_boss_swing.png-1786e6abf1edbc049a91387297899cfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/my own art :thumbsup:/broken_machinery_boss_concept.png"
-dest_files=["res://.godot/imported/broken_machinery_boss_concept.png-df0754474f14b71f13551c7bbb6d92ec.ctex"]
+source_file="res://Art/my own art :thumbsup:/broken mech boss/broken_machinery_boss_swing.png"
+dest_files=["res://.godot/imported/broken_machinery_boss_swing.png-1786e6abf1edbc049a91387297899cfb.ctex"]
 
 [params]
 
