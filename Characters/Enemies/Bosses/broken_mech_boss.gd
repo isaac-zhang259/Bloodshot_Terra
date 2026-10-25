@@ -8,8 +8,12 @@ const floater_scene: PackedScene = preload("res://Characters/Enemies/Flying Crea
 const head_bomb_scene: PackedScene = preload("res://Characters/Enemies/Bosses/head_bomb.tscn")
 
 @export var enraged: bool = false
+@export var dead: bool = false
 
 var room
+
+func _init() -> void:
+	Game.boss = self
 
 func _ready() -> void:
 	room = self.get_parent()
@@ -38,3 +42,4 @@ func _throw_bomb() -> void:
 
 func _room_clear() -> void:
 	room._open_doors()
+	dead = true
