@@ -15,6 +15,7 @@ script = ExtResource("1_eow3j")
 script = ExtResource("1_ryrav")
 
 [node name="HealthBar" type="TextureProgressBar" parent="UI" unique_id=1760223269]
+visible = false
 offset_right = 80.0
 offset_bottom = 16.0
 offset_transform_position = Vector2(10, 10)

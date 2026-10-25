@@ -6,8 +6,8 @@ var local_hp: int = 0
 var segment_array: Array = []
 
 func _init() -> void:
-	global_position.x = 16
-	global_position.y = 16
+	global_position.x = 8
+	global_position.y = 8
 	max_hp = SavedData.max_hp
 
 func _ready() -> void:
