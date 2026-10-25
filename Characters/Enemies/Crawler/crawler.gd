@@ -1,8 +1,13 @@
 extends Enemy
 
+@onready var hitbox: Area2D = get_node("Hitbox")
+
 const MIN_DISTANCE_TO_PLAYER: int = 40
 
 var distance_to_player: float
+
+func _process(_delta: float) -> void:
+	hitbox.knockback_direction = (player.position - global_position).normalized()
 
 func _on_path_timer_timeout() -> void:
 	if is_instance_valid(player):

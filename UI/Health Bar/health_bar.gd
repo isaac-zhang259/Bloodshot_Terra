@@ -30,14 +30,16 @@ func _spawn_segments(num: int) -> void:
 		segment_array.append(self.get_child(i))
 	
 func _process(_delta: float) -> void:
-	if local_hp != player.hp:
-		_set_bar(player.hp)
-	_red_or_blue(max_hp)
-	_update_segment(player.hp)
+	if is_instance_valid(player):
+		if local_hp != player.hp:
+			_set_bar(player.hp)
+		_red_or_blue(max_hp)
+		_update_segment(player.hp)
 	
 func _update_segment(hp: int) -> void:
-	segment_array[hp - 1].drain_bar()
-	local_hp = player.hp
+	if player.hp > 0:
+		segment_array[hp - 1].drain_bar()
+		local_hp = player.hp
 	
 func _fill_bar(hp: int) -> void:
 	for i in max_hp:

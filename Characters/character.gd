@@ -13,6 +13,7 @@ signal hp_changed(new_hp)
 @export var max_speed: int = 100
 
 @export var flying: bool = false
+@export var knockback: bool = true
 
 @onready var state_machine: Node = get_node("FiniteStateMachine")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
@@ -40,10 +41,12 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 			Game.player.hp += 1
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
-			velocity += dir * force
+			if knockback:
+				velocity += dir * force
 		else:
 			state_machine.set_state(state_machine.states.dead)
-			velocity += dir * force * 1.5
+			if knockback:
+				velocity += dir * force * 1.5
 
 func set_hp(new_hp: int) -> void:
 	hp = clamp(new_hp, 0, max_hp)

@@ -114,3 +114,6 @@ func switch_camera() -> void:
 	main_scene_camera.position = position
 	main_scene_camera.make_current()
 	#get_node("Camera2D").current = false
+
+func respawn() -> void:
+	SceneTransistor.start_transition_to("res://game.tscn")

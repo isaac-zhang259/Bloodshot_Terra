@@ -4,7 +4,7 @@ const SPAWN_ROOMS: Array = [preload("res://Rooms/spawn_room_0.tscn"), preload("r
 const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/room_0.tscn"), preload("res://Rooms/room_1.tscn"), preload("res://Rooms/room_2.tscn")]
 const SPECIAL_ROOMS: Array = [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/special_room_1.tscn")]
 const END_ROOMS: Array = [preload("res://Rooms/end_room_0.tscn"), preload("res://Rooms/end_room_1.tscn")]
-const SLIME_BOSS_SCENE: PackedScene = preload("res://Rooms/slime_boss_room.tscn")
+const MECH_BOSS_SCENE: PackedScene = preload("res://Rooms/mech_boss_room.tscn")
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX = Vector2i(0, 0)
@@ -34,7 +34,7 @@ func _spawn_rooms() -> void:
 				room = END_ROOMS[randi() % END_ROOMS.size()].instantiate()
 			else:
 				if SavedData.num_floor == 3:
-					room = SLIME_BOSS_SCENE.instantiate()
+					room = MECH_BOSS_SCENE.instantiate()
 				else:
 					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
 						room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instantiate()

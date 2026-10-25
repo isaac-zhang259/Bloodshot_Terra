@@ -32,4 +32,5 @@ func set_empty() -> void:
 	full = false
 	
 func damage_player() -> void:
-	Game.player.take_damage(1, Vector2.ZERO, 0)
+	if is_instance_valid(Game.player):
+		Game.player.take_damage(1, Vector2.ZERO, 0)

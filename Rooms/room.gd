@@ -9,7 +9,8 @@ const ENEMY_SCENES: Dictionary = {
 	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/flying_creature.tscn"),
 	"GOBLIN": preload("res://Characters/Enemies/Goblin/goblin.tscn"),
 	"CRAWLER": preload("res://Characters/Enemies/Crawler/crawler.tscn"),
-	"SLIME_BOSS": preload("res://Characters/Enemies/Bosses/slime_boss.tscn")
+	"SLIME_BOSS": preload("res://Characters/Enemies/Bosses/slime_boss.tscn"),
+	"MECH_BOSS": preload("res://Characters/Enemies/Bosses/broken_mech_boss.tscn")
 }
 
 var num_enemies: int
@@ -42,8 +43,7 @@ func _spawn_enemies() -> void:
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: CharacterBody2D
 		if boss_room:
-			enemy = ENEMY_SCENES.SLIME_BOSS.instantiate()
-			num_enemies = 15
+			enemy = ENEMY_SCENES.MECH_BOSS.instantiate()
 		else:
 			var random = randi() % 3
 			match random:
