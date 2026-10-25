@@ -6,6 +6,8 @@ enum{UP, DOWN}
 
 var current_weapon: Node2D
 
+@export var red: bool = false
+
 @onready var parent: Node2D = get_parent()
 @onready var weapons: Node2D = get_node("Weapons")
 @onready var dust_position: Marker2D = get_node("DustPosition")
@@ -102,6 +104,7 @@ func _drop_weapon() -> void:
 	weapon_to_drop.interpolate_pos(position, position + throw_dir * 50)
 
 func cancel_attack() -> void:
+	reset_values()
 	current_weapon.cancel_attack()
 
 func spawn_dust() -> void:
@@ -117,3 +120,15 @@ func switch_camera() -> void:
 
 func respawn() -> void:
 	SceneTransistor.start_transition_to("res://game.tscn")
+
+func dash() -> void:
+	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	max_speed = 400
+	mov_direction = mouse_direction * 30
+	velocity += mov_direction * acceleration
+	
+func reset_values() -> void:
+	if red:
+		max_speed = 150
+	else:
+		max_speed = 100

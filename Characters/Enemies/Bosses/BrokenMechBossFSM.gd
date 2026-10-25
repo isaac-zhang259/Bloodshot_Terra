@@ -15,6 +15,7 @@ func _init() -> void:
 	_add_state("bombing")
 	_add_state("hurt")
 	_add_state("dead")
+	_add_state("retaliating")
 
 func _ready() -> void:
 	set_state(states.asleep)
@@ -28,9 +29,7 @@ func _get_transition() -> int:
 				return states.idle
 		states.idle:
 			if not animation_player.is_playing():
-				choice += 1
-				if choice > 2:
-					choice = 0
+				choice = randi() % 3
 				match choice:
 					0: return states.attacking
 					1: return states.shielding
@@ -44,11 +43,16 @@ func _get_transition() -> int:
 		states.bombing:
 			if not animation_player.is_playing():
 				return states.idle
+		states.retaliating:
+			if not animation_player.is_playing():
+				choice = randi() % 4
+				match choice:
+					0: return states.attacking
+					1: return states.shielding
+					2: return states.bombing
+					3: return states.idle
 		states.hurt:
-			if boss.enraged:
-				return states.shielding
-			else:
-				return states.attacking
+			return states.retaliating
 	return -1
 			
 func _enter_state(_previous_state: int, _new_state: int) -> void:
@@ -68,6 +72,8 @@ func _enter_state(_previous_state: int, _new_state: int) -> void:
 			animation_player.play("shielding")
 		states.bombing:
 			animation_player.play("bombing")
+		states.retaliating:
+			animation_player.play("retaliate")
 		states.hurt:
 			return
 		states.dead:

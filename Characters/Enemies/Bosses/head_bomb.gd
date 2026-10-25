@@ -24,6 +24,7 @@ func _on_body_exited(_body: Node2D) -> void:
 
 func _explode() -> void:
 	bomb_speed = 0
+	knockback_direction = (Game.player.position - global_position).normalized()
 	animation_player.play("explode")
 
 func _collide(body: Node2D) -> void:
