@@ -7,6 +7,7 @@ enum{UP, DOWN}
 var current_weapon: Node2D
 
 @export var red: bool = false
+@export var in_game: bool = false
 
 @onready var parent: Node2D = get_parent()
 @onready var weapons: Node2D = get_node("Weapons")
@@ -52,14 +53,15 @@ func get_input() -> void:
 	if Input.is_action_pressed("right"):
 		mov_direction += Vector2.RIGHT
 	
-	if not current_weapon.is_busy():
-		if Input.is_action_just_released("previous_weapon"):
-			_switch_weapon(UP)
-		elif Input.is_action_just_released("next_weapon"):
-			_switch_weapon(DOWN)
-		elif Input.is_action_just_pressed("throw") and current_weapon.get_index() != 0:
-			_drop_weapon()
-			
+	if in_game:
+		if not current_weapon.is_busy():
+			if Input.is_action_just_released("previous_weapon"):
+				_switch_weapon(UP)
+			elif Input.is_action_just_released("next_weapon"):
+				_switch_weapon(DOWN)
+			elif Input.is_action_just_pressed("throw") and current_weapon.get_index() != 0:
+				_drop_weapon()
+				
 	current_weapon.get_input()
 
 func _switch_weapon(direction: int) -> void:

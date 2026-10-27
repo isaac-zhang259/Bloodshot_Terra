@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b8m6peduiac2f"]
+
+[ext_resource type="Script" uid="uid://b8i2h5ucuwx1j" path="res://ui.gd" id="1_vn4ly"]
+[ext_resource type="Texture2D" uid="uid://b0andyys60nwi" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_background.png" id="2_7rr80"]
+[ext_resource type="Texture2D" uid="uid://cabu5xus5qn3x" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_foreground.png" id="3_ycjq2"]
+[ext_resource type="Texture2D" uid="uid://6dj8hjip4wgc" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_middle_bar.png" id="4_g4k0v"]
+[ext_resource type="PackedScene" uid="uid://b5u6bn5065xuu" path="res://UI/Health Bar/health_bar.tscn" id="5_bwc2p"]
+[ext_resource type="PackedScene" uid="uid://cosp7ruugdv8x" path="res://Rooms/lab_room.tscn" id="6_2il65"]
+[ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="7_p0vcy"]
+
+[node name="preGameArea" type="Node2D" unique_id=85506240]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=689757420]
+script = ExtResource("1_vn4ly")
+
+[node name="BossHealthBar" type="TextureProgressBar" parent="UI" unique_id=2125480843]
+offset_left = 159.0
+offset_right = 303.0
+offset_bottom = 32.0
+offset_transform_position = Vector2(10, 10)
+mouse_filter = 2
+value = 100.0
+texture_under = ExtResource("2_7rr80")
+texture_over = ExtResource("3_ycjq2")
+texture_progress = ExtResource("4_g4k0v")
+tint_progress = Color(0.3741154, 0.51115406, 0.8922868, 1)
+
+[node name="PlayerHealthBar" parent="UI" unique_id=652203996 instance=ExtResource("5_bwc2p")]
+
+[node name="LabRoom" parent="." unique_id=354325685 instance=ExtResource("6_2il65")]
+
+[node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_p0vcy")]
+position = Vector2(295, 163)
+in_game = false

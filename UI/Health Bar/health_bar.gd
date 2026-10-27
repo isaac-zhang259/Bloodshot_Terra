@@ -34,7 +34,8 @@ func _process(_delta: float) -> void:
 		if local_hp != player.hp:
 			_set_bar(player.hp)
 		_red_or_blue(max_hp)
-		_update_segment(player.hp)
+		if player.in_game:
+			_update_segment(player.hp)
 	
 func _update_segment(hp: int) -> void:
 	if player.hp > 0:
@@ -69,5 +70,11 @@ func _red_or_blue(num: int) -> void:
 	_set_blue()
 	if player.hp <= num / 2:
 		_set_blue()
+		if player.red:
+			player.red = false
+			player.reset_values()
 	else:
 		_set_red()
+		if not player.red:
+			player.red = true
+			player.reset_values()

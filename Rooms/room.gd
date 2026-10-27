@@ -2,6 +2,7 @@ extends Node2D
 class_name Room
 
 @export var boss_room: bool = false
+@export var lab_room: bool = false
 
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/spawn_explosion.tscn")
 
@@ -23,6 +24,8 @@ var num_enemies: int
 
 func _ready() -> void:
 	num_enemies = enemy_positions_container.get_child_count()
+	if not lab_room:
+		Game.player.in_game = true
 	
 func _on_enemy_killed() -> void:
 	num_enemies -= 1
@@ -63,6 +66,8 @@ func _on_player_detector_body_entered(_body: CharacterBody2D) -> void:
 	if num_enemies > 0:
 		_close_entrance()
 		_spawn_enemies()
-	else:
+	elif not lab_room:
 		_close_entrance()
 		_open_doors()
+	else:
+		SceneTransistor.start_transition_to("res://game.tscn")

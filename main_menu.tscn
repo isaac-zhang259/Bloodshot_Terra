@@ -32,6 +32,7 @@ action_mode = 0
 text = "Start"
 
 [node name="Options" type="Button" parent="CenterContainer/VBoxContainer" unique_id=621153278]
+visible = false
 layout_mode = 2
 action_mode = 0
 text = "Options"
