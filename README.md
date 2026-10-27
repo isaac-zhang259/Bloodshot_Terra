@@ -12,3 +12,5 @@ This tutorial is a youtube series starting with this video: https://www.youtube.
 The tutorial is for Godot 3 and I'm using Godot 4, so there are many small underlying changes I made for the first week release: different weapon attacking animations, changed collisions between some nodes, changed animation system for the player's weapons, different rooms that I built myself, code relating to corridors was also changed to fix them being disconnected or broken.
 
 Deviations from the tutorial for the second week: different charged attacks, changed collisions between some nodes again, new tilemap, new enemy, changed all enemy spritesheets, new hurt animations for enemies.
+
+I basically didnt even use the tutorial in the third week lol the boss in the tutorial was so trash I made my own
