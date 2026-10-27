@@ -61,6 +61,7 @@ script = ExtResource("1_wqcl3")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1011513598]
 offset_right = 480.0
 offset_bottom = 270.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=191196660]

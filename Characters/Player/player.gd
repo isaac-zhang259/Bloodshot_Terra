@@ -118,9 +118,6 @@ func switch_camera() -> void:
 	main_scene_camera.make_current()
 	#get_node("Camera2D").current = false
 
-func respawn() -> void:
-	SceneTransistor.start_transition_to("res://game.tscn")
-
 func dash() -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	max_speed = 400
