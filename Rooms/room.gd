@@ -3,6 +3,7 @@ class_name Room
 
 @export var boss_room: bool = false
 @export var lab_room: bool = false
+@export var tutorial_room: bool = false
 
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/spawn_explosion.tscn")
 
@@ -23,14 +24,19 @@ var num_enemies: int
 @onready var player_detector: Area2D = get_node("PlayerDetector")
 
 func _ready() -> void:
-	num_enemies = enemy_positions_container.get_child_count()
+	if not tutorial_room:
+		num_enemies = enemy_positions_container.get_child_count()
 	if not lab_room:
 		Game.player.in_game = true
 	
 func _on_enemy_killed() -> void:
 	num_enemies -= 1
 	if num_enemies == 0:
-		_open_doors()
+		if not tutorial_room:
+			_open_doors()
+		else:
+			if get_parent().tutorial_step >= 11:
+				_open_doors()
 	
 func _open_doors() -> void:
 	for door in door_container.get_children():
@@ -61,13 +67,31 @@ func _spawn_enemies() -> void:
 		spawn_explosion.position = enemy_position.position
 		call_deferred("add_child", spawn_explosion)
 
+func tutorial_spawn_enemy(spawning_enemy) -> void:
+	for enemy_position in enemy_positions_container.get_children():
+		num_enemies += 1
+		var enemy: CharacterBody2D
+		enemy = spawning_enemy.instantiate()
+		
+		enemy.position = enemy_position.position
+		call_deferred("add_child", enemy)
+		
+		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
+		spawn_explosion.position = enemy_position.position
+		call_deferred("add_child", spawn_explosion)
+
 func _on_player_detector_body_entered(_body: CharacterBody2D) -> void:
 	player_detector.queue_free()
-	if num_enemies > 0:
+	if tutorial_room:
+		SceneTransistor.start_transition_to("res://pre_game_area.tscn")
+		SavedData.reset_data()
+		SavedData.doing_tutorial = false
+		SavedData.did_tutorial = true
+	elif num_enemies > 0:
 		_close_entrance()
 		_spawn_enemies()
-	elif not lab_room:
+	elif lab_room:
+		SceneTransistor.start_transition_to("res://game.tscn")
+	else:
 		_close_entrance()
 		_open_doors()
-	else:
-		SceneTransistor.start_transition_to("res://game.tscn")

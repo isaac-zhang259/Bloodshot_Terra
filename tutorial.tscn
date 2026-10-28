@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dodpbwarhgpyk"]
+
+[ext_resource type="Script" uid="uid://b8i2h5ucuwx1j" path="res://ui.gd" id="1_0cr88"]
+[ext_resource type="Script" uid="uid://0pwvqv7pufxs" path="res://tutorial.gd" id="1_4t6hg"]
+[ext_resource type="Texture2D" uid="uid://b0andyys60nwi" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_background.png" id="2_4t6hg"]
+[ext_resource type="Texture2D" uid="uid://cabu5xus5qn3x" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_foreground.png" id="3_7vrqn"]
+[ext_resource type="Texture2D" uid="uid://6dj8hjip4wgc" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_middle_bar.png" id="4_bhfnd"]
+[ext_resource type="PackedScene" uid="uid://b5u6bn5065xuu" path="res://UI/Health Bar/health_bar.tscn" id="5_tvjhf"]
+[ext_resource type="PackedScene" uid="uid://cdyw1ps4i0et7" path="res://Rooms/tutorial_room.tscn" id="6_vmw6g"]
+[ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="7_4hjyh"]
+
+[node name="tutorial" type="Node2D" unique_id=688199976]
+script = ExtResource("1_4t6hg")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1600936314]
+script = ExtResource("1_0cr88")
+
+[node name="BossHealthBar" type="TextureProgressBar" parent="UI" unique_id=318846780]
+offset_left = 159.0
+offset_right = 303.0
+offset_bottom = 32.0
+offset_transform_position = Vector2(10, 10)
+mouse_filter = 2
+value = 100.0
+texture_under = ExtResource("2_4t6hg")
+texture_over = ExtResource("3_7vrqn")
+texture_progress = ExtResource("4_bhfnd")
+tint_progress = Color(0.3741154, 0.51115406, 0.8922868, 1)
+
+[node name="PlayerHealthBar" parent="UI" unique_id=652203996 instance=ExtResource("5_tvjhf")]
+
+[node name="TutorialRoom" parent="." unique_id=354325685 instance=ExtResource("6_vmw6g")]
+
+[node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_4hjyh")]
+position = Vector2(137, 117)
+in_game = false
+
+[node name="TutorialTimer" type="Timer" parent="." unique_id=435314385]
+wait_time = 30.0
+
+[connection signal="timeout" from="TutorialTimer" to="." method="_on_tutorial_timer_timeout"]
