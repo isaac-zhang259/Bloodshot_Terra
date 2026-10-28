@@ -8,11 +8,11 @@ var current_weapon: Node2D
 
 @export var red: bool = false
 @export var in_game: bool = false
+@export var invincible: bool = false
 
 @onready var parent: Node2D = get_parent()
 @onready var weapons: Node2D = get_node("Weapons")
 @onready var dust_position: Marker2D = get_node("DustPosition")
-@onready var hurt_timer: Timer = get_node("HurtTimer")
 
 func _init() -> void:
 	Game.player = self
@@ -44,14 +44,15 @@ func _process(_delta: float) -> void:
 	
 func get_input() -> void:
 	mov_direction = Vector2.ZERO
-	if Input.is_action_pressed("down"):
-		mov_direction += Vector2.DOWN
-	if Input.is_action_pressed("up"):
-		mov_direction += Vector2.UP
-	if Input.is_action_pressed("left"):
-		mov_direction += Vector2.LEFT
-	if Input.is_action_pressed("right"):
-		mov_direction += Vector2.RIGHT
+	if not stunned:
+		if Input.is_action_pressed("down"):
+			mov_direction += Vector2.DOWN
+		if Input.is_action_pressed("up"):
+			mov_direction += Vector2.UP
+		if Input.is_action_pressed("left"):
+			mov_direction += Vector2.LEFT
+		if Input.is_action_pressed("right"):
+			mov_direction += Vector2.RIGHT
 	
 	if in_game:
 		if not current_weapon.is_busy():

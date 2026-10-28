@@ -39,6 +39,9 @@ func _process(_delta: float) -> void:
 	
 func _update_segment(hp: int) -> void:
 	if player.hp > 0:
+		if player.invincible:
+			if player.hp == 1:
+				return
 		segment_array[hp - 1].drain_bar()
 		local_hp = player.hp
 	

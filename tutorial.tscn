@@ -34,8 +34,9 @@ tint_progress = Color(0.3741154, 0.51115406, 0.8922868, 1)
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_4hjyh")]
 position = Vector2(137, 117)
 in_game = false
+invincible = false
 
 [node name="TutorialTimer" type="Timer" parent="." unique_id=435314385]
-wait_time = 30.0
+wait_time = 5.0
 
 [connection signal="timeout" from="TutorialTimer" to="." method="_on_tutorial_timer_timeout"]

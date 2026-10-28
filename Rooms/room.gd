@@ -34,9 +34,6 @@ func _on_enemy_killed() -> void:
 	if num_enemies == 0:
 		if not tutorial_room:
 			_open_doors()
-		else:
-			if get_parent().tutorial_step >= 11:
-				_open_doors()
 	
 func _open_doors() -> void:
 	for door in door_container.get_children():
@@ -86,7 +83,6 @@ func _on_player_detector_body_entered(_body: CharacterBody2D) -> void:
 		SceneTransistor.start_transition_to("res://pre_game_area.tscn")
 		SavedData.reset_data()
 		SavedData.doing_tutorial = false
-		SavedData.did_tutorial = true
 	elif num_enemies > 0:
 		_close_entrance()
 		_spawn_enemies()

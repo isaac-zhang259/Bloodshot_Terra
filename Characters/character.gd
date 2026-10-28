@@ -14,6 +14,7 @@ signal hp_changed(new_hp)
 
 @export var flying: bool = false
 @export var knockback: bool = true
+@export var stunned: bool = false
 
 @onready var state_machine: Node = get_node("FiniteStateMachine")
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
@@ -36,8 +37,16 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 		if name == "Player":
 			SavedData.hp = hp
 			if hp <= 0:
-				SceneTransistor.start_transition_to("res://pre_game_area.tscn")
-				SavedData.reset_data()
+				if self.invincible:
+					self.hp = 1
+					SavedData.hp = hp
+					return
+				if SavedData.doing_tutorial:
+					SceneTransistor.start_transition_to("res://tutorial.tscn")
+					SavedData.reset_data()
+				else:
+					SceneTransistor.start_transition_to("res://pre_game_area.tscn")
+					SavedData.reset_data()
 		else:
 			SavedData.hp += 1
 			Game.player.hp += 1
