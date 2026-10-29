@@ -1,6 +1,5 @@
 extends Node
 
-var did_tutorial: bool = false
 var doing_tutorial: bool = false
 
 var num_floor: int = 0

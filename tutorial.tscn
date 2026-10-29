@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5u6bn5065xuu" path="res://UI/Health Bar/health_bar.tscn" id="5_tvjhf"]
 [ext_resource type="PackedScene" uid="uid://cdyw1ps4i0et7" path="res://Rooms/tutorial_room.tscn" id="6_vmw6g"]
 [ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="7_4hjyh"]
+[ext_resource type="Script" uid="uid://b33481p3uqjp2" path="res://dialogue_panel.gd" id="7_7vrqn"]
 
 [node name="tutorial" type="Node2D" unique_id=688199976]
 script = ExtResource("1_4t6hg")
@@ -29,6 +30,29 @@ tint_progress = Color(0.3741154, 0.51115406, 0.8922868, 1)
 
 [node name="PlayerHealthBar" parent="UI" unique_id=652203996 instance=ExtResource("5_tvjhf")]
 
+[node name="DialoguePanel" type="Panel" parent="UI" unique_id=654768811]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.5
+offset_top = -69.0
+offset_right = 166.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("7_7vrqn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/DialoguePanel" unique_id=1015349177]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 331.0
+offset_bottom = 67.0
+text = "testing testing we are testing"
+scroll_following_visible_characters = true
+visible_characters = 0
+visible_ratio = 0.0
+
 [node name="TutorialRoom" parent="." unique_id=354325685 instance=ExtResource("6_vmw6g")]
 
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_4hjyh")]
@@ -37,6 +61,6 @@ in_game = false
 invincible = false
 
 [node name="TutorialTimer" type="Timer" parent="." unique_id=435314385]
-wait_time = 5.0
+wait_time = 15.0
 
 [connection signal="timeout" from="TutorialTimer" to="." method="_on_tutorial_timer_timeout"]

@@ -2,12 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_vg8gj"]
 [ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_5fcaa"]
+[ext_resource type="Script" uid="uid://udix0gr32hrl" path="res://Rooms/tutorial_room.gd" id="2_wwk0m"]
 [ext_resource type="PackedScene" uid="uid://cjwu1nxio7im6" path="res://Rooms/Furnitures and Traps/spikes.tscn" id="3_6p7jj"]
+[ext_resource type="PackedScene" uid="uid://5an1viyc3x2d" path="res://Items/health_potion.tscn" id="5_u86xl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(32, 40)
 
 [node name="TutorialRoom" unique_id=354325685 instance=ExtResource("1_vg8gj")]
+script = ExtResource("2_wwk0m")
 tutorial_room = true
 
 [node name="TileMap" parent="." index="0" unique_id=293665720]
@@ -24,6 +27,7 @@ position = Vector2(357, 118)
 
 [node name="Spikes" parent="Traps" parent_id_path=PackedInt32Array(369417155) index="0" unique_id=78393390 instance=ExtResource("3_6p7jj")]
 position = Vector2(360, 56)
+active = false
 
 [node name="PlayerDetector" parent="." index="7" unique_id=2100298285]
 collision_layer = 0
@@ -32,3 +36,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=2015457346]
 position = Vector2(240, 12)
 shape = SubResource("RectangleShape2D_thutw")
+
+[node name="WeaponPos" type="Marker2D" parent="." index="8" unique_id=855121392]
+position = Vector2(359, 185)
+
+[node name="HealthPotion" parent="." index="9" unique_id=1318819442 instance=ExtResource("5_u86xl")]
+visible = false
+position = Vector2(316, 58)
+active = false
