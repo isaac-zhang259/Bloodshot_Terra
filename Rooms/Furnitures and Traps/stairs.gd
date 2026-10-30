@@ -5,6 +5,7 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	collision_shape.set_deferred("disabled", true)
 	if SavedData.num_floor == 3:
+		SaveFile.save_currency()
 		SavedData.reset_data()
 		SceneTransistor.start_transition_to("res://pre_game_area.tscn")
 	else:

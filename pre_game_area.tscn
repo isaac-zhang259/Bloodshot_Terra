@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b8m6peduiac2f"]
 
+[ext_resource type="Script" uid="uid://c3r47k48e2wv2" path="res://pre_game_area.gd" id="1_7rr80"]
 [ext_resource type="Script" uid="uid://b8i2h5ucuwx1j" path="res://ui.gd" id="1_vn4ly"]
 [ext_resource type="Texture2D" uid="uid://b0andyys60nwi" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_background.png" id="2_7rr80"]
 [ext_resource type="Texture2D" uid="uid://cabu5xus5qn3x" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_foreground.png" id="3_ycjq2"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="7_p0vcy"]
 
 [node name="preGameArea" type="Node2D" unique_id=85506240]
+script = ExtResource("1_7rr80")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=689757420]
 script = ExtResource("1_vn4ly")
@@ -32,3 +34,4 @@ tint_progress = Color(0.3741154, 0.51115406, 0.8922868, 1)
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_p0vcy")]
 position = Vector2(295, 163)
 in_game = false
+invincible = false

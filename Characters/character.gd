@@ -45,6 +45,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 					SceneTransistor.start_transition_to("res://tutorial.tscn")
 					SavedData.reset_data()
 				else:
+					SaveFile.save_currency()
 					SceneTransistor.start_transition_to("res://pre_game_area.tscn")
 					SavedData.reset_data()
 		else:
@@ -56,6 +57,9 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 				velocity += dir * force
 		else:
 			state_machine.set_state(state_machine.states.dead)
+			if name != "Player" and not SavedData.doing_tutorial:
+				SavedData.per_run_currency += 5
+				SavedData.per_save_currency += 1
 			if knockback:
 				velocity += dir * force * 1.5
 
