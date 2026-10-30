@@ -38,14 +38,32 @@ func _get_transition() -> int:
 func _enter_state(_previous_state: int, _new_state: int) -> void:
 	match _new_state:
 		states.asleep:
-			animation_player.play("asleep")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_asleep")
+			else:
+				animation_player.play("asleep")
 		states.waking:
-			animation_player.play("waking")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_waking")
+			else:
+				animation_player.play("waking")
 		states.move:
-			animation_player.play("move")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_move")
+			else:
+				animation_player.play("move")
 		states.resting:
-			animation_player.play("resting")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_resting")
+			else:
+				animation_player.play("resting")
 		states.hurt:
-			animation_player.play("hurt")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_hurt")
+			else:
+				animation_player.play("hurt")
 		states.dead:
-			animation_player.play("dead")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_dead")
+			else:
+				animation_player.play("dead")

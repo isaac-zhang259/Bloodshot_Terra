@@ -64,19 +64,6 @@ func _spawn_enemies() -> void:
 		spawn_explosion.position = enemy_position.position
 		call_deferred("add_child", spawn_explosion)
 
-func tutorial_spawn_enemy(spawning_enemy) -> void:
-	for enemy_position in enemy_positions_container.get_children():
-		num_enemies += 1
-		var enemy: CharacterBody2D
-		enemy = spawning_enemy.instantiate()
-		
-		enemy.position = enemy_position.position
-		call_deferred("add_child", enemy)
-		
-		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
-		spawn_explosion.position = enemy_position.position
-		call_deferred("add_child", spawn_explosion)
-
 func _on_player_detector_body_entered(_body: CharacterBody2D) -> void:
 	player_detector.queue_free()
 	if tutorial_room:

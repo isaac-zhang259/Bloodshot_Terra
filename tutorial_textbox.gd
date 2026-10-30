@@ -1,4 +1,4 @@
-extends Panel
+extends Sprite2D
 
 @onready var rich_text_label: RichTextLabel = get_node("RichTextLabel")
 
@@ -6,11 +6,12 @@ extends Panel
 
 func _ready() -> void:
 	self.hide()
-
+	
 func display_text(new_text: String) -> void:
 	rich_text_label.text = new_text
 	rich_text_label.visible_ratio = 0
 	self.show()
+	rich_text_label.get_v_scroll_bar().visible = false
 	var total_characters = new_text.length()
 	var duration = total_characters / characters_per_second
 	var tween = create_tween()

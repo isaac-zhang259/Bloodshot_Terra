@@ -23,8 +23,17 @@ func _get_transition() -> int:
 func _enter_state(_previous_state: int, _new_state: int) -> void:
 	match _new_state:
 		states.chase:
-			animation_player.play("fly")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_fly")
+			else:
+				animation_player.play("fly")
 		states.hurt:
-			animation_player.play("hurt")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_hurt")
+			else:
+				animation_player.play("hurt")
 		states.dead:
-			animation_player.play("dead")
+			if parent.tutorial_enemy:
+				animation_player.play("tutorial_dead")
+			else:
+				animation_player.play("dead")

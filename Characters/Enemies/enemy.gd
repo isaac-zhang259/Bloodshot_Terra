@@ -5,6 +5,8 @@ class_name Enemy
 @onready var navigation_agent: NavigationAgent2D = get_node("NavigationAgent2D")
 @onready var path_timer: Timer = get_node("PathTimer")
 
+@export var tutorial_enemy: bool = false
+
 func _ready() -> void:
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 

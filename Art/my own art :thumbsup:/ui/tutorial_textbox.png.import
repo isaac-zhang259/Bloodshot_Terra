@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8pe8c5kq4wjm"
-path="res://.godot/imported/thrower.png-21a2f9070812eda8b58decf57934b804.ctex"
+uid="uid://bgl4vmalts34"
+path="res://.godot/imported/tutorial_textbox.png-9d00888f64681c351974b76e69ddf19a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/my own art :thumbsup:/thrower.png"
-dest_files=["res://.godot/imported/thrower.png-21a2f9070812eda8b58decf57934b804.ctex"]
+source_file="res://Art/my own art :thumbsup:/ui/tutorial_textbox.png"
+dest_files=["res://.godot/imported/tutorial_textbox.png-9d00888f64681c351974b76e69ddf19a.ctex"]
 
 [params]
 

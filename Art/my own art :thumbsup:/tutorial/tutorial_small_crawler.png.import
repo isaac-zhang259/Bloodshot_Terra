@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfcktvmnl57kh"
-path="res://.godot/imported/health_bar.png-04e38ce046d65ae669f31760c6ee4c39.ctex"
+uid="uid://mnjb5a0fsu2x"
+path="res://.godot/imported/tutorial_small_crawler.png-47b99b4a7241f44101b4ab2d67226dc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/my own art :thumbsup:/health_bar.png"
-dest_files=["res://.godot/imported/health_bar.png-04e38ce046d65ae669f31760c6ee4c39.ctex"]
+source_file="res://Art/my own art :thumbsup:/tutorial/tutorial_small_crawler.png"
+dest_files=["res://.godot/imported/tutorial_small_crawler.png-47b99b4a7241f44101b4ab2d67226dc9.ctex"]
 
 [params]
 

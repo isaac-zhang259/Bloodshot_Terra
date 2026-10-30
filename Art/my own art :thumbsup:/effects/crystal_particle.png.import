@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v6bsq8r4yj8e"
-path="res://.godot/imported/floater.png-586af1c134d90f58a80a62c9eb98fe7a.ctex"
+uid="uid://clvtuweewdfji"
+path="res://.godot/imported/crystal_particle.png-a696ea80eca549b10dcc5e6d95fe1a04.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/my own art :thumbsup:/floater.png"
-dest_files=["res://.godot/imported/floater.png-586af1c134d90f58a80a62c9eb98fe7a.ctex"]
+source_file="res://Art/my own art :thumbsup:/effects/crystal_particle.png"
+dest_files=["res://.godot/imported/crystal_particle.png-a696ea80eca549b10dcc5e6d95fe1a04.ctex"]
 
 [params]
 
