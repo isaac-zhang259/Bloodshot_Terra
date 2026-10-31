@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name Character
 
 const HIT_EFFECT_SCENE: PackedScene = preload("res://Characters/hit_effect.tscn")
+const anima_scene: PackedScene = preload("res://Currencies and Shops/anima_currency.tscn")
+const opul_scene: PackedScene = preload("res://Currencies and Shops/opul_currency.tscn")
 
 const FRICTION: float = 0.15
 
@@ -58,8 +60,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 		else:
 			state_machine.set_state(state_machine.states.dead)
 			if name != "Player" and not SavedData.doing_tutorial:
-				SavedData.per_run_currency += 5
-				SavedData.per_save_currency += 1
+				drop_crystals()
 			if knockback:
 				velocity += dir * force * 1.5
 
@@ -70,3 +71,14 @@ func set_hp(new_hp: int) -> void:
 func _spawn_hit_effect() -> void:
 	var hit_effect: Sprite2D = HIT_EFFECT_SCENE.instantiate()
 	add_child(hit_effect)
+
+func drop_crystals() -> void:
+	for i in 5:
+		var opul: Area2D = opul_scene.instantiate()
+		opul.position = self.global_position
+		opul.launch()
+		get_tree().current_scene.add_child.call_deferred(opul)
+	var anima: Area2D = anima_scene.instantiate()
+	anima.position = self.global_position
+	anima.launch()
+	get_tree().current_scene.add_child.call_deferred(anima)

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cxycwnkbmr1gl"]
+
+[ext_resource type="PackedScene" uid="uid://csfj2cuhci5fu" path="res://Currencies and Shops/currency.tscn" id="1_ixo1f"]
+[ext_resource type="Texture2D" uid="uid://b0bsv0aig41mq" path="res://Art/my own art :thumbsup:/currency + shops/opul_currency.png" id="2_1tvqr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1tvqr"]
+radius = 13.0
+
+[node name="OpulCurrency" unique_id=484417644 instance=ExtResource("1_ixo1f")]
+scale = Vector2(0.5, 0.5)
+opul = true
+
+[node name="Sprite2D" parent="." index="0" unique_id=1440497355]
+texture = ExtResource("2_1tvqr")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1052475748]
+shape = SubResource("CircleShape2D_1tvqr")

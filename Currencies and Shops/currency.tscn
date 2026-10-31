@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://csfj2cuhci5fu"]
+
+[ext_resource type="Script" uid="uid://cwpofu2x5te2h" path="res://Currencies and Shops/currency.gd" id="1_wblda"]
+
+[node name="Currency" type="Area2D" unique_id=1673852811]
+scale = Vector2(0.4, 0.4)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_wblda")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440497355]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1052475748]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
