@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bs5x0or36dfd7" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="1_wi63m"]
 [ext_resource type="Texture2D" uid="uid://si6avxjk3b15" path="res://Art/my own art :thumbsup:/tilemap.png" id="3_at5rx"]
 [ext_resource type="Texture2D" uid="uid://lhf8nya4asmo" path="res://Art/my own art :thumbsup:/tutorial/tutorial_tilemap.png" id="4_c1alk"]
+[ext_resource type="Texture2D" uid="uid://3i1yc54r5i26" path="res://Art/my own art :thumbsup:/the lab/the_lab_tilemap.png" id="5_b8dqk"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_hbclw"]
 vertices = PackedVector2Array(8, 4, -8, 4, -8, -8, 8, -8)
@@ -475,12 +476,40 @@ texture = ExtResource("4_c1alk")
 9:3/0 = 0
 9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adkj4"]
+texture = ExtResource("5_b8dqk")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+1:2/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [sub_resource type="TileSet" id="TileSet_thutw"]
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_8vvb7")
 sources/1 = SubResource("TileSetAtlasSource_y8hch")
 sources/2 = SubResource("TileSetAtlasSource_b8dqk")
+sources/3 = SubResource("TileSetAtlasSource_adkj4")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_thutw"]
 

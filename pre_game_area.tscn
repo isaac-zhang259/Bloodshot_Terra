@@ -50,6 +50,6 @@ texture = ExtResource("8_g4k0v")
 [node name="LabRoom" parent="." unique_id=354325685 instance=ExtResource("6_2il65")]
 
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_p0vcy")]
-position = Vector2(295, 163)
+position = Vector2(224, 256)
 in_game = false
 invincible = false
