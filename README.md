@@ -14,3 +14,7 @@ The tutorial is for Godot 3 and I'm using Godot 4, so there are many small under
 Deviations from the tutorial for the second week: different charged attacks, changed collisions between some nodes again, new tilemap, new enemy, changed all enemy spritesheets, new hurt animations for enemies.
 
 I basically didnt even use the tutorial in the third week lol the boss in the tutorial was so trash I made my own
+
+Images as requested by a Terra reviewer :D
+
+<img src="in_game_boss_fight.png" width="45%" /> <img src="starting_area.png" width="45%" />
