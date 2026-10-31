@@ -50,6 +50,7 @@ func _spawn_enemies() -> void:
 		var enemy: CharacterBody2D
 		if boss_room:
 			enemy = ENEMY_SCENES.MECH_BOSS.instantiate()
+			SavedData.in_boss_fight = true
 		else:
 			var random = randi() % 3
 			match random:

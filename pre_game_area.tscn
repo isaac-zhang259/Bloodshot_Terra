@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cosp7ruugdv8x" path="res://Rooms/lab_room.tscn" id="6_2il65"]
 [ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="7_p0vcy"]
 [ext_resource type="Script" uid="uid://7k4pxpv5etxx" path="res://per_save_currency_label.gd" id="7_ycjq2"]
+[ext_resource type="Texture2D" uid="uid://ca3lxew286if6" path="res://Art/my own art :thumbsup:/currency + shops/anima_currency.png" id="8_g4k0v"]
 
 [node name="preGameArea" type="Node2D" unique_id=85506240]
 script = ExtResource("1_7rr80")
@@ -35,9 +36,16 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
-offset_bottom = 23.0
+offset_top = -2.0
+offset_bottom = 21.0
 grow_horizontal = 0
+text = "1234"
 script = ExtResource("7_ycjq2")
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/PerSaveCurrencyLabel" unique_id=1232032544]
+position = Vector2(-6, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_g4k0v")
 
 [node name="LabRoom" parent="." unique_id=354325685 instance=ExtResource("6_2il65")]
 

@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://doa3ih57pvhys"]
 
 [ext_resource type="PackedScene" uid="uid://csfj2cuhci5fu" path="res://Currencies and Shops/currency.tscn" id="1_0uaix"]
-[ext_resource type="Texture2D" uid="uid://ca3lxew286if6" path="res://Art/my own art :thumbsup:/currency + shops/anima_currency.png" id="2_4ugjr"]
+[ext_resource type="Texture2D" uid="uid://dxxwlfh0oefsr" path="res://Art/my own art :thumbsup:/currency + shops/anima_dropped_currency.png" id="2_4ugjr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ne7od"]
-radius = 11.0
-height = 36.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_wblda"]
+radius = 7.0
 
 [node name="AnimaCurrency" unique_id=484417644 instance=ExtResource("1_0uaix")]
 anima = true
@@ -14,4 +13,4 @@ anima = true
 texture = ExtResource("2_4ugjr")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1052475748]
-shape = SubResource("CapsuleShape2D_ne7od")
+shape = SubResource("CircleShape2D_wblda")

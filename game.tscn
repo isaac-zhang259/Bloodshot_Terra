@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://6dj8hjip4wgc" path="res://Art/my own art :thumbsup:/broken mech boss/boss_bar_middle_bar.png" id="5_hve3p"]
 [ext_resource type="Script" uid="uid://dxrwgrb0sx7ov" path="res://rooms.gd" id="5_j5wjh"]
 [ext_resource type="Script" uid="uid://8lt5qfvjjdeq" path="res://per_run_currency_label.gd" id="7_vef74"]
+[ext_resource type="Texture2D" uid="uid://b0bsv0aig41mq" path="res://Art/my own art :thumbsup:/currency + shops/opul_currency.png" id="8_hve3p"]
 
 [node name="Game" type="Node2D" unique_id=2018493198]
 script = ExtResource("1_eow3j")
@@ -35,10 +36,16 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
-offset_bottom = 23.0
+offset_top = -2.0
+offset_bottom = 21.0
 grow_horizontal = 0
 text = "1234"
 script = ExtResource("7_vef74")
+
+[node name="OpulSprite" type="Sprite2D" parent="UI/PerRunCurrencyLabel" unique_id=22398139]
+position = Vector2(-6, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_hve3p")
 
 [node name="Rooms" type="Node2D" parent="." unique_id=1353587236]
 script = ExtResource("5_j5wjh")

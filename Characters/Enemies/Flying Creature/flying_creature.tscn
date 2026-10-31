@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://3s5njecimgya" path="res://Characters/Enemies/Flying Creature/FlyingCreatureFSM.gd" id="2_jube8"]
 [ext_resource type="Script" uid="uid://c4l0s5uvxn56w" path="res://Characters/Enemies/Flying Creature/flying_creature.gd" id="2_neg60"]
 [ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="3_4le7x"]
-[ext_resource type="Texture2D" uid="uid://v6bsq8r4yj8e" path="res://Art/my own art :thumbsup:/floater.png" id="6_m0f6v"]
+[ext_resource type="Texture2D" uid="uid://v6bsq8r4yj8e" path="res://Art/my own art :thumbsup:/enemies/floater.png" id="6_m0f6v"]
 [ext_resource type="Script" uid="uid://dtteoe71rhmfs" path="res://Characters/Player/hitbox.gd" id="6_na7ak"]
 [ext_resource type="Texture2D" uid="uid://nfdaj3lxypyf" path="res://Art/my own art :thumbsup:/tutorial/tutorial_floater.png" id="6_rabgd"]
 
@@ -357,9 +357,12 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"drop_crystals"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
@@ -668,7 +671,6 @@ _data = {
 
 [node name="FlyingCreature" unique_id=542487015 instance=ExtResource("1_6scen")]
 script = ExtResource("2_neg60")
-tutorial_enemy = false
 acceleration = 20
 max_speed = 50
 flying = true

@@ -59,8 +59,6 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 				velocity += dir * force
 		else:
 			state_machine.set_state(state_machine.states.dead)
-			if name != "Player" and not SavedData.doing_tutorial:
-				drop_crystals()
 			if knockback:
 				velocity += dir * force * 1.5
 
@@ -73,12 +71,13 @@ func _spawn_hit_effect() -> void:
 	add_child(hit_effect)
 
 func drop_crystals() -> void:
-	for i in 5:
-		var opul: Area2D = opul_scene.instantiate()
-		opul.position = self.global_position
-		opul.launch()
-		get_tree().current_scene.add_child.call_deferred(opul)
-	var anima: Area2D = anima_scene.instantiate()
-	anima.position = self.global_position
-	anima.launch()
-	get_tree().current_scene.add_child.call_deferred(anima)
+	if not SavedData.doing_tutorial and not SavedData.in_boss_fight:
+		for i in range(randi_range(3, 5)):
+			var opul: Area2D = opul_scene.instantiate()
+			opul.position = self.global_position
+			opul.launch()
+			get_tree().current_scene.add_child.call_deferred(opul)
+		var anima: Area2D = anima_scene.instantiate()
+		anima.position = self.global_position
+		anima.launch()
+		get_tree().current_scene.add_child.call_deferred(anima)

@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://ct08fac0fv2t2" path="res://Characters/Enemies/Crawler/crawler.gd" id="2_d612i"]
 [ext_resource type="Script" uid="uid://bapew0ky34m63" path="res://Characters/Enemies/Crawler/CrawlerFSM.gd" id="3_ioyia"]
 [ext_resource type="Script" uid="uid://dtteoe71rhmfs" path="res://Characters/Player/hitbox.gd" id="4_6xwn6"]
-[ext_resource type="Texture2D" uid="uid://5msap3gx4ev8" path="res://Art/my own art :thumbsup:/small_crawler.png" id="4_cbsdm"]
+[ext_resource type="Texture2D" uid="uid://5msap3gx4ev8" path="res://Art/my own art :thumbsup:/enemies/small_crawler.png" id="4_cbsdm"]
 [ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="5_ukflb"]
 [ext_resource type="Texture2D" uid="uid://mnjb5a0fsu2x" path="res://Art/my own art :thumbsup:/tutorial/tutorial_small_crawler.png" id="6_rfma4"]
-[ext_resource type="Texture2D" uid="uid://bt17xr253rgot" path="res://Art/my own art :thumbsup:/crystal_particle_green.png" id="6_ukflb"]
+[ext_resource type="Texture2D" uid="uid://bt17xr253rgot" path="res://Art/my own art :thumbsup:/effects/crystal_particle_green.png" id="6_ukflb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfma4"]
 atlas = ExtResource("4_cbsdm")
@@ -405,9 +405,12 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"drop_crystals"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
@@ -925,7 +928,6 @@ _data = {
 
 [node name="Crawler" unique_id=542487015 instance=ExtResource("1_f58ds")]
 script = ExtResource("2_d612i")
-tutorial_enemy = false
 acceleration = 10
 max_speed = 30
 

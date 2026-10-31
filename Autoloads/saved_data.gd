@@ -1,6 +1,7 @@
 extends Node
 
 var doing_tutorial: bool = false
+var in_boss_fight: bool = false
 
 var num_floor: int = 0
 

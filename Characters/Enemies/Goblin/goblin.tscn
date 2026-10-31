@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cxhm1280udwu3" path="res://Characters/Enemies/Goblin/goblin.gd" id="2_uoud0"]
 [ext_resource type="Script" uid="uid://bbgv5ipnb40cp" path="res://Characters/Enemies/Goblin/GoblinFSM.gd" id="3_6xmfp"]
 [ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="4_egnex"]
-[ext_resource type="Texture2D" uid="uid://8pe8c5kq4wjm" path="res://Art/my own art :thumbsup:/thrower.png" id="5_fhkoe"]
+[ext_resource type="Texture2D" uid="uid://8pe8c5kq4wjm" path="res://Art/my own art :thumbsup:/enemies/thrower.png" id="5_fhkoe"]
 [ext_resource type="Texture2D" uid="uid://c4sa0gaq8i4yc" path="res://Art/my own art :thumbsup:/tutorial/tutorial_thrower.png" id="6_uoud0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhkoe"]
@@ -379,9 +379,12 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.9, 1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"drop_crystals"
+}, {
 "args": [],
 "method": &"queue_free"
 }]
@@ -705,7 +708,6 @@ _data = {
 [node name="Goblin" unique_id=542487015 instance=ExtResource("1_l0dd4")]
 script = ExtResource("2_uoud0")
 projectile_speed = 150
-tutorial_enemy = false
 acceleration = 30
 max_speed = 75
 
