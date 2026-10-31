@@ -19,6 +19,7 @@ func reset_data() -> void:
 	weapons = []
 	equipped_weapon_index = 0
 	per_run_currency = 0
+	in_boss_fight = false
 	
 func fetch_data() -> void:
 	per_save_currency = SaveFile.get_currency()
