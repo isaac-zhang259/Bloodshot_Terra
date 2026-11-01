@@ -129,6 +129,6 @@ func dash() -> void:
 	
 func reset_values() -> void:
 	if red:
-		max_speed = 150
+		max_speed = 120
 	else:
 		max_speed = 100

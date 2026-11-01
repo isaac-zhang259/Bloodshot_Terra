@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bwhi65qx21h0x"]
 
 [ext_resource type="Script" uid="uid://dqwear5vftcgl" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://c7povbnofv1jx" path="res://Art/my own art :thumbsup:/bloodshot_logo.png" id="2_7vrkn"]
 
 [node name="MainMenu" type="Control" unique_id=927864336]
 process_mode = 3
@@ -18,6 +19,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -41,6 +43,11 @@ text = "Options"
 layout_mode = 2
 action_mode = 0
 text = "Quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1874458903]
+position = Vector2(240, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7vrkn")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -48,7 +48,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 					SavedData.reset_data()
 				else:
 					SaveFile.save_currency()
-					SceneTransistor.start_transition_to("res://game.tscn")
+					SceneTransistor.start_transition_to("res://pre_game_area.tscn")
 					SavedData.reset_data()
 		else:
 			SavedData.hp += 1
@@ -71,7 +71,6 @@ func _spawn_hit_effect() -> void:
 	add_child(hit_effect)
 
 func drop_crystals() -> void:
-	return
 	if not SavedData.doing_tutorial and not SavedData.in_boss_fight:
 		for i in range(randi_range(3, 5)):
 			var opul: Area2D = opul_scene.instantiate()

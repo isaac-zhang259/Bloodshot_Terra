@@ -42,7 +42,7 @@ grow_horizontal = 0
 text = "1234"
 script = ExtResource("7_ycjq2")
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/PerSaveCurrencyLabel" unique_id=1232032544]
+[node name="AnimaSprite" type="Sprite2D" parent="UI/PerSaveCurrencyLabel" unique_id=1232032544]
 position = Vector2(-6, 12)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_g4k0v")
@@ -51,5 +51,3 @@ texture = ExtResource("8_g4k0v")
 
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_p0vcy")]
 position = Vector2(224, 256)
-in_game = false
-invincible = false

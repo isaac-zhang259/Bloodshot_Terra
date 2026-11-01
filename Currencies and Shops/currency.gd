@@ -26,14 +26,14 @@ func _physics_process(_delta: float) -> void:
 		speed -= 1
 	if follow_player:
 		direction = (Game.player.position - global_position).normalized()
-		speed = 4
+		speed = 5
 	position += direction * speed * 0.1
 	
 
 func launch() -> void:
 	direction = Vector2.from_angle(randf_range(0, 2 * PI))
 	rotation_degrees = randi_range(0, 360)
-	speed = randi_range(10, 15)
+	speed = randi_range(10, 20)
 
 
 func _on_player_detector_body_entered(body: CharacterBody2D) -> void:
