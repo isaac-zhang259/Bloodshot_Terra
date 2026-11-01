@@ -58,7 +58,7 @@ func _on_tutorial_timer_timeout() -> void:
 			dialogue_panel.display_text("You may encounter traps set for you. Stay vigilant and avoid them. You may also encounter unused fuel, which you should take.")
 		8:
 			#spook player out with boss
-			dialogue_panel.display_text("Sometimes, you may encounter very powerful enemies that return much more than fuel upon their defeat.")
+			dialogue_panel.display_text("Sometimes, you may encounter very powerful enemies that return much more than fuel upon their defeat. However, we do not have full data of these enemies, and cannot simulate them.")
 		9:
 			#player dies and respawns
 			if experienced_death:
