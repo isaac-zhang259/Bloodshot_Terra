@@ -48,7 +48,7 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 					SavedData.reset_data()
 				else:
 					SaveFile.save_currency()
-					SceneTransistor.start_transition_to("res://pre_game_area.tscn")
+					SceneTransistor.start_transition_to("res://game.tscn")
 					SavedData.reset_data()
 		else:
 			SavedData.hp += 1

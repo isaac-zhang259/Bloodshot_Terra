@@ -36,25 +36,21 @@ func _spawn_rooms() -> void:
 				if SavedData.num_floor == 3:
 					room = MECH_BOSS_SCENE.instantiate()
 				else:
-					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
-					#if not special_room_spawned:
+					#if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
+					if not special_room_spawned:
 						room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instantiate()
 						special_room_spawned = true
 					else:
 						room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instantiate()
-			var previous_room_tilemap: TileMap = previous_room.get_node("TileMap")
 			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/Door")
-			var exit_tile_pos: Vector2i = previous_room_tilemap.local_to_map(previous_room_door.position) + Vector2i.UP * 4
-			
-			var corridor_height: int = 4
-			for y in corridor_height:
-				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(-2, -y), 1, LEFT_WALL_TILE_INDEX)
-				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(-1, -y), 1, FLOOR_TILE_INDEX)
-				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(0, -y), 1, FLOOR_TILE_INDEX)
-				previous_room_tilemap.set_cell(0, exit_tile_pos + Vector2i(1, -y), 1, RIGHT_WALL_TILE_INDEX)
-			
+						
 			var room_tilemap: TileMap = room.get_node("TileMap")
-			room.position = previous_room_door.global_position + Vector2.UP * (room_tilemap.get_used_rect().size.y + corridor_height - 2) * TILE_SIZE + Vector2.LEFT * room_tilemap.local_to_map(room.get_node("Entrance/Marker2D2").position).x * TILE_SIZE
-
+			room.position = previous_room_door.global_position + Vector2.UP * (room_tilemap.get_used_rect().size.y) * TILE_SIZE + Vector2.LEFT * room_tilemap.local_to_map(room.get_node("Entrance/Marker2D2").position).x * TILE_SIZE
+			if room.name == "SpecialRoom0":
+				room.position += Vector2.DOWN * 7 * TILE_SIZE
+			if room.name == "EndRoom0":
+				room.position += Vector2.UP * 7 * TILE_SIZE
+			if room.name == "EndRoom1":
+				room.position += Vector2.UP * 7 * TILE_SIZE
 		add_child(room)
 		previous_room = room
