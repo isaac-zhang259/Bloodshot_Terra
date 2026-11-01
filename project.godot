@@ -16,7 +16,7 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="Bloodshot"
-run/main_scene="uid://bwhi65qx21h0x"
+run/main_scene="uid://dacj7wq0jxkte"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

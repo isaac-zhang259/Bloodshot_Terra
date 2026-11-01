@@ -36,8 +36,8 @@ func _spawn_rooms() -> void:
 				if SavedData.num_floor == 3:
 					room = MECH_BOSS_SCENE.instantiate()
 				else:
-					#if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
-					if not special_room_spawned:
+					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
+					#if not special_room_spawned:
 						room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instantiate()
 						special_room_spawned = true
 					else:

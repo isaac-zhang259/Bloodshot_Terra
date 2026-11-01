@@ -71,6 +71,7 @@ func _spawn_hit_effect() -> void:
 	add_child(hit_effect)
 
 func drop_crystals() -> void:
+	return
 	if not SavedData.doing_tutorial and not SavedData.in_boss_fight:
 		for i in range(randi_range(3, 5)):
 			var opul: Area2D = opul_scene.instantiate()
