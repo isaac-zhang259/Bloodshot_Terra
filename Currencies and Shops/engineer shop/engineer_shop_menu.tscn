@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://do0g8vqtlivqq"]
+
+[ext_resource type="Script" uid="uid://cierair73ulut" path="res://Currencies and Shops/engineer shop/engineer_shop_menu.gd" id="1_7gx6w"]
+[ext_resource type="Script" uid="uid://7k4pxpv5etxx" path="res://per_save_currency_label.gd" id="2_ceif5"]
+[ext_resource type="Texture2D" uid="uid://ca3lxew286if6" path="res://Art/my own art :thumbsup:/currency + shops/anima_currency.png" id="3_1ysua"]
+
+[node name="EngineerShopMenu" type="Control" unique_id=1715363684]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7gx6w")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1326079060]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=459664774]
+layout_mode = 2
+
+[node name="Health" type="Button" parent="CenterContainer/HBoxContainer" unique_id=891278425]
+layout_mode = 2
+text = "Health Upgrade"
+
+[node name="Speed" type="Button" parent="CenterContainer/HBoxContainer" unique_id=823723132]
+layout_mode = 2
+text = "Speed Upgrade"
+
+[node name="Damage" type="Button" parent="CenterContainer/HBoxContainer" unique_id=644097931]
+layout_mode = 2
+text = "Damage Upgrade"
+
+[node name="Exit" type="Button" parent="." unique_id=879135571]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.5
+offset_top = -31.0
+offset_right = 18.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Exit"
+
+[node name="PerSaveCurrencyLabel" type="Label" parent="." unique_id=1718138292]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = -2.0
+offset_bottom = 21.0
+grow_horizontal = 0
+text = "1234"
+script = ExtResource("2_ceif5")
+
+[node name="AnimaSprite" type="Sprite2D" parent="PerSaveCurrencyLabel" unique_id=42389003]
+position = Vector2(-6, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_1ysua")
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Health" to="." method="_on_health_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Speed" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

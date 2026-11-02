@@ -13,6 +13,10 @@ var equipped_weapon_index: int = 0
 var per_run_currency: int = 0
 var per_save_currency: int = 0
 
+var health_upgrade: int = 0
+var speed_upgrade: int = 0
+var damage_upgrade: int = 0
+
 func reset_data() -> void:
 	num_floor = 0
 	hp = 8
@@ -24,3 +28,4 @@ func reset_data() -> void:
 func fetch_data() -> void:
 	per_save_currency = SaveFile.get_currency()
 	#add any new fetching things here, like upgrades and stuff
+	SaveFile.fetch_permanent_upgrades()

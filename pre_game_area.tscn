@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="7_p0vcy"]
 [ext_resource type="Script" uid="uid://7k4pxpv5etxx" path="res://per_save_currency_label.gd" id="7_ycjq2"]
 [ext_resource type="Texture2D" uid="uid://ca3lxew286if6" path="res://Art/my own art :thumbsup:/currency + shops/anima_currency.png" id="8_g4k0v"]
+[ext_resource type="PackedScene" uid="uid://dt4ctmy1kt1wl" path="res://Currencies and Shops/engineer shop/engineer_character.tscn" id="11_bwc2p"]
 
 [node name="preGameArea" type="Node2D" unique_id=85506240]
 script = ExtResource("1_7rr80")
@@ -51,3 +52,6 @@ texture = ExtResource("8_g4k0v")
 
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_p0vcy")]
 position = Vector2(224, 256)
+
+[node name="EngineerCharacter" parent="." unique_id=322231290 instance=ExtResource("11_bwc2p")]
+position = Vector2(62, 129)
