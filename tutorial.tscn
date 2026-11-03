@@ -8,8 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5u6bn5065xuu" path="res://UI/Health Bar/health_bar.tscn" id="5_tvjhf"]
 [ext_resource type="PackedScene" uid="uid://cdyw1ps4i0et7" path="res://Rooms/tutorial_room.tscn" id="6_vmw6g"]
 [ext_resource type="PackedScene" uid="uid://bpa8l3spvh6qn" path="res://Characters/Player/player.tscn" id="7_4hjyh"]
-[ext_resource type="Texture2D" uid="uid://bgl4vmalts34" path="res://Art/my own art :thumbsup:/ui/tutorial_textbox.png" id="7_bhfnd"]
-[ext_resource type="Script" uid="uid://b72avpap3roy6" path="res://tutorial_textbox.gd" id="8_bhfnd"]
+[ext_resource type="PackedScene" uid="uid://c5kgnye2a6wfi" path="res://text_box.tscn" id="9_tvjhf"]
 
 [node name="tutorial" type="Node2D" unique_id=688199976]
 script = ExtResource("1_4t6hg")
@@ -31,34 +30,13 @@ tint_progress = Color(0.3741154, 0.51115406, 0.8922868, 1)
 
 [node name="PlayerHealthBar" parent="UI" unique_id=652203996 instance=ExtResource("5_tvjhf")]
 
-[node name="TutorialTextbox" type="Sprite2D" parent="UI" unique_id=1022626983]
-position = Vector2(233.5, 233)
-texture = ExtResource("7_bhfnd")
-script = ExtResource("8_bhfnd")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/TutorialTextbox" unique_id=1015349177]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -129.5
-offset_top = -30.0
-offset_right = -190.5
-offset_bottom = -106.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "testing testing we are testing"
-scroll_following_visible_characters = true
-visible_characters = 0
-visible_ratio = 0.0
+[node name="TextBox" parent="UI" unique_id=698755712 instance=ExtResource("9_tvjhf")]
+tutorial = true
 
 [node name="TutorialRoom" parent="." unique_id=354325685 instance=ExtResource("6_vmw6g")]
 
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("7_4hjyh")]
 position = Vector2(137, 117)
-in_game = false
-invincible = false
 
 [node name="TutorialTimer" type="Timer" parent="." unique_id=435314385]
 wait_time = 20.0

@@ -19,7 +19,8 @@ var damage_upgrade: int = 0
 
 func reset_data() -> void:
 	num_floor = 0
-	hp = 8
+	max_hp = 16 + health_upgrade
+	hp = max_hp / 2
 	weapons = []
 	equipped_weapon_index = 0
 	per_run_currency = 0

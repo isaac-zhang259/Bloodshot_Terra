@@ -6,6 +6,9 @@ enum{UP, DOWN}
 
 var current_weapon: Node2D
 
+const red_speed: int = 120
+const blue_speed: int = 100
+
 @export var red: bool = false
 @export var in_game: bool = false
 @export var invincible: bool = false
@@ -18,6 +21,7 @@ func _init() -> void:
 	Game.player = self
 
 func _ready() -> void:
+	reset_values()
 	_restore_previous_state()
 
 func _restore_previous_state() -> void:
@@ -129,6 +133,6 @@ func dash() -> void:
 	
 func reset_values() -> void:
 	if red:
-		max_speed = 120
+		max_speed = red_speed + SavedData.speed_upgrade
 	else:
-		max_speed = 100
+		max_speed = blue_speed + SavedData.speed_upgrade

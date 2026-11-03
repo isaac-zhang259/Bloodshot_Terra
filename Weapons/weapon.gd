@@ -13,6 +13,7 @@ func _ready() -> void:
 	if not on_floor:
 		player_detector.set_collision_mask_value(1, false)
 		player_detector.set_collision_mask_value(2, false)
+	hitbox.damage += SavedData.damage_upgrade
 
 var weapon_name: String
 func weapon_set_name(w_n: String) -> void:

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c5kgnye2a6wfi"]
+
+[ext_resource type="Texture2D" uid="uid://lnjx67c42o7h" path="res://Art/my own art :thumbsup:/ui/textbox.png" id="1_5tto5"]
+[ext_resource type="Texture2D" uid="uid://bgl4vmalts34" path="res://Art/my own art :thumbsup:/ui/tutorial_textbox.png" id="2_polir"]
+[ext_resource type="Script" uid="uid://bnpaba6ivnj4t" path="res://text_box.gd" id="3_ejigk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thutw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5tto5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_polir")
+}],
+"loop": 1,
+"name": &"tutorial",
+"speed": 5.0
+}]
+
+[node name="TextBox" type="AnimatedSprite2D" unique_id=698755712]
+position = Vector2(248, 232)
+sprite_frames = SubResource("SpriteFrames_thutw")
+animation = &"tutorial"
+script = ExtResource("3_ejigk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=852137079]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -29.0
+offset_right = -191.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "testing testing"
+scroll_following_visible_characters = true
+visible_characters = 0
+visible_ratio = 0.0
