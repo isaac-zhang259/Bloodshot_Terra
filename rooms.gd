@@ -19,6 +19,8 @@ func _ready() -> void:
 	SavedData.num_floor += 1
 	if SavedData.num_floor == 3:
 		num_levels = 3
+	if SavedData.num_floor == SavedData.safety_floor and SavedData.has_saved:
+		num_levels -= SavedData.safety_room
 	_spawn_rooms()
 	
 func _spawn_rooms() -> void:
@@ -27,8 +29,13 @@ func _spawn_rooms() -> void:
 	for i in num_levels:
 		var room: Node2D
 		if i == 0:
-			room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()].instantiate()
-			player.position = room.get_node("PlayerSpawnPos").position
+			if SavedData.num_floor == SavedData.safety_floor:
+				room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()].instantiate()
+				player.position = room.get_node("PlayerSpawnPos").position
+				#spawn in the scientist temporary camp
+			else:
+				room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()].instantiate()
+				player.position = room.get_node("PlayerSpawnPos").position
 		else: 
 			if i == num_levels - 1:
 				room = END_ROOMS[randi() % END_ROOMS.size()].instantiate()
@@ -52,5 +59,6 @@ func _spawn_rooms() -> void:
 				room.position += Vector2.UP * 7 * TILE_SIZE
 			if room.name == "EndRoom1":
 				room.position += Vector2.UP * 7 * TILE_SIZE
+		room.room_number = i
 		add_child(room)
 		previous_room = room

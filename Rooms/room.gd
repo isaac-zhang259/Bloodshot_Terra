@@ -5,6 +5,8 @@ class_name Room
 @export var lab_room: bool = false
 @export var tutorial_room: bool = false
 
+@export var room_number: int = 0
+
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/spawn_explosion.tscn")
 
 const ENEMY_SCENES: Dictionary = {
@@ -40,6 +42,7 @@ func _open_doors() -> void:
 		door.open()
 		
 func _close_entrance() -> void:
+	SavedData.safety_room = room_number
 	for entry_position in entrance.get_children():
 		print(tilemap.local_to_map(entry_position.position))
 		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 8))

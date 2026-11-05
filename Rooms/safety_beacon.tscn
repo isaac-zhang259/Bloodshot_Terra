@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c2v6dh754b2d4"]
+
+[ext_resource type="Script" uid="uid://b8ux28sdlvd3o" path="res://Rooms/safety_beacon.gd" id="1_2s33a"]
+[ext_resource type="Texture2D" uid="uid://di2i6ga64elvb" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_plate_health.png" id="1_eh2q8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2s33a"]
+atlas = ExtResource("1_eh2q8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvjqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s33a")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s33a"]
+size = Vector2(128, 128)
+
+[node name="SafetyBeacon" type="Node2D" unique_id=600168314]
+script = ExtResource("1_2s33a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1879204043]
+sprite_frames = SubResource("SpriteFrames_fvjqh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=774751266]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=255421809]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1179107652]
+shape = SubResource("RectangleShape2D_2s33a")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
