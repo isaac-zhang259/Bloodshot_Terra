@@ -2,7 +2,43 @@
 
 [ext_resource type="Script" uid="uid://cierair73ulut" path="res://Currencies and Shops/engineer shop/engineer_shop_menu.gd" id="1_7gx6w"]
 [ext_resource type="Script" uid="uid://7k4pxpv5etxx" path="res://per_save_currency_label.gd" id="2_ceif5"]
+[ext_resource type="Texture2D" uid="uid://di2i6ga64elvb" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_plate_health.png" id="2_jpecc"]
 [ext_resource type="Texture2D" uid="uid://ca3lxew286if6" path="res://Art/my own art :thumbsup:/currency + shops/anima_currency.png" id="3_1ysua"]
+[ext_resource type="Texture2D" uid="uid://d4k5n6jsd7ffa" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_button_health.png" id="3_w2s1w"]
+[ext_resource type="Texture2D" uid="uid://c6umcw6aik84s" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_plate_speed.png" id="4_3a61g"]
+[ext_resource type="Texture2D" uid="uid://ywolmvbsgdtu" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_button_speed.png" id="5_hbaqj"]
+[ext_resource type="Texture2D" uid="uid://b8rts6opsn1j8" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_plate_strength.png" id="6_flfs0"]
+[ext_resource type="Texture2D" uid="uid://b7aoswnc1ih4l" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_button_strength.png" id="7_dd1s6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_thutw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tmb8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kv3al"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s52sx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b0cpx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q566c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1b7wq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_as4ih"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hy0ku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emein"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvjti"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_am7hj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c26t5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5i2at"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqi1m"]
 
 [node name="EngineerShopMenu" type="Control" unique_id=1715363684]
 layout_mode = 3
@@ -25,17 +61,55 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer" unique_id=459664774]
 layout_mode = 2
 
-[node name="Health" type="Button" parent="CenterContainer/HBoxContainer" unique_id=891278425]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer" unique_id=393603947]
 layout_mode = 2
-text = "Health Upgrade"
 
-[node name="Speed" type="Button" parent="CenterContainer/HBoxContainer" unique_id=823723132]
-layout_mode = 2
-text = "Speed Upgrade"
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=497845755]
+position = Vector2(64, -64)
+texture = ExtResource("2_jpecc")
 
-[node name="Damage" type="Button" parent="CenterContainer/HBoxContainer" unique_id=644097931]
+[node name="Health" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=891278425]
 layout_mode = 2
-text = "Damage Upgrade"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_thutw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3tmb8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kv3al")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s52sx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b0cpx")
+icon = ExtResource("3_w2s1w")
+icon_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer" unique_id=911025966]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/HBoxContainer/VBoxContainer2" unique_id=169791866]
+position = Vector2(64, -64)
+texture = ExtResource("4_3a61g")
+
+[node name="Speed" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer2" unique_id=823723132]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q566c")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1b7wq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_as4ih")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hy0ku")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_emein")
+icon = ExtResource("5_hbaqj")
+icon_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CenterContainer/HBoxContainer" unique_id=1386367549]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/HBoxContainer/VBoxContainer3" unique_id=91870945]
+position = Vector2(64, -64)
+texture = ExtResource("6_flfs0")
+
+[node name="Damage" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer3" unique_id=644097931]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tvjti")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_am7hj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_c26t5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5i2at")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gqi1m")
+icon = ExtResource("7_dd1s6")
 
 [node name="Exit" type="Button" parent="." unique_id=879135571]
 layout_mode = 1
@@ -56,19 +130,20 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_top = -2.0
-offset_bottom = 21.0
+offset_left = -58.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 27.0
 grow_horizontal = 0
 text = "1234"
 script = ExtResource("2_ceif5")
 
 [node name="AnimaSprite" type="Sprite2D" parent="PerSaveCurrencyLabel" unique_id=42389003]
-position = Vector2(-6, 12)
+position = Vector2(-6, 8)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_1ysua")
 
-[connection signal="pressed" from="CenterContainer/HBoxContainer/Health" to="." method="_on_health_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/Speed" to="." method="_on_speed_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/Damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Health" to="." method="_on_health_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer2/Speed" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer3/Damage" to="." method="_on_damage_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

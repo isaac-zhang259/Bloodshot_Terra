@@ -36,15 +36,16 @@ tint_progress = Color(0.3741154, 0.51115406, 0.8922868, 1)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_top = -2.0
-offset_bottom = 21.0
+offset_left = -58.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 27.0
 grow_horizontal = 0
 text = "1234"
 script = ExtResource("7_ycjq2")
 
 [node name="AnimaSprite" type="Sprite2D" parent="UI/PerSaveCurrencyLabel" unique_id=1232032544]
-position = Vector2(-6, 12)
+position = Vector2(-6, 8)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("8_g4k0v")
 

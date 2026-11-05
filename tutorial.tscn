@@ -31,6 +31,7 @@ tint_progress = Color(0.3741154, 0.51115406, 0.8922868, 1)
 [node name="PlayerHealthBar" parent="UI" unique_id=652203996 instance=ExtResource("5_tvjhf")]
 
 [node name="TextBox" parent="UI" unique_id=698755712 instance=ExtResource("9_tvjhf")]
+position = Vector2(240, 230)
 tutorial = true
 
 [node name="TutorialRoom" parent="." unique_id=354325685 instance=ExtResource("6_vmw6g")]
