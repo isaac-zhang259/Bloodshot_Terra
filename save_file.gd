@@ -70,6 +70,7 @@ func save_safe_area() -> void:
 	config.set_value(PROGRESSION_SECTION, SAFE_FLOOR_KEY, SavedData.safety_floor)
 	config.set_value(PROGRESSION_SECTION, SAFE_ROOM_KEY, SavedData.safety_room)
 	config.set_value(PROGRESSION_SECTION, HAS_SAVED_KEY, true)
+	config.save(SAVE_PATH)
 
 func unsave_safe_area() -> void:
 	var config = ConfigFile.new()
@@ -77,6 +78,7 @@ func unsave_safe_area() -> void:
 	config.set_value(PROGRESSION_SECTION, SAFE_FLOOR_KEY, 0)
 	config.set_value(PROGRESSION_SECTION, SAFE_ROOM_KEY, 0)
 	config.set_value(PROGRESSION_SECTION, HAS_SAVED_KEY, false)
+	config.save(SAVE_PATH)
 
 func fetch_safe_area() -> void:
 	var config = ConfigFile.new()
@@ -86,5 +88,5 @@ func fetch_safe_area() -> void:
 	SavedData.safety_floor = config.get_value(PROGRESSION_SECTION, SAFE_FLOOR_KEY, 0)
 	SavedData.safety_room = config.get_value(PROGRESSION_SECTION, SAFE_ROOM_KEY, 0)
 	SavedData.has_saved = config.get_value(PROGRESSION_SECTION, HAS_SAVED_KEY, false)
-	if SavedData.num_floor < SavedData.safety_floor - 1:
-		SavedData.num_floor = SavedData.safety_floor - 1
+	#if SavedData.num_floor < SavedData.safety_floor:
+	SavedData.num_floor = SavedData.safety_floor - 1

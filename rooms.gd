@@ -5,6 +5,7 @@ const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/room_0.tscn"), preload("
 const SPECIAL_ROOMS: Array = [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/special_room_1.tscn")]
 const END_ROOMS: Array = [preload("res://Rooms/end_room_0.tscn"), preload("res://Rooms/end_room_1.tscn")]
 const MECH_BOSS_SCENE: PackedScene = preload("res://Rooms/mech_boss_room.tscn")
+const TEMP_CAMP_ROOM: PackedScene = preload("res://Rooms/temp_camp_room.tscn")
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX = Vector2i(0, 0)
@@ -20,6 +21,7 @@ func _ready() -> void:
 	if SavedData.num_floor == 3:
 		num_levels = 3
 	if SavedData.num_floor == SavedData.safety_floor and SavedData.has_saved:
+		print("save file worked")	
 		num_levels -= SavedData.safety_room
 	_spawn_rooms()
 	
@@ -30,9 +32,9 @@ func _spawn_rooms() -> void:
 		var room: Node2D
 		if i == 0:
 			if SavedData.num_floor == SavedData.safety_floor:
-				room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()].instantiate()
-				player.position = room.get_node("PlayerSpawnPos").position
 				#spawn in the scientist temporary camp
+				room = TEMP_CAMP_ROOM.instantiate()
+				player.position = room.get_node("PlayerSpawnPos").position
 			else:
 				room = SPAWN_ROOMS[randi() % SPAWN_ROOMS.size()].instantiate()
 				player.position = room.get_node("PlayerSpawnPos").position
