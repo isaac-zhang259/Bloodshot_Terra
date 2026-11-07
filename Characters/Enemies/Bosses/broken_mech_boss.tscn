@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c01yqjxxv1mep" path="res://Art/my own art :thumbsup:/broken mech boss/broken_machinery_boss_swing.png" id="7_vl0ai"]
 [ext_resource type="Texture2D" uid="uid://cy3v3jxno0u1a" path="res://Art/my own art :thumbsup:/broken mech boss/broken_machinery_boss_swing_and_bash.png" id="8_5ylgr"]
 [ext_resource type="Script" uid="uid://dtteoe71rhmfs" path="res://Characters/Player/hitbox.gd" id="9_qywxc"]
-[ext_resource type="Texture2D" uid="uid://bt17xr253rgot" path="res://Art/my own art :thumbsup:/crystal_particle_green.png" id="11_vl0ai"]
+[ext_resource type="Texture2D" uid="uid://bt17xr253rgot" path="res://Art/my own art :thumbsup:/effects/crystal_particle_green.png" id="11_vl0ai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ys8mm"]
 atlas = ExtResource("4_nk1d6")
@@ -1743,6 +1743,8 @@ _data = {
 [node name="BrokenMechBoss" unique_id=542487015 instance=ExtResource("1_mlt0k")]
 script = ExtResource("2_fhal3")
 enraged = false
+dead = false
+boss_enemy = true
 max_hp = 20
 hp = 20
 acceleration = 0

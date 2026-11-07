@@ -6,12 +6,13 @@ class_name Enemy
 @onready var path_timer: Timer = get_node("PathTimer")
 
 @export var tutorial_enemy: bool = false
+@export var boss_enemy: bool = false
 
 func _ready() -> void:
 	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 
 func chase() -> void:
-	if not navigation_agent.is_target_reached():
+	if not navigation_agent.is_target_reached() and not stunned:
 		var vector_to_next_point: Vector2 = navigation_agent.get_next_path_position() - global_position
 		var _distance_to_next_point: float = vector_to_next_point.length()
 		mov_direction = vector_to_next_point
@@ -30,3 +31,7 @@ func _on_path_timer_timeout() -> void:
 	
 func _get_path_to_player() -> void:
 	navigation_agent.target_position = player.position
+	
+func _become_stunned() -> void:
+	if not boss_enemy:
+		stunned = true

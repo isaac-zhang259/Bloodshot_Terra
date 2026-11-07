@@ -18,6 +18,7 @@ const ENEMY_SCENES: Dictionary = {
 }
 
 var num_enemies: int
+var stunned_enemies: int
 
 @onready var tilemap: TileMap = get_node("TileMap2")
 @onready var entrance: Node2D = get_node("Entrance")

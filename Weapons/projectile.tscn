@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bbmb0pq2lwdqv"]
+
+[ext_resource type="Script" uid="uid://c1hujqkafesrw" path="res://Weapons/projectile.gd" id="1_ody5c"]
+[ext_resource type="Texture2D" uid="uid://8pe8c5kq4wjm" path="res://Art/my own art :thumbsup:/enemies/thrower.png" id="2_24puh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_thutw"]
+resource_local_to_scene = true
+radius = 1.4142137
+height = 9.899496
+
+[node name="Projectile" type="Area2D" unique_id=634864667]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_ody5c")
+metadata/_custom_type_script = "uid://dtteoe71rhmfs"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1150800905]
+position = Vector2(1, -1)
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_thutw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=253812254]
+position = Vector2(1, 0)
+texture = ExtResource("2_24puh")
+hframes = 10
+vframes = 10
+frame = 35
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

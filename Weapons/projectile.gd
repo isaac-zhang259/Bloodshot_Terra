@@ -21,6 +21,8 @@ func _on_body_exited(_body: Node2D) -> void:
 		enemy_exited = true
 		set_collision_mask_value(1, true)
 		set_collision_mask_value(2, true)
+		set_collision_mask_value(3, true)
+		set_collision_mask_value(4, true)
 
 func _collide(body: Node2D) -> void:
 	if enemy_exited:
