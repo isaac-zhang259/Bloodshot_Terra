@@ -1,7 +1,6 @@
 extends Node2D
 
-func _init() -> void:
-	SavedData.fetch_data()
+func _ready() -> void:
 	SavedData.reset_data() 
-	print(SavedData.per_save_currency)
-	
+	SaveFile.save_tools(PreloadedScenes.crossbow)
+	SavedData.fetch_data()

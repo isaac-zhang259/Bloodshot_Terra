@@ -5,6 +5,8 @@ var enemy_exited: bool = false
 var direction: Vector2 = Vector2.ZERO
 var knife_speed: int = 0
 
+@export var stunning: bool = false
+
 func launch(initial_position: Vector2, dir: Vector2, speed: int) -> void:
 	position = initial_position
 	direction = dir
@@ -27,5 +29,8 @@ func _on_body_exited(_body: Node2D) -> void:
 func _collide(body: Node2D) -> void:
 	if enemy_exited:
 		if body.has_method("take_damage"):
+			if stunning:
+				if body.has_method("_become_stunned"):
+					body._become_stunned()
 			body.take_damage(damage, knockback_direction, knockback_force)
 		queue_free()

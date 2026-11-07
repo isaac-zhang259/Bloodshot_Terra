@@ -16,6 +16,9 @@ const HEALTH_KEY = "health_upgrade"
 const SPEED_KEY = "speed_upgrade"
 const DAMAGE_KEY = "damage_upgrade"
 
+const TOOL_SECTION = "Tools"
+const SECONDARY_WEAPON_KEY = "secondary_weapon"
+
 func mark_tutorial_completed() -> void:
 	var config = ConfigFile.new()
 	config.load(SAVE_PATH)
@@ -90,3 +93,24 @@ func fetch_safe_area() -> void:
 	SavedData.has_saved = config.get_value(PROGRESSION_SECTION, HAS_SAVED_KEY, false)
 	#if SavedData.num_floor < SavedData.safety_floor:
 	SavedData.num_floor = SavedData.safety_floor - 1
+
+func save_tools(weapon: PackedScene) -> void:
+	var config = ConfigFile.new()
+	config.load(SAVE_PATH)
+	config.set_value(TOOL_SECTION, SECONDARY_WEAPON_KEY, weapon.resource_path)
+	config.save(SAVE_PATH)
+
+func fetch_tools() -> void:
+	var config = ConfigFile.new()
+	config.load(SAVE_PATH)
+	if config.load(SAVE_PATH) != OK:
+		return
+	var weapon_path = config.get_value(TOOL_SECTION, SECONDARY_WEAPON_KEY, "")
+	if weapon_path != "":
+		print("weapon should be spawned in")
+		var weapon_scene = load(weapon_path)
+		var real_weapon = weapon_scene.instantiate()
+		get_tree().current_scene.add_child.call_deferred(real_weapon)
+		real_weapon.on_floor = true
+		real_weapon.name = real_weapon.name.to_lower()
+		real_weapon.global_position = Game.player.global_position

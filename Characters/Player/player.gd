@@ -22,6 +22,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	reset_values()
+	if in_game:
+		SaveFile.fetch_tools()
 	_restore_previous_state()
 
 func _restore_previous_state() -> void:

@@ -395,6 +395,7 @@ libraries/ = SubResource("AnimationLibrary_5jopl")
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5" unique_id=123490052]
+zoom = Vector2(0.5, 0.5)
 
 [node name="DustPosition" type="Marker2D" parent="." index="6" unique_id=1672540074]
 position = Vector2(0, 6)

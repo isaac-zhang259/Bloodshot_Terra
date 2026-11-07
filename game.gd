@@ -6,3 +6,4 @@ var boss: CharacterBody2D = null
 
 func _init() -> void:
 	randomize()
+	

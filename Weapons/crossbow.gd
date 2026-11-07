@@ -1,6 +1,6 @@
 extends Weapon
 
-const ARROW_SCENE: PackedScene = preload("res://Weapons/arrow.tscn")
+const ARROW_SCENE: PackedScene = preload("res://Weapons/stun_dart.tscn")
 
 func shoot(offset: int) -> void:
 	var arrow: Area2D = ARROW_SCENE.instantiate()

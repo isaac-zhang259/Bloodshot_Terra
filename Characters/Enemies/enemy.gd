@@ -35,3 +35,4 @@ func _get_path_to_player() -> void:
 func _become_stunned() -> void:
 	if not boss_enemy:
 		stunned = true
+		mov_direction = Vector2.ZERO
