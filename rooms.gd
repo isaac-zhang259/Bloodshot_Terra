@@ -21,8 +21,8 @@ func _ready() -> void:
 	if SavedData.num_floor == 3:
 		num_levels = 3
 	if SavedData.num_floor == SavedData.safety_floor and SavedData.has_saved:
-		print("save file worked")	
 		num_levels -= SavedData.safety_room
+	SavedData.current_room = 0
 	_spawn_rooms()
 	
 func _spawn_rooms() -> void:

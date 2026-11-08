@@ -17,7 +17,7 @@ const SPEED_KEY = "speed_upgrade"
 const DAMAGE_KEY = "damage_upgrade"
 
 const TOOL_SECTION = "Tools"
-const SECONDARY_WEAPON_KEY = "secondary_weapon"
+const TOOL_ARRAY_KEY = "tool_array"
 
 func mark_tutorial_completed() -> void:
 	var config = ConfigFile.new()
@@ -94,10 +94,10 @@ func fetch_safe_area() -> void:
 	#if SavedData.num_floor < SavedData.safety_floor:
 	SavedData.num_floor = SavedData.safety_floor - 1
 
-func save_tools(weapon: PackedScene) -> void:
+func save_tools(tool_array: Array) -> void:
 	var config = ConfigFile.new()
 	config.load(SAVE_PATH)
-	config.set_value(TOOL_SECTION, SECONDARY_WEAPON_KEY, weapon.resource_path)
+	config.set_value(TOOL_SECTION, TOOL_ARRAY_KEY, tool_array)
 	config.save(SAVE_PATH)
 
 func fetch_tools() -> void:
@@ -105,8 +105,8 @@ func fetch_tools() -> void:
 	config.load(SAVE_PATH)
 	if config.load(SAVE_PATH) != OK:
 		return
-	var weapon_path = config.get_value(TOOL_SECTION, SECONDARY_WEAPON_KEY, "")
-	if weapon_path != "":
+	var tool_array = config.get_value(TOOL_SECTION, TOOL_ARRAY_KEY, [])
+	for weapon_path in tool_array:
 		print("weapon should be spawned in")
 		var weapon_scene = load(weapon_path)
 		var real_weapon = weapon_scene.instantiate()

@@ -7,6 +7,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if SavedData.num_floor == 3:
 		SaveFile.save_currency()
 		SavedData.reset_data()
+		SaveFile.unsave_safe_area()
 		#SceneTransistor.start_transition_to("res://game.tscn")
 		SceneTransistor.start_transition_to("res://pre_game_area.tscn")
 	else:

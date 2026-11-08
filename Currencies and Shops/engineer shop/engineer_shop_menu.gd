@@ -24,3 +24,11 @@ func _on_exit_pressed() -> void:
 	SavedData.reset_data()
 	SavedData.fetch_data()
 	SceneTransistor.start_transition_to("res://pre_game_area.tscn")
+
+
+func _on_swap_pressed() -> void:
+	SaveFile.save_permanent_upgrades()
+	SaveFile.save_currency()
+	SavedData.reset_data()
+	SavedData.fetch_data()
+	SceneTransistor.start_transition_to("res://Currencies and Shops/engineer shop/tool_shop_menu.tscn")

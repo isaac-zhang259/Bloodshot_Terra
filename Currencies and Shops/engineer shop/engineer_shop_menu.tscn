@@ -111,17 +111,26 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_5i2at")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gqi1m")
 icon = ExtResource("7_dd1s6")
 
+[node name="Swap" type="Button" parent="." unique_id=229081354]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Buy Per Run Tools"
+
 [node name="Exit" type="Button" parent="." unique_id=879135571]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -18.5
-offset_top = -31.0
-offset_right = 18.5
-grow_horizontal = 2
+offset_top = -30.0
+offset_right = 54.0
 grow_vertical = 0
 text = "Exit"
 
@@ -146,4 +155,5 @@ texture = ExtResource("3_1ysua")
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Health" to="." method="_on_health_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer2/Speed" to="." method="_on_speed_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer3/Damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="Swap" to="." method="_on_swap_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
