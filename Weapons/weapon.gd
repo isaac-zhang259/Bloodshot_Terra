@@ -6,6 +6,7 @@ class_name Weapon
 @export var ranged_weapon: bool = false
 @export var rotation_offset: int = 0
 
+@export var safety_beacon: bool = false
 
 var tween: Tween = null
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
@@ -24,7 +25,7 @@ func weapon_set_name(w_n: String) -> void:
 	weapon_name = w_n
 
 func get_input() -> void:
-	if Game.player.in_game:
+	if Game.player.in_game and not safety_beacon:
 		if Input.is_action_just_pressed("attack") and not animation_player.is_playing():
 				animation_player.play(weapon_name + "_attack_animations/charge")
 		elif Input.is_action_just_released("attack"):

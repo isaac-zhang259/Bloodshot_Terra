@@ -9,9 +9,9 @@ func _on_crossbow_pressed() -> void:
 		purchased_items.append(crossbow)
 
 func _on_safety_beacon_pressed() -> void:
-	return
 	var beacon = PreloadedScenes.safety_beacon.resource_path
-	if SavedData.per_save_currency >= 50 and not purchased_items.has(beacon):
+	SaveFile.fetch_safe_area()
+	if SavedData.per_save_currency >= 50 and not purchased_items.has(beacon) and not SavedData.has_saved:
 		SavedData.per_save_currency -= 50
 		purchased_items.append(beacon)
 

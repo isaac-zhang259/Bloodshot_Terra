@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://4ik1dw7lur62"]
 
 [ext_resource type="PackedScene" uid="uid://bbmb0pq2lwdqv" path="res://Weapons/projectile.tscn" id="1_atphe"]
-[ext_resource type="Texture2D" uid="uid://c4up35mupm3bb" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/Arrow.png" id="2_4x6rx"]
+[ext_resource type="Texture2D" uid="uid://c4bq4minbq74b" path="res://Art/my own art :thumbsup:/tools/crossbow_and_arrow.png" id="2_atphe"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_psjyu"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4x6rx"]
 resource_local_to_scene = true
 radius = 2.8284273
-height = 19.798992
+height = 16.970564
 
 [node name="StunDart" unique_id=634864667 instance=ExtResource("1_atphe")]
 collision_mask = 2
@@ -15,11 +15,11 @@ damage = 0
 knockback_force = 100
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1150800905]
-shape = SubResource("CapsuleShape2D_psjyu")
+shape = SubResource("CapsuleShape2D_4x6rx")
 
 [node name="Sprite2D" parent="." index="1" unique_id=253812254]
-position = Vector2(0, 0)
-texture = ExtResource("2_4x6rx")
-hframes = 1
+position = Vector2(2, -2)
+texture = ExtResource("2_atphe")
+hframes = 2
 vframes = 1
-frame = 0
+frame = 1

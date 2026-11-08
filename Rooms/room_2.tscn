@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_walep"]
 [ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_dul0j"]
 [ext_resource type="PackedScene" uid="uid://cjwu1nxio7im6" path="res://Rooms/Furnitures and Traps/spikes.tscn" id="3_a6hup"]
-[ext_resource type="PackedScene" uid="uid://c2v6dh754b2d4" path="res://Rooms/safety_beacon.tscn" id="4_pprqg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(32, 16)
@@ -58,7 +57,3 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=1064429392]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_thutw")
-
-[node name="SafetyBeacon" parent="." index="8" unique_id=600168314 instance=ExtResource("4_pprqg")]
-position = Vector2(176, 98)
-scale = Vector2(0.5, 0.5)

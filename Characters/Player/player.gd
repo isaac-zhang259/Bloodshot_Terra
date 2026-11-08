@@ -12,6 +12,7 @@ const blue_speed: int = 100
 @export var red: bool = false
 @export var in_game: bool = false
 @export var invincible: bool = false
+@export var in_combat: bool = false
 
 @onready var parent: Node2D = get_parent()
 @onready var weapons: Node2D = get_node("Weapons")
@@ -23,8 +24,9 @@ func _init() -> void:
 func _ready() -> void:
 	reset_values()
 	if in_game:
-		SaveFile.fetch_tools()
-		SaveFile.save_tools([])
+		if SavedData.num_floor <= SavedData.safety_floor:
+			SaveFile.fetch_tools()
+			SaveFile.save_tools([])
 	_restore_previous_state()
 
 func _restore_previous_state() -> void:
@@ -35,6 +37,7 @@ func _restore_previous_state() -> void:
 		weapon.hide()
 		weapon.position = Vector2.ZERO
 		weapons.add_child(weapon)
+		weapon.on_floor = false
 	current_weapon = weapons.get_child(SavedData.equipped_weapon_index)
 	current_weapon.weapon_set_name(current_weapon.name)
 	current_weapon.show()
@@ -98,6 +101,7 @@ func pick_up_weapon(weapon: Node2D) -> void:
 	current_weapon.hide()
 	current_weapon.cancel_attack()
 	current_weapon = weapon
+	current_weapon.on_floor = false
 	current_weapon.weapon_set_name(current_weapon.name)
 
 func _drop_weapon() -> void:
@@ -107,6 +111,7 @@ func _drop_weapon() -> void:
 	weapons.call_deferred("remove_child", weapon_to_drop)
 	get_parent().call_deferred("add_child", weapon_to_drop)
 	weapon_to_drop.set_owner(get_parent())
+	weapon_to_drop.on_floor = true
 	await weapon_to_drop.tree_entered
 	weapon_to_drop.show()
 	

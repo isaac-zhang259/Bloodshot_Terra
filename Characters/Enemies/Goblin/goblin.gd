@@ -15,7 +15,7 @@ var distance_to_player: float
 @onready var aim_raycast: RayCast2D = get_node("AimRayCast")
 
 func _on_path_timer_timeout() -> void:
-	if is_instance_valid(player):
+	if is_instance_valid(player) and not stunned:
 		distance_to_player = (player.position - global_position).length()
 		if distance_to_player > MAX_DISTANCE_TO_PLAYER:
 			_get_path_to_player()

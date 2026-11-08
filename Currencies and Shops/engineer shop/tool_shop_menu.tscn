@@ -1,33 +1,10 @@
 [gd_scene format=3 uid="uid://b53hip72a4qoy"]
 
 [ext_resource type="Script" uid="uid://coifhpgo5hsxx" path="res://Currencies and Shops/engineer shop/tool_shop_menu.gd" id="1_wwp75"]
-[ext_resource type="Texture2D" uid="uid://bbbp2iemfmddu" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/Crossbow.png" id="2_8me8g"]
-[ext_resource type="Texture2D" uid="uid://c4up35mupm3bb" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/Arrow.png" id="3_5kl43"]
-[ext_resource type="Texture2D" uid="uid://d4k5n6jsd7ffa" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_button_health.png" id="4_q5a36"]
-[ext_resource type="Texture2D" uid="uid://cngbu43viend3" path="res://Art/my own art :thumbsup:/broken mech boss/broken_machinery_boss_concept.png" id="5_j8so6"]
-[ext_resource type="Texture2D" uid="uid://ywolmvbsgdtu" path="res://Art/my own art :thumbsup:/currency + shops/upgrade plates/upgrade_button_speed.png" id="6_rnmbo"]
+[ext_resource type="Texture2D" uid="uid://c4bq4minbq74b" path="res://Art/my own art :thumbsup:/tools/crossbow_and_arrow.png" id="2_64f2g"]
+[ext_resource type="Texture2D" uid="uid://yng3afajabbf" path="res://Art/my own art :thumbsup:/tools/safety_beacon.png" id="3_aswyf"]
 [ext_resource type="Script" uid="uid://7k4pxpv5etxx" path="res://per_save_currency_label.gd" id="7_kx6ea"]
 [ext_resource type="Texture2D" uid="uid://ca3lxew286if6" path="res://Art/my own art :thumbsup:/currency + shops/anima_currency.png" id="8_a3age"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lte76"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h33o3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8lbjf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bojxa"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sd1sl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ew2f"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0n23w"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cfx6y"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ayi1u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qgacq"]
 
 [node name="ToolShopMenu" type="Control" unique_id=853325420]
 layout_mode = 3
@@ -56,12 +33,15 @@ layout_mode = 2
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=804014780]
 position = Vector2(65, -69)
 scale = Vector2(3, 3)
-texture = ExtResource("2_8me8g")
+texture = ExtResource("2_64f2g")
+hframes = 2
 
 [node name="Sprite2D2" type="Sprite2D" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=754941430]
 position = Vector2(63, -29)
 scale = Vector2(2, 2)
-texture = ExtResource("3_5kl43")
+texture = ExtResource("2_64f2g")
+hframes = 2
+frame = 1
 
 [node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=1027255933]
 layout_mode = 2
@@ -70,14 +50,8 @@ sleep dart"
 
 [node name="Crossbow" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer" unique_id=1284785611]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_lte76")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_h33o3")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_8lbjf")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_bojxa")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sd1sl")
 text = "Cost: 15
 Purchase"
-icon = ExtResource("4_q5a36")
 icon_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer" unique_id=955782523]
@@ -86,10 +60,8 @@ layout_mode = 2
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer/HBoxContainer/VBoxContainer2" unique_id=970026556]
 position = Vector2(65, -67)
 scale = Vector2(3, 3)
-texture = ExtResource("5_j8so6")
-hframes = 9
-vframes = 9
-frame = 7
+texture = ExtResource("3_aswyf")
+hframes = 4
 
 [node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer2" unique_id=1079834691]
 layout_mode = 2
@@ -98,14 +70,8 @@ text = "Safety beacon
 
 [node name="SafetyBeacon" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer2" unique_id=1191117084]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_5ew2f")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0n23w")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_cfx6y")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ayi1u")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qgacq")
 text = "Cost: 50
 Purchase"
-icon = ExtResource("6_rnmbo")
 icon_alignment = 1
 
 [node name="Swap" type="Button" parent="." unique_id=1835387650]

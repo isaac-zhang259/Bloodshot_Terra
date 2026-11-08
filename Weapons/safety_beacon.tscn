@@ -1,0 +1,297 @@
+[gd_scene format=3 uid="uid://24wwrvvfraty"]
+
+[ext_resource type="PackedScene" uid="uid://b7q5cdpg0khsb" path="res://Weapons/weapon.tscn" id="1_wfik3"]
+[ext_resource type="Script" uid="uid://bhmm2g54v8sp3" path="res://Weapons/safety_beacon.gd" id="2_5ivdg"]
+[ext_resource type="Texture2D" uid="uid://yng3afajabbf" path="res://Art/my own art :thumbsup:/tools/safety_beacon.png" id="3_102g5"]
+[ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="4_4f1xe"]
+[ext_resource type="Texture2D" uid="uid://clvtuweewdfji" path="res://Art/my own art :thumbsup:/effects/crystal_particle.png" id="4_g75qa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g75qa"]
+atlas = ExtResource("3_102g5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f1xe"]
+atlas = ExtResource("3_102g5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld3ax"]
+atlas = ExtResource("3_102g5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6wa7"]
+atlas = ExtResource("3_102g5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm3jc"]
+atlas = ExtResource("4_4f1xe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqvxo"]
+atlas = ExtResource("4_4f1xe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc3bq"]
+atlas = ExtResource("4_4f1xe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqkkv"]
+atlas = ExtResource("4_4f1xe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thutw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g75qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f1xe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld3ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6wa7")
+}],
+"loop": 1,
+"name": &"beacon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm3jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqvxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc3bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqkkv")
+}],
+"loop": 1,
+"name": &"explosion",
+"speed": 5.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_102g5"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 70.0
+angular_velocity_min = -10.000016
+angular_velocity_max = 9.999984
+gravity = Vector3(-50, -50, 0)
+linear_accel_min = 9.999997
+linear_accel_max = 9.999997
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4f1xe"]
+radius = 13.0
+
+[sub_resource type="Animation" id="Animation_102g5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"beacon"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BeaconParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g75qa"]
+_data = {
+&"RESET": SubResource("Animation_102g5")
+}
+
+[sub_resource type="Animation" id="Animation_5ivdg"]
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"beacon", &"explosion"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8, 4.5, 4.6000004, 4.7000003, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BeaconParticles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.9, 5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"activate_floor_save"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_102g5"]
+_data = {
+&"beacon": SubResource("Animation_5ivdg")
+}
+
+[node name="SafetyBeacon" unique_id=1246912622 instance=ExtResource("1_wfik3")]
+script = ExtResource("2_5ivdg")
+
+[node name="Node2D" parent="." index="0" unique_id=731682081]
+position = Vector2(10, 0)
+rotation = 0.0
+
+[node name="Sprite2D" parent="Node2D" index="0" unique_id=754574074]
+visible = false
+position = Vector2(0, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" index="1" unique_id=733970017]
+sprite_frames = SubResource("SpriteFrames_thutw")
+animation = &"beacon"
+
+[node name="BeaconParticles" type="GPUParticles2D" parent="Node2D" index="2" unique_id=624872810]
+emitting = false
+amount = 16
+texture = ExtResource("4_g75qa")
+process_material = SubResource("ParticleProcessMaterial_102g5")
+
+[node name="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(700877036) index="0" unique_id=1806834000]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_4f1xe")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=41626454]
+libraries/ = SubResource("AnimationLibrary_g75qa")
+libraries/beacon_animations = SubResource("AnimationLibrary_102g5")

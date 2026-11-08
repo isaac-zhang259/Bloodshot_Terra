@@ -68,9 +68,10 @@ func fetch_permanent_upgrades() -> void:
 	SavedData.damage_upgrade = config.get_value(UPGRADE_SECTION, DAMAGE_KEY, 0)
 
 func save_safe_area() -> void:
+	SavedData.safety_floor = SavedData.num_floor
 	var config = ConfigFile.new()
 	config.load(SAVE_PATH)
-	config.set_value(PROGRESSION_SECTION, SAFE_FLOOR_KEY, SavedData.safety_floor)
+	config.set_value(PROGRESSION_SECTION, SAFE_FLOOR_KEY, SavedData.safety_floor + 1)
 	config.set_value(PROGRESSION_SECTION, SAFE_ROOM_KEY, SavedData.safety_room)
 	config.set_value(PROGRESSION_SECTION, HAS_SAVED_KEY, true)
 	config.save(SAVE_PATH)
@@ -112,5 +113,5 @@ func fetch_tools() -> void:
 		var real_weapon = weapon_scene.instantiate()
 		get_tree().current_scene.add_child.call_deferred(real_weapon)
 		real_weapon.on_floor = true
-		real_weapon.name = real_weapon.name.to_lower()
+		real_weapon.name = real_weapon.name.to_lower() 
 		real_weapon.global_position = Game.player.global_position

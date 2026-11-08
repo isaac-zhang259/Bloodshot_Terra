@@ -5,7 +5,7 @@ class_name Room
 @export var lab_room: bool = false
 @export var tutorial_room: bool = false
 
-@export var room_number: int = 0
+var room_number: int = 0
 
 const SPAWN_EXPLOSION_SCENE: PackedScene = preload("res://Characters/Enemies/spawn_explosion.tscn")
 
@@ -36,20 +36,22 @@ func _on_enemy_killed() -> void:
 	num_enemies -= 1
 	if num_enemies == 0:
 		if not tutorial_room:
+			Game.player.in_combat = false
 			_open_doors()
 	
 func _open_doors() -> void:
+	SavedData.safety_room = room_number
 	for door in door_container.get_children():
 		door.open()
 		
 func _close_entrance() -> void:
-	SavedData.safety_room = room_number
 	for entry_position in entrance.get_children():
 		print(tilemap.local_to_map(entry_position.position))
 		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 8))
 		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(1, 4))
 		
 func _spawn_enemies() -> void:
+	Game.player.in_combat = true
 	for enemy_position in enemy_positions_container.get_children():
 		var enemy: CharacterBody2D
 		if boss_room:

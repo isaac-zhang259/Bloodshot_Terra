@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7q5cdpg0khsb" path="res://Weapons/weapon.tscn" id="1_8ls7l"]
 [ext_resource type="Script" uid="uid://coy4b4e6cglke" path="res://Weapons/crossbow.gd" id="2_g63q8"]
-[ext_resource type="Texture2D" uid="uid://bbbp2iemfmddu" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/Crossbow.png" id="2_vxtuk"]
+[ext_resource type="Texture2D" uid="uid://c4bq4minbq74b" path="res://Art/my own art :thumbsup:/tools/crossbow_and_arrow.png" id="3_vxtuk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_amlpv"]
 height = 24.0
@@ -164,8 +164,9 @@ ranged_weapon = true
 rotation_offset = 180
 
 [node name="Sprite2D" parent="Node2D" parent_id_path=PackedInt32Array(731682081) index="0" unique_id=754574074]
-position = Vector2(0, -3)
-texture = ExtResource("2_vxtuk")
+position = Vector2(-0.99999976, -3)
+texture = ExtResource("3_vxtuk")
+hframes = 2
 
 [node name="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(700877036) index="0" unique_id=1806834000]
 position = Vector2(-9, 0)
