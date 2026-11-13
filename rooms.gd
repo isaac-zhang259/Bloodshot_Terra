@@ -6,6 +6,7 @@ const SPECIAL_ROOMS: Array = [preload("res://Rooms/special_room_0.tscn"), preloa
 const END_ROOMS: Array = [preload("res://Rooms/end_room_0.tscn"), preload("res://Rooms/end_room_1.tscn")]
 const MECH_BOSS_SCENE: PackedScene = preload("res://Rooms/mech_boss_room.tscn")
 const TEMP_CAMP_ROOM: PackedScene = preload("res://Rooms/temp_camp_room.tscn")
+const SIDE_ROOMS: Array = [preload("res://Rooms/side_test_room_1.tscn")]
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX = Vector2i(0, 0)

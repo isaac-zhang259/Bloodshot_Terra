@@ -4,6 +4,9 @@ class_name Room
 @export var boss_room: bool = false
 @export var lab_room: bool = false
 @export var tutorial_room: bool = false
+@export var open_side_left: bool = false
+@export var open_side_right: bool = false
+
 
 var room_number: int = 0
 

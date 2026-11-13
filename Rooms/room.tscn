@@ -529,6 +529,8 @@ navigation_polygon = SubResource("NavigationPolygon_thutw")
 
 [node name="Entrance" type="Node2D" parent="." unique_id=1290251783]
 
+[node name="SideEntrance" type="Node2D" parent="." unique_id=2035839757]
+
 [node name="Doors" type="Node2D" parent="." unique_id=484835316]
 
 [node name="EnemyPositions" type="Node2D" parent="." unique_id=784821068]
