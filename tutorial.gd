@@ -68,23 +68,18 @@ func _on_tutorial_timer_timeout() -> void:
 				Game.player.invincible = false
 				tutorial_timer.wait_time = 9999
 				Game.player.hp += 5
-				text_box.display_text("Defeat is sometimes inevitable, in which case, we will repair you at the nearest safe area.")
+				text_box.display_text("Defeat is sometimes inevitable, in which case, we will repair you and you can return to the nearest safe area to continue your journey.")
 		10:
 			Game.player.stunned = false
 			Game.player.in_game = true
 			Game.player.invincible = true
 			tutorial_room.num_enemies = 0
-			#tutorial_timer.wait_time = 30
-			#dialogue_panel.display_text("If you find a safe area, light a safety beacon, so our scientists can set up camp there. This allows us to repair you at the midpoint of your journey, as opposed to the beginning.")
+			tutorial_timer.wait_time = 30
+			text_box.display_text("If you find a safe area, light a safety beacon, so our scientists can set up camp there. This allows us to drop you off at the midpoint of your journey, as opposed to the beginning.")
 			#safety beacons
-			#gotta add them first before this bro
-			SaveFile.mark_tutorial_completed()
-			tutorial_room._open_doors()
-			text_box.display_text("This is all you need to know for now. Step through the gate and join us.")
 		11:
-			#restore step 11's existance once safety beacons are actually in the game
 			SaveFile.mark_tutorial_completed()
 			tutorial_room._open_doors()
 			text_box.display_text("This is all you need to know for now. Step through the gate and join us.")
-	if tutorial_step < 10:
+	if tutorial_step < 11:
 		tutorial_timer.start()
