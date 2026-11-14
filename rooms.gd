@@ -1,12 +1,12 @@
 extends Node2D
 
 const SPAWN_ROOMS: Array = [preload("res://Rooms/spawn_room_0.tscn"), preload("res://Rooms/spawn_room_1.tscn")]
-const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/room_0.tscn"), preload("res://Rooms/room_1.tscn"), preload("res://Rooms/room_2.tscn")]
+const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/room_0.tscn"), preload("res://Rooms/room_1.tscn"), preload("res://Rooms/room_2.tscn"), preload("res://Rooms/room_3.tscn")]
 const SPECIAL_ROOMS: Array = [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/special_room_1.tscn")]
 const END_ROOMS: Array = [preload("res://Rooms/end_room_0.tscn"), preload("res://Rooms/end_room_1.tscn")]
 const MECH_BOSS_SCENE: PackedScene = preload("res://Rooms/mech_boss_room.tscn")
 const TEMP_CAMP_ROOM: PackedScene = preload("res://Rooms/temp_camp_room.tscn")
-const SIDE_ROOMS: Array = [preload("res://Rooms/side_test_room_1.tscn")]
+const SIDE_ROOMS: Array = [preload("res://Rooms/side_test_room_0.tscn"), preload("res://Rooms/side_test_room_1.tscn")]
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX = Vector2i(0, 0)
@@ -31,8 +31,6 @@ func _spawn_rooms() -> void:
 	for i in num_levels:
 		var room: Node2D
 		if i == 0:
-			print(SavedData.num_floor)
-			print(SavedData.safety_floor)
 			if SavedData.num_floor == SavedData.safety_floor and SavedData.has_saved:
 				#spawn in the scientist temporary camp
 				room = TEMP_CAMP_ROOM.instantiate()
@@ -52,7 +50,8 @@ func _spawn_rooms() -> void:
 						room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instantiate()
 						special_room_spawned = true
 					else:
-						room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instantiate()
+						#room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instantiate()
+						room = INTERMEDIATE_ROOMS[INTERMEDIATE_ROOMS.size() - 1].instantiate()
 			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/Door")
 						
 			var room_tilemap: TileMap = room.get_node("TileMap")
@@ -66,3 +65,10 @@ func _spawn_rooms() -> void:
 			room.room_number = i
 		add_child(room)
 		previous_room = room
+		if room.open_side_left or room.open_side_right:
+			var side_room: Node2D = SIDE_ROOMS[randi() % SIDE_ROOMS.size()].instantiate()
+			var side_room_tilemap: TileMap = side_room.get_node("TileMap")
+			var room_side_exit: Marker2D = room.get_node("SideEntrance/Marker2D2")
+			var side_room_entrance: Marker2D = side_room.get_node("SideEntrance/Marker2D2")
+			side_room.position = room_side_exit.global_position + Vector2.RIGHT * ((room_side_exit.position.x - side_room_entrance.position.x) / 2) + Vector2.UP * (side_room_tilemap.local_to_map(side_room_entrance.position).y + 0.5) * TILE_SIZE
+			add_child(side_room)
