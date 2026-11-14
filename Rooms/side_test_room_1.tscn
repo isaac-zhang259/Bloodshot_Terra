@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d0ukwk0qhoi8y"]
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_b7ms3"]
+[ext_resource type="PackedScene" uid="uid://dhyqj70yegg0p" path="res://Currencies and Shops/scrapyard shop/scrappy_character.tscn" id="2_3oq8l"]
 
 [node name="SideTestRoom" unique_id=354325685 instance=ExtResource("1_b7ms3")]
 
@@ -15,3 +16,6 @@ position = Vector2(168, 104)
 
 [node name="Marker2D2" type="Marker2D" parent="SideEntrance" parent_id_path=PackedInt32Array(2035839757) index="1" unique_id=905934057]
 position = Vector2(168, 120)
+
+[node name="ScrappyCharacter" parent="." index="9" unique_id=322231290 instance=ExtResource("2_3oq8l")]
+position = Vector2(254, 99)

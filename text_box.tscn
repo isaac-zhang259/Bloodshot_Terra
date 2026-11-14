@@ -23,6 +23,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
+size = Vector2(264, 68)
+
 [node name="TextBox" type="AnimatedSprite2D" unique_id=698755712]
 position = Vector2(248, 232)
 sprite_frames = SubResource("SpriteFrames_thutw")
@@ -45,3 +48,27 @@ theme_override_constants/line_separation = 1
 theme_override_font_sizes/normal_font_size = 12
 text = "testing testing"
 scroll_following_visible_characters = true
+
+[node name="Yes" type="Button" parent="." unique_id=444900995]
+offset_left = -181.0
+offset_top = 12.0
+offset_right = -133.0
+offset_bottom = 36.0
+text = "Yes"
+
+[node name="No" type="Button" parent="." unique_id=1416547945]
+offset_left = 133.0
+offset_top = 12.0
+offset_right = 169.0
+offset_bottom = 36.0
+text = "No"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1724047006]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=831157200]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_thutw")
+
+[connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_no_pressed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

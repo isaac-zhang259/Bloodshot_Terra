@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b0bsv0aig41mq" path="res://Art/my own art :thumbsup:/currency + shops/opul_currency.png" id="8_hve3p"]
 [ext_resource type="Script" uid="uid://7k4pxpv5etxx" path="res://per_save_currency_label.gd" id="9_iotsf"]
 [ext_resource type="Texture2D" uid="uid://ca3lxew286if6" path="res://Art/my own art :thumbsup:/currency + shops/anima_currency.png" id="10_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://c5kgnye2a6wfi" path="res://text_box.tscn" id="11_lc2xo"]
 
 [node name="Game" type="Node2D" unique_id=2018493198]
 script = ExtResource("1_eow3j")
@@ -67,12 +68,15 @@ position = Vector2(-6, 8)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_lc2xo")
 
+[node name="TextBox" parent="UI" unique_id=698755712 instance=ExtResource("11_lc2xo")]
+characters_per_second = null
+tutorial = null
+
 [node name="Rooms" type="Node2D" parent="." unique_id=1353587236]
 script = ExtResource("5_j5wjh")
 
 [node name="Player" parent="." unique_id=542487015 instance=ExtResource("2_e2o6t")]
 position = Vector2(187, 162)
-in_combat = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=467662129]
 
