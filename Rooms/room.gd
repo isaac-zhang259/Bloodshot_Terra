@@ -7,6 +7,7 @@ class_name Room
 @export var open_side_left: bool = false
 @export var open_side_right: bool = false
 
+var spawn_wave: int = 0
 
 var room_number: int = 0
 
@@ -39,8 +40,11 @@ func _on_enemy_killed() -> void:
 	num_enemies -= 1
 	if num_enemies == 0:
 		if not tutorial_room:
-			Game.player.in_combat = false
-			_open_doors()
+			if spawn_wave < 3:
+				_spawn_enemies()
+			else:
+				Game.player.in_combat = false
+				_open_doors()
 	
 func _open_doors() -> void:
 	SavedData.safety_room = room_number
@@ -54,25 +58,28 @@ func _close_entrance() -> void:
 		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(1, 4))
 		
 func _spawn_enemies() -> void:
-	Game.player.in_combat = true
-	for enemy_position in enemy_positions_container.get_children():
-		var enemy: CharacterBody2D
-		if boss_room:
-			enemy = ENEMY_SCENES.MECH_BOSS.instantiate()
-			SavedData.in_boss_fight = true
-		else:
-			var random = randi() % 3
-			match random:
-				0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
-				1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
-				2: enemy = ENEMY_SCENES.CRAWLER.instantiate()
-		
-		enemy.position = enemy_position.position
-		call_deferred("add_child", enemy)
-		
-		var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
-		spawn_explosion.position = enemy_position.position
-		call_deferred("add_child", spawn_explosion)
+	if spawn_wave < 3:
+		spawn_wave += 1
+		num_enemies = enemy_positions_container.get_child_count()
+		Game.player.in_combat = true
+		for enemy_position in enemy_positions_container.get_children():
+			var enemy: CharacterBody2D
+			if boss_room:
+				enemy = ENEMY_SCENES.MECH_BOSS.instantiate()
+				SavedData.in_boss_fight = true
+			else:
+				var random = randi() % 3
+				match random:
+					0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+					1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
+					2: enemy = ENEMY_SCENES.CRAWLER.instantiate()
+			
+			enemy.position = enemy_position.position
+			call_deferred("add_child", enemy)
+			
+			var spawn_explosion: AnimatedSprite2D = SPAWN_EXPLOSION_SCENE.instantiate()
+			spawn_explosion.position = enemy_position.position
+			call_deferred("add_child", spawn_explosion)
 
 func _on_player_detector_body_entered(_body: CharacterBody2D) -> void:
 	player_detector.queue_free()
