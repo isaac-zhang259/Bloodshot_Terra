@@ -7,6 +7,7 @@ const TUTORIAL_KEY = "tutorial_completed"
 const SAFE_FLOOR_KEY = "safe_floor"
 const SAFE_ROOM_KEY = "safe_room"
 const HAS_SAVED_KEY = "has_saved"
+const CHAPTER_KEY = "chapter"
 
 const CURRENCY_SECTION = "Currency"
 const CURRENCY_KEY = "per_save_currency"
@@ -108,10 +109,22 @@ func fetch_tools() -> void:
 		return
 	var tool_array = config.get_value(TOOL_SECTION, TOOL_ARRAY_KEY, [])
 	for weapon_path in tool_array:
-		print("weapon should be spawned in")
 		var weapon_scene = load(weapon_path)
 		var real_weapon = weapon_scene.instantiate()
 		get_tree().current_scene.add_child.call_deferred(real_weapon)
 		real_weapon.on_floor = true
 		real_weapon.name = real_weapon.name.to_lower() 
 		real_weapon.global_position = Game.player.global_position
+
+func save_chapter_completion(chapter: int) -> void:
+	var config = ConfigFile.new()
+	config.load(SAVE_PATH)
+	config.set_value(PROGRESSION_SECTION, CHAPTER_KEY, chapter)
+	config.save(SAVE_PATH)
+	
+func fetch_chapter_completions() -> void:
+	var config = ConfigFile.new()
+	config.load(SAVE_PATH)
+	if config.load(SAVE_PATH) != OK:
+		return
+	SavedData.chapter = config.get_value(PROGRESSION_SECTION, CHAPTER_KEY, 0)

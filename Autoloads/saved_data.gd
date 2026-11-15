@@ -22,6 +22,8 @@ var safety_floor: int = 0
 var safety_room: int = 0
 var has_saved: bool = false
 
+var chapter: int = 0
+
 func reset_data() -> void:
 	max_hp = 16 + health_upgrade
 	hp = max_hp / 2
@@ -32,6 +34,7 @@ func reset_data() -> void:
 	
 func fetch_data() -> void:
 	per_save_currency = SaveFile.get_currency()
+	SaveFile.fetch_chapter_completions()
 	#add any new fetching things here, like upgrades and stuff
 	SaveFile.fetch_permanent_upgrades()
 	SaveFile.fetch_safe_area()
