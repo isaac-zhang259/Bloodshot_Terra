@@ -20,7 +20,7 @@ const LEFT_WALL_TILE_INDEX = Vector2i(3, 6)
 
 func _ready() -> void:
 	SavedData.num_floor += 1
-	if SavedData.num_floor == 3:
+	if SavedData.num_floor == SavedData.max_floors:
 		num_levels = 3
 	if SavedData.num_floor == SavedData.safety_floor and SavedData.has_saved:
 		num_levels -= SavedData.safety_room
@@ -43,7 +43,7 @@ func _spawn_rooms() -> void:
 			if i == num_levels - 1:
 				room = END_ROOMS[randi() % END_ROOMS.size()].instantiate()
 			else:
-				if SavedData.num_floor == 3:
+				if SavedData.num_floor == SavedData.max_floors:
 					room = MECH_BOSS_SCENE.instantiate()
 				else:
 					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):

@@ -4,12 +4,13 @@ var doing_tutorial: bool = false
 var in_boss_fight: bool = false
 
 var num_floor: int = 0
+var chapter: int = 0
+var max_floors: int = 3
 
 var max_hp: int = 16
 var hp: int = 8
 var weapons: Array = []
 var equipped_weapon_index: int = 0
-
 
 var per_run_currency: int = 0
 var per_save_currency: int = 0
@@ -21,8 +22,6 @@ var damage_upgrade: int = 0
 var safety_floor: int = 0
 var safety_room: int = 0
 var has_saved: bool = false
-
-var chapter: int = 0
 
 func reset_data() -> void:
 	max_hp = 16 + health_upgrade

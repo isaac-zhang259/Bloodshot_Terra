@@ -42,11 +42,15 @@ func _on_enemy_killed() -> void:
 	num_enemies -= 1
 	if num_enemies == 0:
 		if not tutorial_room:
-			if spawn_wave < 3:
-				_spawn_enemies()
-			else:
+			if boss_room:
 				Game.player.in_combat = false
 				_open_doors()
+			else:
+				if spawn_wave < 3:
+					_spawn_enemies()
+				else:
+					Game.player.in_combat = false
+					_open_doors()
 	
 func _open_doors() -> void:
 	SavedData.safety_room = room_number
