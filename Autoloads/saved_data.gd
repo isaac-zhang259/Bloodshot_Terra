@@ -34,7 +34,6 @@ func reset_data() -> void:
 	
 func fetch_data() -> void:
 	per_save_currency = SaveFile.get_currency()
-	SaveFile.fetch_chapter_completions()
 	#add any new fetching things here, like upgrades and stuff
 	SaveFile.fetch_permanent_upgrades()
 	SaveFile.fetch_safe_area()

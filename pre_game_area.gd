@@ -4,3 +4,4 @@ func _ready() -> void:
 	SavedData.reset_data() 
 	SavedData.fetch_data()
 	SaveFile.fetch_safe_area()
+	SaveFile.fetch_chapter_completions()

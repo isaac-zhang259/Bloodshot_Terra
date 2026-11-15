@@ -93,7 +93,7 @@ func _on_player_detector_body_entered(_body: CharacterBody2D) -> void:
 	elif num_enemies > 0:
 		_close_entrance()
 		_spawn_enemies()
-	elif lab_room:
+	elif lab_room and SavedData.chapter < 6:
 		SceneTransistor.start_transition_to("res://game.tscn")
 	else:
 		_close_entrance()
