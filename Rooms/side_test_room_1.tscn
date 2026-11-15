@@ -18,4 +18,4 @@ position = Vector2(168, 104)
 position = Vector2(168, 120)
 
 [node name="ScrappyCharacter" parent="." index="9" unique_id=322231290 instance=ExtResource("2_3oq8l")]
-position = Vector2(254, 99)
+position = Vector2(248, 111)

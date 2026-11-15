@@ -24,8 +24,10 @@ const ENEMY_SCENES: Dictionary = {
 var num_enemies: int
 var stunned_enemies: int
 
-@onready var tilemap: TileMap = get_node("TileMap2")
+@onready var tilemap: TileMap = get_node("TileMap")
+@onready var above_tilemap: TileMap = get_node("TileMap2")
 @onready var entrance: Node2D = get_node("Entrance")
+@onready var side_entrance: Node2D = get_node("SideEntrance")
 @onready var door_container: Node2D = get_node("Doors")
 @onready var enemy_positions_container: Node2D = get_node("EnemyPositions")
 @onready var player_detector: Area2D = get_node("PlayerDetector")
@@ -50,12 +52,13 @@ func _open_doors() -> void:
 	SavedData.safety_room = room_number
 	for door in door_container.get_children():
 		door.open()
-		
+	for entry_position in side_entrance.get_children():
+		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 1))
+	
 func _close_entrance() -> void:
 	for entry_position in entrance.get_children():
-		print(tilemap.local_to_map(entry_position.position))
-		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 8))
-		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(1, 4))
+		above_tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 8))
+		above_tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(1, 4))
 		
 func _spawn_enemies() -> void:
 	if spawn_wave < 3:

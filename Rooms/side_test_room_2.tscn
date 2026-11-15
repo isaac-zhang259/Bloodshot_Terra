@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgyv7ji6rota6"]
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_ic57j"]
+[ext_resource type="PackedScene" uid="uid://d1c434rng4pr" path="res://Currencies and Shops/free_crystal.tscn" id="2_yq1e8"]
 
 [node name="SideTestRoom2" unique_id=354325685 instance=ExtResource("1_ic57j")]
 
@@ -15,3 +16,6 @@ position = Vector2(392, 88)
 
 [node name="Marker2D2" type="Marker2D" parent="SideEntrance" parent_id_path=PackedInt32Array(2035839757) index="1" unique_id=1295749249]
 position = Vector2(392, 104)
+
+[node name="FreeCrystal" parent="." index="9" unique_id=1879030663 instance=ExtResource("2_yq1e8")]
+position = Vector2(208, 208)

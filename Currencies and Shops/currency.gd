@@ -7,6 +7,7 @@ extends Area2D
 @export var acceleration: int = 2
 @export var max_speed: int = 10
 
+var can_be_attracted: bool = false
 var follow_player: bool = false
 
 var direction: Vector2 = Vector2.ZERO
@@ -24,6 +25,9 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 func _physics_process(_delta: float) -> void:
 	if speed > 0:
 		speed -= 1
+		can_be_attracted = false
+	else:
+		can_be_attracted = true
 	if follow_player:
 		direction = (Game.player.position - global_position).normalized()
 		speed = 5
@@ -37,7 +41,7 @@ func launch() -> void:
 
 
 func _on_player_detector_body_entered(body: CharacterBody2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" and can_be_attracted:
 		follow_player = true
 		self.set_collision_layer_value(1, false)
 		self.set_collision_mask_value(1, false)

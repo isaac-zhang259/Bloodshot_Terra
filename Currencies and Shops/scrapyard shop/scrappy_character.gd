@@ -12,7 +12,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if not bought_out:
-				Game.text_box.display_question("I don't care who you are. Hand me 20 Opuls and I'll hand you some fuel.")
+				Game.text_box.display_question("Hello. Hand me 20 Opuls and I'll hand you some fuel.")
 				while not Game.text_box.gave_answer:
 					await get_tree().process_frame
 				var answer = Game.text_box.answer

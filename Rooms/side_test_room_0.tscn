@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_8u28v"]
 [ext_resource type="PackedScene" uid="uid://dhyqj70yegg0p" path="res://Currencies and Shops/scrapyard shop/scrappy_character.tscn" id="2_nwbjs"]
+[ext_resource type="PackedScene" uid="uid://d1c434rng4pr" path="res://Currencies and Shops/free_crystal.tscn" id="3_55mu4"]
 
 [node name="SideTestRoom0" unique_id=354325685 instance=ExtResource("1_8u28v")]
 
@@ -18,4 +19,7 @@ position = Vector2(-56, 200)
 position = Vector2(-56, 216)
 
 [node name="ScrappyCharacter" parent="." index="9" unique_id=322231290 instance=ExtResource("2_nwbjs")]
-position = Vector2(120, 193)
+position = Vector2(305, 56)
+
+[node name="FreeCrystal" parent="." index="10" unique_id=1879030663 instance=ExtResource("3_55mu4")]
+position = Vector2(120, 192)
