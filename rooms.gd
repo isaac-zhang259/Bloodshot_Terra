@@ -2,7 +2,8 @@ extends Node2D
 
 const SPAWN_ROOMS: Array = [preload("res://Rooms/spawn_room_0.tscn"), preload("res://Rooms/spawn_room_1.tscn")]
 const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/room_0.tscn"), preload("res://Rooms/room_1.tscn"), preload("res://Rooms/room_2.tscn"), preload("res://Rooms/room_5.tscn")]
-const SPECIAL_ROOMS: Array = [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/special_room_1.tscn"), preload("res://Rooms/room_3.tscn"), preload("res://Rooms/room_4.tscn")]
+const SPECIAL_ROOMS: Array = [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/special_room_1.tscn"), preload("res://Rooms/room_3.tscn"), preload("res://Rooms/room_4.tscn"), preload("res://Rooms/room_6.tscn")]
+#const SPECIAL_ROOMS: Array = [preload("res://Rooms/room_6.tscn")]
 const END_ROOMS: Array = [preload("res://Rooms/end_room_0.tscn"), preload("res://Rooms/end_room_1.tscn")]
 const MECH_BOSS_SCENE: PackedScene = preload("res://Rooms/mech_boss_room.tscn")
 const TEMP_CAMP_ROOM: PackedScene = preload("res://Rooms/temp_camp_room.tscn")
@@ -46,8 +47,8 @@ func _spawn_rooms() -> void:
 				if SavedData.num_floor == SavedData.max_floors:
 					room = MECH_BOSS_SCENE.instantiate()
 				else:
-					#if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
-					if not special_room_spawned:
+					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
+					#if not special_room_spawned:
 						room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instantiate()
 						special_room_spawned = true
 					else:
@@ -62,6 +63,7 @@ func _spawn_rooms() -> void:
 			
 			room.room_number = i
 		add_child(room)
+
 		previous_room = room
 		if room.can_branch_side:
 			if room.open_side_right:
@@ -75,7 +77,11 @@ func _spawn_rooms() -> void:
 			if room.open_side_left:
 				var side_room: Node2D = SIDE_ROOMS_LEFT[randi() % SIDE_ROOMS_LEFT.size()].instantiate()
 				var side_room_tilemap: TileMap = side_room.get_node("TileMap")
-				var room_side_exit: Marker2D = room.get_node("SideEntrance/Marker2D2")
+				var room_side_exit: Marker2D
+				if room.open_side_right:
+					room_side_exit = room.get_node("SideEntrance/Marker2D4")
+				else:
+					room_side_exit = room.get_node("SideEntrance/Marker2D2")
 				var side_room_entrance: Marker2D = side_room.get_node("SideEntrance/Marker2D2")
 				side_room.position = room_side_exit.global_position + Vector2.LEFT * ((side_room_entrance.position.x - room_side_exit.position.x) * 2) + Vector2.UP * (side_room_tilemap.local_to_map(side_room_entrance.position).y + 0.5) * TILE_SIZE
 				side_room.position += Vector2.RIGHT * side_room.force_offset_right * TILE_SIZE
