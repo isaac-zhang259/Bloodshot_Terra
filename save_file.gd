@@ -2,6 +2,9 @@ extends Node
 
 const SAVE_PATH = "user://save_file.cfg"
 
+const USER_PREFERENCE_SECTION = "User_Preference"
+const FONT_KEY = "font"
+
 const PROGRESSION_SECTION = "Progression"
 const TUTORIAL_KEY = "tutorial_completed"
 const SAFE_FLOOR_KEY = "safe_floor"
@@ -128,3 +131,16 @@ func fetch_chapter_completions() -> void:
 	if config.load(SAVE_PATH) != OK:
 		return
 	SavedData.chapter = config.get_value(PROGRESSION_SECTION, CHAPTER_KEY, 0)
+	
+func save_font_choice(font: int) -> void:
+	var config = ConfigFile.new()
+	config.load(SAVE_PATH)
+	config.set_value(USER_PREFERENCE_SECTION, FONT_KEY, font)
+	config.save(SAVE_PATH)
+	
+func fetch_font_choice() -> int:
+	var config = ConfigFile.new()
+	config.load(SAVE_PATH)
+	if config.load(SAVE_PATH) != OK:
+		return 0
+	return config.get_value(USER_PREFERENCE_SECTION, FONT_KEY, 0)

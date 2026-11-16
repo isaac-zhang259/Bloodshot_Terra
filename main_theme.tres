@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://dvspg451x0sdh"]
+
+[ext_resource type="FontFile" uid="uid://cuvxu2kfog1kj" path="res://Art/my own art :thumbsup:/smart guy font.ttf" id="1_470mv"]
+
+[resource]
+default_font = ExtResource("1_470mv")

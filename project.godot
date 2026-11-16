@@ -33,7 +33,6 @@ PreloadedScenes="*uid://fd2u7phvi015"
 window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/mode=3
-window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -42,6 +41,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [gui]
 
+theme/custom="uid://dvspg451x0sdh"
 theme/custom_font="uid://cuvxu2kfog1kj"
 
 [input]
