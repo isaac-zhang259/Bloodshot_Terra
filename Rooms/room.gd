@@ -4,8 +4,12 @@ class_name Room
 @export var boss_room: bool = false
 @export var lab_room: bool = false
 @export var tutorial_room: bool = false
+@export var can_branch_side: bool = false
 @export var open_side_left: bool = false
 @export var open_side_right: bool = false
+
+@export var force_offset_right: int = 0
+@export var force_offset_up: int = 0
 
 var spawn_wave: int = 0
 

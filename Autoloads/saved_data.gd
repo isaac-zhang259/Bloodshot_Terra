@@ -5,7 +5,7 @@ var in_boss_fight: bool = false
 
 var num_floor: int = 0
 var chapter: int = 0
-var max_floors: int = 3
+var max_floors: int = 5
 
 var max_hp: int = 16
 var hp: int = 8

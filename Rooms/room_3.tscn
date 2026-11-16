@@ -8,6 +8,7 @@
 size = Vector2(32, 16)
 
 [node name="Room3" unique_id=354325685 instance=ExtResource("1_c0sts")]
+can_branch_side = true
 open_side_right = true
 
 [node name="TileMap" parent="." index="0" unique_id=293665720]
