@@ -4,9 +4,12 @@ class_name Room
 @export var boss_room: bool = false
 @export var lab_room: bool = false
 @export var tutorial_room: bool = false
+@export var miniboss_room: bool = false
+
 @export var can_branch_side: bool = false
 @export var open_side_left: bool = false
 @export var open_side_right: bool = false
+@export var is_side_room: bool = false
 
 @export var force_offset_right: int = 0
 @export var force_offset_up: int = 0
@@ -21,7 +24,10 @@ const ENEMY_SCENES: Dictionary = {
 	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/flying_creature.tscn"),
 	"GOBLIN": preload("res://Characters/Enemies/Goblin/goblin.tscn"),
 	"CRAWLER": preload("res://Characters/Enemies/Crawler/crawler.tscn"),
+	#sprouter enemy
+	#leech enemy
 	"SLIME_BOSS": preload("res://Characters/Enemies/Bosses/slime_boss.tscn"),
+	#big crawler miniboss
 	"MECH_BOSS": preload("res://Characters/Enemies/Bosses/broken_mech_boss.tscn")
 }
 
@@ -46,7 +52,7 @@ func _on_enemy_killed() -> void:
 	num_enemies -= 1
 	if num_enemies == 0:
 		if not tutorial_room:
-			if boss_room:
+			if boss_room or miniboss_room:
 				Game.player.in_combat = false
 				_open_doors()
 			else:
@@ -64,9 +70,13 @@ func _open_doors() -> void:
 		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 1))
 	
 func _close_entrance() -> void:
-	for entry_position in entrance.get_children():
-		above_tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 8))
-		above_tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(1, 4))
+	if is_side_room:
+		for entry_position in side_entrance.get_children():
+			tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 4))
+	else:
+		for entry_position in entrance.get_children():
+			above_tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 8))
+			above_tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(1, 4))
 		
 func _spawn_enemies() -> void:
 	if spawn_wave < 3:
@@ -78,6 +88,8 @@ func _spawn_enemies() -> void:
 			if boss_room:
 				enemy = ENEMY_SCENES.MECH_BOSS.instantiate()
 				SavedData.in_boss_fight = true
+			elif miniboss_room:
+				pass
 			else:
 				var random = randi() % 3
 				match random:
