@@ -17,7 +17,7 @@ func _on_path_timer_timeout() -> void:
 	else:
 		path_timer.stop()
 		mov_direction = Vector2.ZERO
-		
+
 func _get_path_to_move_away_from_player() -> void:
 	var dir: Vector2 = (global_position - player.position).normalized()
 	navigation_agent.target_position = global_position + dir * 100

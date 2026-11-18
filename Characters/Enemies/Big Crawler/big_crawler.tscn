@@ -5,7 +5,10 @@
 [ext_resource type="Script" uid="uid://kpa8rc0irkuf" path="res://Characters/Enemies/Big Crawler/big_crawler_fsm.gd" id="3_q5ah0"]
 [ext_resource type="Texture2D" uid="uid://bglwu566davog" path="res://Art/my own art :thumbsup:/enemies/big_crawler_charge.png" id="4_ei0vp"]
 [ext_resource type="Texture2D" uid="uid://bt17xr253rgot" path="res://Art/my own art :thumbsup:/effects/crystal_particle_green.png" id="4_q5ah0"]
+[ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="5_afkux"]
+[ext_resource type="Texture2D" uid="uid://ctnv2e0agfe5s" path="res://Art/my own art :thumbsup:/enemies/big_crawler_hurt.png" id="5_bjjd3"]
 [ext_resource type="Script" uid="uid://dtteoe71rhmfs" path="res://Characters/Player/hitbox.gd" id="6_4hv4g"]
+[ext_resource type="Texture2D" uid="uid://c45tqmucohssw" path="res://Art/my own art :thumbsup:/enemies/big_crawler_waking.png" id="6_afkux"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjjd3"]
 atlas = ExtResource("4_ei0vp")
@@ -31,6 +34,50 @@ region = Rect2(192, 0, 48, 48)
 atlas = ExtResource("4_ei0vp")
 region = Rect2(240, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdv2d"]
+atlas = ExtResource("5_afkux")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fje3s"]
+atlas = ExtResource("5_afkux")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjc70"]
+atlas = ExtResource("5_afkux")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28nn7"]
+atlas = ExtResource("5_afkux")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfmwk"]
+atlas = ExtResource("5_bjjd3")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1yia"]
+atlas = ExtResource("5_bjjd3")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcehi"]
+atlas = ExtResource("6_afkux")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rowe0"]
+atlas = ExtResource("6_afkux")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psmlp"]
+atlas = ExtResource("6_afkux")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbr7j"]
+atlas = ExtResource("6_afkux")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56w3s"]
+atlas = ExtResource("6_afkux")
+region = Rect2(192, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_sfr6o"]
 animations = [{
 "frames": [{
@@ -53,7 +100,55 @@ animations = [{
 "texture": SubResource("AtlasTexture_b6tmp")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"charging",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdv2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fje3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjc70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28nn7")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfmwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1yia")
+}],
+"loop": 1,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcehi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rowe0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psmlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbr7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56w3s")
+}],
+"loop": 0,
+"name": &"waking",
 "speed": 10.0
 }]
 
@@ -61,32 +156,283 @@ animations = [{
 height = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcehi"]
-radius = 12.0
+radius = 13.0
 height = 36.0
+
+[sub_resource type="Animation" id="Animation_nkmsg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"waking"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_q5ah0"]
 resource_name = "asleep"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"waking"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_sfr6o"]
 resource_name = "charging"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"charging"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
 
-[sub_resource type="Animation" id="Animation_bjjd3"]
+[sub_resource type="Animation" id="Animation_2mbl6"]
 resource_name = "dead"
+length = 1.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"hurt", &"death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 0.90000004, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2, 1.25, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"drop_crystals"
+}, {
+"args": [],
+"method": &"drop_crystals"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_afkux"]
 resource_name = "hurt"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hurt"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_ei0vp"]
 resource_name = "stunned"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"hurt", &"charging"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_4hv4g"]
 resource_name = "waking"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"waking"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bjjd3"]
 _data = {
+&"RESET": SubResource("Animation_nkmsg"),
 &"asleep": SubResource("Animation_q5ah0"),
 &"charging": SubResource("Animation_sfr6o"),
-&"dead": SubResource("Animation_bjjd3"),
+&"dead": SubResource("Animation_2mbl6"),
 &"hurt": SubResource("Animation_afkux"),
 &"stunned": SubResource("Animation_ei0vp"),
 &"waking": SubResource("Animation_4hv4g")
@@ -94,28 +440,33 @@ _data = {
 
 [node name="BigCrawler" unique_id=542487015 instance=ExtResource("1_aur3l")]
 script = ExtResource("2_notj2")
+max_hp = 8
+hp = 8
 
 [node name="FiniteStateMachine" parent="." index="0" unique_id=666213567]
 script = ExtResource("3_q5ah0")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=80329547]
 sprite_frames = SubResource("SpriteFrames_sfr6o")
-frame_progress = 0.8159962
+animation = &"waking"
 
 [node name="HurtParticles" parent="." index="2" unique_id=197291628]
 texture = ExtResource("4_q5ah0")
 
 [node name="Hitbox" type="Area2D" parent="." index="3" unique_id=153992192]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("6_4hv4g")
+damage = 2
 metadata/_custom_type_script = "uid://dtteoe71rhmfs"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1550071164]
-position = Vector2(0, -5)
+position = Vector2(0, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jfmwk")
 
 [node name="CollisionShape2D" parent="." index="4" unique_id=1813346776]
-position = Vector2(0, -5)
+position = Vector2(0, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_mcehi")
 
@@ -126,6 +477,6 @@ libraries/ = SubResource("AnimationLibrary_bjjd3")
 wait_time = 5.0
 
 [node name="StunTimer" type="Timer" parent="." index="8" unique_id=1627115116]
-wait_time = 5.0
+wait_time = 2.0
 
 [connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]

@@ -34,8 +34,7 @@ func _get_transition() -> int:
 			if not animation_player.is_playing():
 				return states.charging
 	return -1
-
-
+	
 func _enter_state(_previous_state: int, _new_state: int) -> void:
 	match _new_state:
 		states.asleep:
@@ -43,6 +42,8 @@ func _enter_state(_previous_state: int, _new_state: int) -> void:
 		states.waking:
 			animation_player.play("waking")
 		states.charging:
+			if not parent.awake:
+				set_state(states.asleep)
 			animation_player.play("charging")
 		states.stunned:
 			animation_player.play("stunned")

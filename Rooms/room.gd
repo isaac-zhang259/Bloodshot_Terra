@@ -27,7 +27,7 @@ const ENEMY_SCENES: Dictionary = {
 	#sprouter enemy
 	#leech enemy
 	"SLIME_BOSS": preload("res://Characters/Enemies/Bosses/slime_boss.tscn"),
-	#big crawler miniboss
+	"BIG_CRAWLER_MINIBOSS": preload("res://Characters/Enemies/Big Crawler/big_crawler.tscn"),
 	"MECH_BOSS": preload("res://Characters/Enemies/Bosses/broken_mech_boss.tscn")
 }
 
@@ -89,7 +89,7 @@ func _spawn_enemies() -> void:
 				enemy = ENEMY_SCENES.MECH_BOSS.instantiate()
 				SavedData.in_boss_fight = true
 			elif miniboss_room:
-				pass
+				enemy = ENEMY_SCENES.BIG_CRAWLER_MINIBOSS.instantiate()
 			else:
 				var random = randi() % 3
 				match random:
