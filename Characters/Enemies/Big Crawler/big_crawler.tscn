@@ -70,6 +70,12 @@ resource_name = "asleep"
 [sub_resource type="Animation" id="Animation_sfr6o"]
 resource_name = "charging"
 
+[sub_resource type="Animation" id="Animation_bjjd3"]
+resource_name = "dead"
+
+[sub_resource type="Animation" id="Animation_afkux"]
+resource_name = "hurt"
+
 [sub_resource type="Animation" id="Animation_ei0vp"]
 resource_name = "stunned"
 
@@ -80,6 +86,8 @@ resource_name = "waking"
 _data = {
 &"asleep": SubResource("Animation_q5ah0"),
 &"charging": SubResource("Animation_sfr6o"),
+&"dead": SubResource("Animation_bjjd3"),
+&"hurt": SubResource("Animation_afkux"),
 &"stunned": SubResource("Animation_ei0vp"),
 &"waking": SubResource("Animation_4hv4g")
 }
