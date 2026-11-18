@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://c3ovem54nhsep"]
+
+[ext_resource type="PackedScene" uid="uid://esdbtchl8d5c" path="res://Characters/Enemies/enemy.tscn" id="1_aur3l"]
+[ext_resource type="Script" uid="uid://do3nphct11qje" path="res://Characters/Enemies/Big Crawler/big_crawler.gd" id="2_notj2"]
+[ext_resource type="Script" uid="uid://kpa8rc0irkuf" path="res://Characters/Enemies/Big Crawler/big_crawler_fsm.gd" id="3_q5ah0"]
+[ext_resource type="Texture2D" uid="uid://bglwu566davog" path="res://Art/my own art :thumbsup:/enemies/big_crawler_charge.png" id="4_ei0vp"]
+[ext_resource type="Texture2D" uid="uid://bt17xr253rgot" path="res://Art/my own art :thumbsup:/effects/crystal_particle_green.png" id="4_q5ah0"]
+[ext_resource type="Script" uid="uid://dtteoe71rhmfs" path="res://Characters/Player/hitbox.gd" id="6_4hv4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjjd3"]
+atlas = ExtResource("4_ei0vp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afkux"]
+atlas = ExtResource("4_ei0vp")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkmsg"]
+atlas = ExtResource("4_ei0vp")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcox2"]
+atlas = ExtResource("4_ei0vp")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il8bm"]
+atlas = ExtResource("4_ei0vp")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6tmp"]
+atlas = ExtResource("4_ei0vp")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfr6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjjd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afkux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkmsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcox2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il8bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6tmp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jfmwk"]
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcehi"]
+radius = 12.0
+height = 36.0
+
+[sub_resource type="Animation" id="Animation_q5ah0"]
+resource_name = "asleep"
+
+[sub_resource type="Animation" id="Animation_sfr6o"]
+resource_name = "charging"
+
+[sub_resource type="Animation" id="Animation_ei0vp"]
+resource_name = "stunned"
+
+[sub_resource type="Animation" id="Animation_4hv4g"]
+resource_name = "waking"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjjd3"]
+_data = {
+&"asleep": SubResource("Animation_q5ah0"),
+&"charging": SubResource("Animation_sfr6o"),
+&"stunned": SubResource("Animation_ei0vp"),
+&"waking": SubResource("Animation_4hv4g")
+}
+
+[node name="BigCrawler" unique_id=542487015 instance=ExtResource("1_aur3l")]
+script = ExtResource("2_notj2")
+
+[node name="FiniteStateMachine" parent="." index="0" unique_id=666213567]
+script = ExtResource("3_q5ah0")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=80329547]
+sprite_frames = SubResource("SpriteFrames_sfr6o")
+frame_progress = 0.8159962
+
+[node name="HurtParticles" parent="." index="2" unique_id=197291628]
+texture = ExtResource("4_q5ah0")
+
+[node name="Hitbox" type="Area2D" parent="." index="3" unique_id=153992192]
+script = ExtResource("6_4hv4g")
+metadata/_custom_type_script = "uid://dtteoe71rhmfs"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0" unique_id=1550071164]
+position = Vector2(0, -5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jfmwk")
+
+[node name="CollisionShape2D" parent="." index="4" unique_id=1813346776]
+position = Vector2(0, -5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mcehi")
+
+[node name="AnimationPlayer" parent="." index="5" unique_id=1893857451]
+libraries/ = SubResource("AnimationLibrary_bjjd3")
+
+[node name="PathTimer" parent="." index="6" unique_id=1712665637]
+wait_time = 5.0
+
+[node name="StunTimer" type="Timer" parent="." index="8" unique_id=1627115116]
+wait_time = 5.0
+
+[connection signal="timeout" from="StunTimer" to="." method="_on_stun_timer_timeout"]
