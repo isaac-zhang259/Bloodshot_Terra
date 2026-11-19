@@ -14,6 +14,7 @@ var charging: bool = false
 
 func _ready() -> void:
 	stunned = true
+	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(player):

@@ -50,6 +50,7 @@ func _ready() -> void:
 	
 func _on_enemy_killed() -> void:
 	num_enemies -= 1
+	print(num_enemies)
 	if num_enemies == 0:
 		if not tutorial_room:
 			if boss_room or miniboss_room:
@@ -82,6 +83,7 @@ func _spawn_enemies() -> void:
 	if spawn_wave < 3:
 		spawn_wave += 1
 		num_enemies = enemy_positions_container.get_child_count()
+		print(num_enemies)
 		Game.player.in_combat = true
 		for enemy_position in enemy_positions_container.get_children():
 			var enemy: CharacterBody2D
