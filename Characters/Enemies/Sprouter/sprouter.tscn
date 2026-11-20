@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c1kumxgro6eb3"]
+
+[ext_resource type="PackedScene" uid="uid://esdbtchl8d5c" path="res://Characters/Enemies/enemy.tscn" id="1_q6eeo"]
+[ext_resource type="Script" uid="uid://dg6nbgbnspuhv" path="res://Characters/Enemies/Sprouter/sprouter.gd" id="2_to17c"]
+[ext_resource type="Script" uid="uid://dmnjf4vjiy0wd" path="res://Characters/Enemies/Sprouter/sprouter_fsm.gd" id="3_i5n7y"]
+
+[node name="Sprouter" unique_id=542487015 instance=ExtResource("1_q6eeo")]
+script = ExtResource("2_to17c")
+
+[node name="FiniteStateMachine" parent="." index="0" unique_id=666213567]
+script = ExtResource("3_i5n7y")
