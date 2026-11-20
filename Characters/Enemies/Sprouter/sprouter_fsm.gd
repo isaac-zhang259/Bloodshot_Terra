@@ -18,7 +18,7 @@ func _state_logic(_delta: float) -> void:
 func _get_transition() -> int:
 	match state:
 		states.moving:
-			if parent.agressive:
+			if parent.aggressive:
 				if parent.distance_to_player < parent.MIN_DISTANCE_TO_PLAYER:
 					return states.attacking
 			else:

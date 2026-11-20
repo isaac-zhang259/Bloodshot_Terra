@@ -11,7 +11,7 @@ const blue_speed: int = 100
 
 @export var red: bool = false
 @export var in_game: bool = false
-@export var invincible: bool = false
+
 @export var in_combat: bool = false
 
 @onready var parent: Node2D = get_parent()

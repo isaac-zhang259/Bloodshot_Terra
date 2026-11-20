@@ -3,6 +3,18 @@
 [ext_resource type="Script" uid="uid://dqwear5vftcgl" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://c7povbnofv1jx" path="res://Art/my own art :thumbsup:/bloodshot_logo.png" id="2_7vrkn"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0.098767385, 0.098767385, 0.098767385, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.021061355, 0.021061355, 0.021061355, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="MainMenu" type="Control" unique_id=927864336]
 process_mode = 3
 layout_mode = 3
@@ -13,7 +25,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_06t4h")
-main_theme = null
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=338925729]
 layout_mode = 1
@@ -53,15 +64,16 @@ texture = ExtResource("2_7vrkn")
 oversampling_override = 1.0
 initial_position = 1
 size = Vector2i(240, 160)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7vrkn")
 
 [node name="MarginContainer" type="MarginContainer" parent="OptionsPopup" unique_id=1708943931]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -4.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 

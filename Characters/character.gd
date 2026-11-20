@@ -5,6 +5,8 @@ const HIT_EFFECT_SCENE: PackedScene = preload("res://Characters/hit_effect.tscn"
 const anima_scene: PackedScene = preload("res://Currencies and Shops/anima_currency.tscn")
 const opul_scene: PackedScene = preload("res://Currencies and Shops/opul_currency.tscn")
 
+@export var invincible: bool = false
+
 const FRICTION: float = 0.15
 
 @export var max_hp: int = 2
@@ -51,6 +53,8 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 					SceneTransistor.start_transition_to("res://pre_game_area.tscn")
 					SavedData.reset_data()
 		else:
+			if self.invincible:
+				self.hp += dam
 			SavedData.hp += 1
 			Game.player.hp += 1
 		if hp > 0:
