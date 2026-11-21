@@ -253,7 +253,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -265,8 +265,8 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"_become_invincible"
@@ -276,9 +276,6 @@ tracks/2/keys = {
 }, {
 "args": [],
 "method": &"_shoot_crystals"
-}, {
-"args": [],
-"method": &"_self_damage"
 }]
 }
 tracks/3/type = "value"
@@ -315,7 +312,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 25), Vector2(0, 13)]
+"values": [Vector2(0, -7), Vector2(0, -18)]
 }
 
 [sub_resource type="Animation" id="Animation_1clsc"]
@@ -509,7 +506,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 13), Vector2(0, 25)]
+"values": [Vector2(0, -18), Vector2(0, -7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qu7f4"]
@@ -532,9 +529,12 @@ max_speed = 50
 script = ExtResource("3_i5n7y")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=80329547]
-position = Vector2(0, 6)
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_qdv1g")
 animation = &"sprouting"
+
+[node name="HurtParticles" parent="." index="2" unique_id=197291628]
+position = Vector2(0, -31)
 
 [node name="CollisionShape2D" parent="." index="3" unique_id=1813346776]
 position = Vector2(0, 25)

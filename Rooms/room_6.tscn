@@ -50,7 +50,7 @@ position = Vector2(360, 96)
 position = Vector2(88, 96)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="0" unique_id=955583235]
-position = Vector2(184, 88)
+position = Vector2(184, 104)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="1" unique_id=1678269810]
 position = Vector2(272, 136)

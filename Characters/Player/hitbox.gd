@@ -22,17 +22,16 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	body_inside = true
 	timer.start()
-	while body_inside:
+	while body_inside and is_instance_valid(body):
 		_collide(body)
 		await timer.timeout
 
 func _on_body_exited(_body: Node2D) -> void:
 	body_inside = false
-	timer.stop()
 
 func _collide(body: Node2D) -> void:
 	if body == null or not body.has_method("take_damage"):
-		queue_free()
+		return
 	else:
 		if not body.invincible:
 			body.take_damage(damage, knockback_direction, knockback_force)

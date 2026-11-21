@@ -28,7 +28,9 @@ func _on_body_exited(_body: Node2D) -> void:
 
 func _collide(body: Node2D) -> void:
 	if enemy_exited:
-		if body.has_method("take_damage"):
+		if body == null or not body.has_method("take_damage"):
+			queue_free()
+		else:
 			if stunning:
 				if body.has_method("_become_stunned"):
 					body._become_stunned()
