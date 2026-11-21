@@ -17,6 +17,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	room = self.get_parent()
+	var __ = connect("tree_exited", Callable(get_parent(), "_on_enemy_killed"))
 
 func _process(_delta: float) -> void:
 	collision_hitbox.knockback_direction = (player.position - global_position).normalized()
