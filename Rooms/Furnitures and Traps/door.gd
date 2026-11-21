@@ -2,7 +2,12 @@ extends StaticBody2D
 
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
-var opened: bool = false
+@export var opened: bool = true
+
+func _ready() -> void:
+	if not opened:
+		animation_player.play("reset_closed")
+		opened = false
 
 func trigger_change() -> void:
 	if opened:

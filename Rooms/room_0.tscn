@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_sajoo"]
 [ext_resource type="Texture2D" uid="uid://bs5x0or36dfd7" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/full tilemap.png" id="2_gp87o"]
 [ext_resource type="Texture2D" uid="uid://si6avxjk3b15" path="res://Art/my own art :thumbsup:/tilemap.png" id="2_onbsp"]
-[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="3_go1md"]
+[ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="5_1axyq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q8m7m"]
 vertices = PackedVector2Array(8, 4, -8, 4, -8, -8, 8, -8)
@@ -380,8 +380,11 @@ position = Vector2(280, 232)
 [node name="Marker2D2" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="1" unique_id=1234394143]
 position = Vector2(296, 232)
 
-[node name="Door" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("3_go1md")]
+[node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=546321728 instance=ExtResource("5_1axyq")]
 position = Vector2(160, 80)
+
+[node name="FrontFacingDoor2" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="1" unique_id=1431048002 instance=ExtResource("5_1axyq")]
+position = Vector2(288, 240)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="0" unique_id=2020762985]
 position = Vector2(172, 172)
@@ -392,7 +395,7 @@ position = Vector2(264, 164)
 [node name="Marker2D3" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="2" unique_id=1991097531]
 position = Vector2(312, 169)
 
-[node name="PlayerDetector" parent="." index="7" unique_id=2100298285]
+[node name="PlayerDetector" parent="." index="8" unique_id=2100298285]
 position = Vector2(288, 228)
 collision_layer = 0
 collision_mask = 2

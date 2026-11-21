@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxjvak1whgj5q"]
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_442po"]
-[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_78n2n"]
+[ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="3_u2wy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(64, 32)
@@ -14,13 +14,14 @@ layer_0/tile_data = PackedInt32Array(458761, 1, 2, 524297, 1, 2, 524298, 1, 2, 5
 [node name="TileMap2" parent="." index="1" unique_id=1038422760]
 layer_0/tile_data = PackedInt32Array(786441, 65537, 7, 786442, 65537, 7, 786443, 65537, 7, 786444, 262145, 7, 786445, 65537, 7, 786446, 65537, 7, 786447, 1, 7, 786448, 65537, 7, 786449, 65537, 7, 786450, 65537, 7)
 
-[node name="Door" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_78n2n")]
+[node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=299424450 instance=ExtResource("3_u2wy4")]
 position = Vector2(224, 96)
+opened = false
 
 [node name="PlayerSpawnPos" type="Marker2D" parent="." index="7" unique_id=428884266]
 position = Vector2(224, 160)
 
-[node name="PlayerDetector" parent="." index="8" unique_id=2100298285]
+[node name="PlayerDetector" parent="." index="9" unique_id=2100298285]
 collision_layer = 0
 collision_mask = 2
 

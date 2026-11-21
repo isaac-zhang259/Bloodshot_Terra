@@ -55,7 +55,7 @@ func _spawn_rooms() -> void:
 					else:
 						#room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instantiate()
 						room = SPECIAL_ROOMS[SPECIAL_ROOMS.size() - 1].instantiate()
-			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/Door")
+			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/FrontFacingDoor")
 			
 			var room_tilemap: TileMap = room.get_node("TileMap")
 			room.position = previous_room_door.global_position + Vector2.UP * (room_tilemap.get_used_rect().size.y) * TILE_SIZE + Vector2.LEFT * room_tilemap.local_to_map(room.get_node("Entrance/Marker2D2").position).x * TILE_SIZE

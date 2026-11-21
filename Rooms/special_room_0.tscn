@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dqpyhrqwmntjp"]
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_7q81d"]
-[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_uv522"]
+[ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="3_ete1y"]
 [ext_resource type="PackedScene" uid="uid://b6mj5unnwy81c" path="res://Rooms/room_0.tscn" id="3_qssua"]
 [ext_resource type="PackedScene" uid="uid://i1rxsyusuu1i" path="res://Rooms/room_with_weapon_0.tscn" id="4_ete1y"]
 
@@ -24,8 +24,9 @@ position = Vector2(216, 296)
 [node name="Marker2D2" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="1" unique_id=799710599]
 position = Vector2(232, 296)
 
-[node name="Door" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_uv522")]
+[node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=1367613345 instance=ExtResource("3_ete1y")]
 position = Vector2(160, -112)
+opened = false
 
 [node name="Room0" parent="." index="8" unique_id=2064955837 instance=ExtResource("3_qssua")]
 position = Vector2(80, 0)

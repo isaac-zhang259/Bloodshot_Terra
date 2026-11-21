@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnarwrsop4gor"]
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_exuow"]
-[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_3fsug"]
+[ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="3_3rdky"]
 [ext_resource type="PackedScene" uid="uid://cjwu1nxio7im6" path="res://Rooms/Furnitures and Traps/spikes.tscn" id="3_ga1m7"]
 [ext_resource type="PackedScene" uid="uid://5an1viyc3x2d" path="res://Items/health_potion.tscn" id="4_3rdky"]
 
@@ -23,8 +23,9 @@ position = Vector2(216, 216)
 [node name="Marker2D2" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="1" unique_id=435251247]
 position = Vector2(232, 216)
 
-[node name="Door" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_3fsug")]
+[node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=1577534954 instance=ExtResource("3_3rdky")]
 position = Vector2(224, 32)
+opened = false
 
 [node name="Spikes" parent="Traps" parent_id_path=PackedInt32Array(369417155) index="0" unique_id=78393390 instance=ExtResource("3_ga1m7")]
 position = Vector2(168, 88)
@@ -122,13 +123,13 @@ position = Vector2(264, 168)
 [node name="Spikes32" parent="Traps" parent_id_path=PackedInt32Array(369417155) index="31" unique_id=540922948 instance=ExtResource("3_ga1m7")]
 position = Vector2(280, 168)
 
-[node name="PlayerDetector" parent="." index="7" unique_id=2100298285]
+[node name="HealthPotion" parent="." index="8" unique_id=1318819442 instance=ExtResource("4_3rdky")]
+position = Vector2(224, 64)
+
+[node name="PlayerDetector" parent="." index="9" unique_id=2100298285]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=1949564733]
 position = Vector2(224, 64)
 shape = SubResource("RectangleShape2D_thutw")
-
-[node name="HealthPotion" parent="." index="8" unique_id=1318819442 instance=ExtResource("4_3rdky")]
-position = Vector2(224, 64)

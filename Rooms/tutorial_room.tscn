@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cdyw1ps4i0et7"]
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_vg8gj"]
-[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="2_5fcaa"]
 [ext_resource type="Script" uid="uid://udix0gr32hrl" path="res://Rooms/tutorial_room.gd" id="2_wwk0m"]
 [ext_resource type="PackedScene" uid="uid://cjwu1nxio7im6" path="res://Rooms/Furnitures and Traps/spikes.tscn" id="3_6p7jj"]
+[ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="4_u86xl"]
 [ext_resource type="PackedScene" uid="uid://5an1viyc3x2d" path="res://Items/health_potion.tscn" id="5_u86xl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
@@ -19,7 +19,7 @@ layer_0/tile_data = PackedInt32Array(131077, 2, 0, 196613, 2, 0, 262149, 2, 0, 3
 [node name="TileMap2" parent="." index="1" unique_id=1038422760]
 layer_0/tile_data = PackedInt32Array(851973, 393218, 2, 851974, 393218, 2, 851975, 393218, 2, 851976, 393218, 2, 851977, 393218, 2, 851978, 393218, 2, 851979, 393218, 2, 851980, 393218, 2, 851981, 393218, 2, 851982, 393218, 2, 851983, 393218, 2, 851984, 393218, 2, 851985, 393218, 2, 851986, 393218, 2, 851987, 393218, 2, 851988, 393218, 2, 851989, 393218, 2, 851990, 393218, 2, 851991, 393218, 2, 851992, 393218, 2, -65522, 2, 1, 14, 2, 1, 65550, 2, 1, 65551, 2, 1, 15, 2, 1, -65521, 2, 1, -131058, 2, 1)
 
-[node name="Door" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_5fcaa")]
+[node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=1767130788 instance=ExtResource("4_u86xl")]
 position = Vector2(240, 16)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="0" unique_id=666937224]
@@ -29,14 +29,6 @@ position = Vector2(357, 118)
 position = Vector2(360, 56)
 active = false
 
-[node name="PlayerDetector" parent="." index="7" unique_id=2100298285]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=2015457346]
-position = Vector2(240, 12)
-shape = SubResource("RectangleShape2D_thutw")
-
 [node name="WeaponPos" type="Marker2D" parent="." index="8" unique_id=855121392]
 position = Vector2(359, 185)
 
@@ -44,3 +36,11 @@ position = Vector2(359, 185)
 visible = false
 position = Vector2(316, 58)
 active = false
+
+[node name="PlayerDetector" parent="." index="10" unique_id=2100298285]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=2015457346]
+position = Vector2(240, 12)
+shape = SubResource("RectangleShape2D_thutw")

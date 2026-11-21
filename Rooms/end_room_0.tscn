@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5nlv6aprwy4u"]
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_nqwb0"]
+[ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="2_b8my0"]
 [ext_resource type="PackedScene" uid="uid://ciopog33ng2rc" path="res://Rooms/Furnitures and Traps/stairs.tscn" id="2_pevv8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tmb8"]
@@ -22,9 +23,12 @@ position = Vector2(215, 183)
 [node name="Marker2D2" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="1" unique_id=1779680332]
 position = Vector2(231, 183)
 
+[node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_b8my0")]
+position = Vector2(224, 192)
+
 [node name="Stairs" parent="." index="8" unique_id=1372739004 instance=ExtResource("2_pevv8")]
 position = Vector2(216, 88)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(2100298285) index="0" unique_id=183638453]
-position = Vector2(224, 184)
+position = Vector2(224, 176)
 shape = SubResource("RectangleShape2D_3tmb8")

@@ -66,18 +66,11 @@ func _on_enemy_killed() -> void:
 func _open_doors() -> void:
 	SavedData.safety_room = room_number
 	for door in door_container.get_children():
-		door.open()
-	for entry_position in side_entrance.get_children():
-		tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 1))
+		door.trigger_change()
 	
 func _close_entrance() -> void:
-	if is_side_room:
-		for entry_position in side_entrance.get_children():
-			tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 4))
-	else:
-		for entry_position in entrance.get_children():
-			above_tilemap.set_cell(0, tilemap.local_to_map(entry_position.position), 1, Vector2i(1, 8))
-			above_tilemap.set_cell(0, tilemap.local_to_map(entry_position.position) + Vector2i.DOWN, 1, Vector2i(1, 4))
+	for door in door_container.get_children():
+		door.trigger_change()
 		
 func _spawn_enemies() -> void:
 	if spawn_wave < 3:
@@ -119,5 +112,4 @@ func _on_player_detector_body_entered(_body: CharacterBody2D) -> void:
 	elif lab_room and SavedData.chapter < 6:
 		SceneTransistor.start_transition_to("res://game.tscn")
 	else:
-		_close_entrance()
 		_open_doors()
