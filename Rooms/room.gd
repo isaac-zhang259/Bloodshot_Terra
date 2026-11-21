@@ -24,7 +24,7 @@ const ENEMY_SCENES: Dictionary = {
 	"FLYING_CREATURE": preload("res://Characters/Enemies/Flying Creature/flying_creature.tscn"),
 	"GOBLIN": preload("res://Characters/Enemies/Goblin/goblin.tscn"),
 	"CRAWLER": preload("res://Characters/Enemies/Crawler/crawler.tscn"),
-	#sprouter enemy
+	"SPROUTER": preload("res://Characters/Enemies/Sprouter/sprouter.tscn"),
 	#leech enemy
 	"SLIME_BOSS": preload("res://Characters/Enemies/Bosses/slime_boss.tscn"),
 	"BIG_CRAWLER_MINIBOSS": preload("res://Characters/Enemies/Big Crawler/big_crawler.tscn"),
@@ -93,11 +93,12 @@ func _spawn_enemies() -> void:
 			elif miniboss_room:
 				enemy = ENEMY_SCENES.BIG_CRAWLER_MINIBOSS.instantiate()
 			else:
-				var random = randi() % 3
+				var random = randi() % 4
 				match random:
 					0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
 					1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
 					2: enemy = ENEMY_SCENES.CRAWLER.instantiate()
+					3: enemy = ENEMY_SCENES.SPROUTER.instantiate()
 			
 			enemy.position = enemy_position.position
 			call_deferred("add_child", enemy)

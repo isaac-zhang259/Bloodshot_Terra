@@ -4,6 +4,23 @@
 [ext_resource type="Script" uid="uid://dg6nbgbnspuhv" path="res://Characters/Enemies/Sprouter/sprouter.gd" id="2_to17c"]
 [ext_resource type="Script" uid="uid://dmnjf4vjiy0wd" path="res://Characters/Enemies/Sprouter/sprouter_fsm.gd" id="3_i5n7y"]
 [ext_resource type="Texture2D" uid="uid://w0pjdixwmh4u" path="res://Art/my own art :thumbsup:/enemies/sprouter_pop_up.png" id="4_i5n7y"]
+[ext_resource type="Texture2D" uid="uid://dx4devlwcji2x" path="res://Art/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_spritesheet.png" id="4_qdv1g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa4te"]
+atlas = ExtResource("4_qdv1g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu7f4"]
+atlas = ExtResource("4_qdv1g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvdwy"]
+atlas = ExtResource("4_qdv1g")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y4u8"]
+atlas = ExtResource("4_qdv1g")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdv1g"]
 atlas = ExtResource("4_i5n7y")
@@ -67,14 +84,21 @@ region = Rect2(672, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qdv1g"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa4te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu7f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvdwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y4u8")
+}],
 "loop": 1,
 "name": &"dead",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": 1,
-"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -169,9 +193,46 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [38.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 25)]
+}
 
 [sub_resource type="Animation" id="Animation_i5n7y"]
 resource_name = "attacking"
+length = 1.5
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -204,8 +265,8 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.9, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"_become_invincible"
@@ -214,7 +275,107 @@ tracks/2/keys = {
 "method": &"_become_vulnerable"
 }, {
 "args": [],
+"method": &"_shoot_crystals"
+}, {
+"args": [],
+"method": &"_self_damage"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [9.0, 10.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [18.0, 38.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 25), Vector2(0, 13)]
+}
+
+[sub_resource type="Animation" id="Animation_1clsc"]
+resource_name = "dead"
+length = 1.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"sprouting", &"dead"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
 "method": &"_become_invincible"
+}, {
+"args": [],
+"method": &"drop_crystals"
+}, {
+"args": [],
+"method": &"queue_free"
 }]
 }
 
@@ -275,7 +436,6 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_m8uvh"]
 resource_name = "retreating"
-length = 0.6
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -315,27 +475,69 @@ tracks/2/keys = {
 "method": &"_become_invincible"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 9.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [38.0, 18.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 13), Vector2(0, 25)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qu7f4"]
 _data = {
 &"RESET": SubResource("Animation_w4nea"),
 &"attacking": SubResource("Animation_i5n7y"),
+&"dead": SubResource("Animation_1clsc"),
 &"hurt": SubResource("Animation_qdv1g"),
 &"retreating": SubResource("Animation_m8uvh")
 }
 
 [node name="Sprouter" unique_id=542487015 instance=ExtResource("1_q6eeo")]
 script = ExtResource("2_to17c")
+max_hp = 4
+hp = 4
+acceleration = 15
+max_speed = 50
 
 [node name="FiniteStateMachine" parent="." index="0" unique_id=666213567]
 script = ExtResource("3_i5n7y")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=80329547]
+position = Vector2(0, 6)
 sprite_frames = SubResource("SpriteFrames_qdv1g")
 animation = &"sprouting"
 
 [node name="CollisionShape2D" parent="." index="3" unique_id=1813346776]
-position = Vector2(1, 7)
+position = Vector2(0, 25)
 shape = SubResource("CapsuleShape2D_oxs86")
 
 [node name="AnimationPlayer" parent="." index="4" unique_id=1893857451]

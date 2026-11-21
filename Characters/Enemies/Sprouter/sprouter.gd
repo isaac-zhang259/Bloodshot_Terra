@@ -1,5 +1,7 @@
 extends Enemy
 
+const projectile_scene = preload("res://Weapons/sprouter_projectile.tscn")
+
 const MAX_DISTANCE_TO_PLAYER: int = 80
 const MIN_DISTANCE_TO_PLAYER: int = 40
 var distance_to_player: float
@@ -21,5 +23,11 @@ func _get_path_to_move_away_from_player() -> void:
 	var dir: Vector2 = (global_position - player.position).normalized()
 	navigation_agent.target_position = global_position + dir * 100
 
+func _self_damage() -> void:
+	self.take_damage(1, Vector2.ZERO, 0)
+
 func _shoot_crystals() -> void:
-	pass
+	for i in 4:
+		var projectile: Area2D = projectile_scene.instantiate()
+		get_tree().current_scene.add_child(projectile)
+		projectile.launch(global_position, Vector2.LEFT.rotated(deg_to_rad(i * 90)), 150)

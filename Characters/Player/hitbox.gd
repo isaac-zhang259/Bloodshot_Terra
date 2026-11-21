@@ -34,4 +34,5 @@ func _collide(body: Node2D) -> void:
 	if body == null or not body.has_method("take_damage"):
 		queue_free()
 	else:
-		body.take_damage(damage, knockback_direction, knockback_force)
+		if not body.invincible:
+			body.take_damage(damage, knockback_direction, knockback_force)
