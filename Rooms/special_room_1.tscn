@@ -15,7 +15,7 @@ layer_0/tile_data = PackedInt32Array(327690, 196608, 1, 393226, 196608, 1, 45876
 
 [node name="TileMap2" parent="." index="1" unique_id=1038422760]
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(851978, 65537, 7, 851979, 65537, 7, 851980, 262145, 7, 851983, 1, 7, 851984, 65537, 7, 851985, 65537, 7, 65549, 458752, 6, 65550, 524288, 6)
+layer_0/tile_data = PackedInt32Array(851978, 65537, 7, 851979, 65537, 7, 851980, 262145, 7, 851983, 1, 7, 851984, 65537, 7, 851985, 65537, 7)
 
 [node name="Marker2D" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="0" unique_id=985757248]
 position = Vector2(216, 216)

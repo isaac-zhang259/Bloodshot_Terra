@@ -41,6 +41,7 @@ var stunned_enemies: int
 @onready var door_container: Node2D = get_node("Doors")
 @onready var enemy_positions_container: Node2D = get_node("EnemyPositions")
 @onready var player_detector: Area2D = get_node("PlayerDetector")
+@onready var spawning_timer: Timer = get_node("SpawningTimer")
 
 func _ready() -> void:
 	if not tutorial_room:
@@ -58,6 +59,8 @@ func _on_enemy_killed() -> void:
 				_open_doors()
 			else:
 				if spawn_wave < 3:
+					spawning_timer.start()
+					await spawning_timer.timeout
 					_spawn_enemies()
 				else:
 					Game.player.in_combat = false
