@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://cvgbboqst8qhn"]
+
+[ext_resource type="PackedScene" uid="uid://d2kp00x8tiq1a" path="res://Rooms/Furnitures and Traps/door.tscn" id="1_iiyve"]
+[ext_resource type="Texture2D" uid="uid://dco4patkt0hql" path="res://Art/my own art :thumbsup:/doors/new_tutorial_door_open.png" id="2_wnl6c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfq62"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78epm"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7vag"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7oc4"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkyfk"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8oulr"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dikcp"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5dsd"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oipo"]
+atlas = ExtResource("2_wnl6c")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wnl6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfq62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78epm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7vag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7oc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkyfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8oulr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dikcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5dsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5oipo")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_agq7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3i7kg"]
+resource_name = "open"
+length = 0.8
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pmr38"]
+resource_name = "reset_closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qxj2w"]
+_data = {
+&"RESET": SubResource("Animation_agq7w"),
+&"open": SubResource("Animation_3i7kg"),
+&"reset_closed": SubResource("Animation_pmr38")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
+size = Vector2(32, 20)
+
+[node name="TutorialDoor" unique_id=610126487 instance=ExtResource("1_iiyve")]
+opened = false
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1494700527]
+sprite_frames = SubResource("SpriteFrames_wnl6c")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1755820370]
+libraries/ = SubResource("AnimationLibrary_qxj2w")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1575154195]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_thutw")

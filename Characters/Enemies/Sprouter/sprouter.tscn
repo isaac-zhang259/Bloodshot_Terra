@@ -227,7 +227,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 25)]
+"values": [Vector2(0, -18)]
 }
 
 [sub_resource type="Animation" id="Animation_i5n7y"]
@@ -537,7 +537,7 @@ animation = &"sprouting"
 position = Vector2(0, -31)
 
 [node name="CollisionShape2D" parent="." index="3" unique_id=1813346776]
-position = Vector2(0, 25)
+position = Vector2(0, -18)
 shape = SubResource("CapsuleShape2D_oxs86")
 
 [node name="AnimationPlayer" parent="." index="4" unique_id=1893857451]
