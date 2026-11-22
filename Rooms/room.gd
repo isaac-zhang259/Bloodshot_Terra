@@ -86,13 +86,23 @@ func _spawn_enemies() -> void:
 			elif miniboss_room:
 				enemy = ENEMY_SCENES.BIG_CRAWLER_MINIBOSS.instantiate()
 			else:
-				var random = randi() % 5
-				match random:
-					0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
-					1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
-					2: enemy = ENEMY_SCENES.CRAWLER.instantiate()
-					3: enemy = ENEMY_SCENES.SPROUTER.instantiate()
-					4: enemy = ENEMY_SCENES.LEECH.instantiate()
+				var random = randi() % 3
+				match SavedData.area:
+					0:
+						match random:
+							0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+							1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
+							2: enemy = ENEMY_SCENES.LEECH.instantiate()
+					1:
+						match random:
+							0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+							1: enemy = ENEMY_SCENES.CRAWLER.instantiate()
+							2: enemy = ENEMY_SCENES.SPROUTER.instantiate()
+					2:
+						match random:
+							0: enemy = ENEMY_SCENES.FLYING_CREATURE.instantiate()
+							1: enemy = ENEMY_SCENES.GOBLIN.instantiate()
+							2: enemy = ENEMY_SCENES.CRAWLER.instantiate()
 			
 			enemy.position = enemy_position.position
 			call_deferred("add_child", enemy)

@@ -1,15 +1,16 @@
 extends Node2D
 
-const SPAWN_ROOMS: Array = [preload("res://Rooms/spawn_room_0.tscn"), preload("res://Rooms/spawn_room_1.tscn")]
-const INTERMEDIATE_ROOMS: Array = [preload("res://Rooms/room_0.tscn"), preload("res://Rooms/room_1.tscn"), preload("res://Rooms/room_2.tscn"), preload("res://Rooms/room_5.tscn")]
-const SPECIAL_ROOMS: Array = [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/special_room_1.tscn"), preload("res://Rooms/room_3.tscn"), preload("res://Rooms/room_4.tscn"), preload("res://Rooms/room_6.tscn")]
-#const SPECIAL_ROOMS: Array = [preload("res://Rooms/room_6.tscn")]
-const END_ROOMS: Array = [preload("res://Rooms/end_room_0.tscn"), preload("res://Rooms/end_room_1.tscn")]
-const MECH_BOSS_SCENE: PackedScene = preload("res://Rooms/mech_boss_room.tscn")
+const SPAWN_ROOMS_AREAS: Array = [[preload("res://Rooms/spawn_room_0.tscn"), preload("res://Rooms/spawn_room_1.tscn")], [preload("res://Rooms/spawn_room_0.tscn"), preload("res://Rooms/spawn_room_1.tscn")], [preload("res://Rooms/spawn_room_0.tscn"), preload("res://Rooms/spawn_room_1.tscn")]]
+const INTERMEDIATE_ROOMS_AREAS: Array = [[preload("res://Rooms/room_0.tscn"), preload("res://Rooms/room_1.tscn")], [preload("res://Rooms/room_2.tscn"), preload("res://Rooms/room_5.tscn")], [preload("res://Rooms/room_2.tscn"), preload("res://Rooms/room_5.tscn")]]
+const SPECIAL_ROOMS_AREAS: Array = [[preload("res://Rooms/special_room_1.tscn"), preload("res://Rooms/room_4.tscn")], [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/special_room_1.tscn"), preload("res://Rooms/room_3.tscn")], [preload("res://Rooms/special_room_0.tscn"), preload("res://Rooms/room_6.tscn")]]
+const END_ROOMS_AREAS: Array = [[preload("res://Rooms/end_room_0.tscn")], [preload("res://Rooms/end_room_1.tscn")], [preload("res://Rooms/end_room_1.tscn")]]
+const SIDE_ROOMS_RIGHT_AREAS: Array = [[preload("res://Rooms/side_test_room_0.tscn")], [preload("res://Rooms/side_test_room_1.tscn"), preload("res://Rooms/side_test_room_3.tscn")], [preload("res://Rooms/side_test_room_3.tscn")]]
+const SIDE_ROOMS_LEFT_AREAS: Array = [[preload("res://Rooms/side_test_room_2.tscn")], [preload("res://Rooms/side_test_room_2.tscn")], [preload("res://Rooms/side_test_room_2.tscn")]]
+const BOSS_ROOMS: Array = [[preload("res://Rooms/mech_boss_room.tscn")], [], [], [], [], []]
 const TEMP_CAMP_ROOM: PackedScene = preload("res://Rooms/temp_camp_room.tscn")
-#const SIDE_ROOMS_RIGHT: Array = [preload("res://Rooms/side_test_room_0.tscn"), preload("res://Rooms/side_test_room_1.tscn"), preload("res://Rooms/side_test_room_3.tscn")]
-const SIDE_ROOMS_RIGHT: Array = [preload("res://Rooms/side_test_room_3.tscn")]
-const SIDE_ROOMS_LEFT: Array = [preload("res://Rooms/side_test_room_2.tscn")]
+
+#temporarily kept because i only have 1 boss so far D:
+const MECH_BOSS_SCENE: PackedScene = preload("res://Rooms/mech_boss_room.tscn")
 
 const TILE_SIZE: int = 16
 const FLOOR_TILE_INDEX = Vector2i(0, 0)
@@ -31,6 +32,12 @@ func _ready() -> void:
 func _spawn_rooms() -> void:
 	var previous_room: Node2D
 	var special_room_spawned: bool = false
+	var SPAWN_ROOMS: Array = SPAWN_ROOMS_AREAS[SavedData.area]
+	var END_ROOMS: Array = END_ROOMS_AREAS[SavedData.area]
+	var SPECIAL_ROOMS: Array = SPECIAL_ROOMS_AREAS[SavedData.area]
+	var INTERMEDIATE_ROOMS: Array = INTERMEDIATE_ROOMS_AREAS[SavedData.area]
+	var SIDE_ROOMS_RIGHT: Array = SIDE_ROOMS_RIGHT_AREAS[SavedData.area]
+	var SIDE_ROOMS_LEFT: Array = SIDE_ROOMS_LEFT_AREAS[SavedData.area]
 	for i in num_levels:
 		var room: Node2D
 		if i == 0:
@@ -47,14 +54,15 @@ func _spawn_rooms() -> void:
 			else:
 				if SavedData.num_floor == SavedData.max_floors:
 					room = MECH_BOSS_SCENE.instantiate()
+					#later switch this to BOSS_ROOMS when there are more bosses
 				else:
 					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):
 					#if not special_room_spawned:
 						room = SPECIAL_ROOMS[randi() % SPECIAL_ROOMS.size()].instantiate()
 						special_room_spawned = true
 					else:
-						#room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instantiate()
-						room = SPECIAL_ROOMS[SPECIAL_ROOMS.size() - 1].instantiate()
+						room = INTERMEDIATE_ROOMS[randi() % INTERMEDIATE_ROOMS.size()].instantiate()
+						#room = SPECIAL_ROOMS[SPECIAL_ROOMS.size() - 1].instantiate()
 			var previous_room_door: StaticBody2D = previous_room.get_node("Doors/FrontFacingDoor")
 			
 			var room_tilemap: TileMap = room.get_node("TileMap")
