@@ -32,12 +32,12 @@ func _ready() -> void:
 func _spawn_rooms() -> void:
 	var previous_room: Node2D
 	var special_room_spawned: bool = false
-	var SPAWN_ROOMS: Array = SPAWN_ROOMS_AREAS[SavedData.area]
-	var END_ROOMS: Array = END_ROOMS_AREAS[SavedData.area]
-	var SPECIAL_ROOMS: Array = SPECIAL_ROOMS_AREAS[SavedData.area]
-	var INTERMEDIATE_ROOMS: Array = INTERMEDIATE_ROOMS_AREAS[SavedData.area]
-	var SIDE_ROOMS_RIGHT: Array = SIDE_ROOMS_RIGHT_AREAS[SavedData.area]
-	var SIDE_ROOMS_LEFT: Array = SIDE_ROOMS_LEFT_AREAS[SavedData.area]
+	var SPAWN_ROOMS: Array = RoomsStorage.SPAWN_ROOMS_AREAS[SavedData.area]
+	var END_ROOMS: Array = RoomsStorage.END_ROOMS_AREAS[SavedData.area]
+	var SPECIAL_ROOMS: Array = RoomsStorage.SPECIAL_ROOMS_AREAS[SavedData.area]
+	var INTERMEDIATE_ROOMS: Array = RoomsStorage.INTERMEDIATE_ROOMS_AREAS[SavedData.area]
+	var SIDE_ROOMS_RIGHT: Array = RoomsStorage.SIDE_ROOMS_RIGHT_AREAS[SavedData.area]
+	var SIDE_ROOMS_LEFT: Array = RoomsStorage.SIDE_ROOMS_LEFT_AREAS[SavedData.area]
 	for i in num_levels:
 		var room: Node2D
 		if i == 0:

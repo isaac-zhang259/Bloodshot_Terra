@@ -980,6 +980,8 @@ navigation_polygon = SubResource("NavigationPolygon_thutw")
 [node name="Traps" type="Node2D" parent="." unique_id=369417155]
 
 [node name="PlayerDetector" type="Area2D" parent="." unique_id=2100298285]
+collision_layer = 0
+collision_mask = 2
 
 [node name="SpawningTimer" type="Timer" parent="." unique_id=220948859]
 wait_time = 2.0
