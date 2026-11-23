@@ -1,13 +1,13 @@
 extends Node
 
 #2 unique spawn rooms per area
-const SPAWN_ROOMS_AREA_0: Array = [preload("res://Rooms/Ruins/area_0_room_0.tscn"), preload("res://Rooms/Ruins/area_0_room_1.tscn"), preload("res://Rooms/Ruins/area_0_room_2.tscn"), preload("res://Rooms/Ruins/area_0_room_3.tscn"), preload("res://Rooms/Ruins/area_0_room_4.tscn"), preload("res://Rooms/Ruins/area_0_room_5.tscn")]
+const SPAWN_ROOMS_AREA_0: Array = []
 const SPAWN_ROOMS_AREA_1: Array = []
 const SPAWN_ROOMS_AREA_2: Array = []
 const SPAWN_ROOMS_AREA: Array = [SPAWN_ROOMS_AREA_0, SPAWN_ROOMS_AREA_1, SPAWN_ROOMS_AREA_2]
 
 #6 unique intermediate rooms per area
-const INTERMEDIATE_ROOMS_AREA_0: Array = []
+const INTERMEDIATE_ROOMS_AREA_0: Array = [preload("res://Rooms/Ruins/area_0_room_0.tscn"), preload("res://Rooms/Ruins/area_0_room_1.tscn"), preload("res://Rooms/Ruins/area_0_room_2.tscn"), preload("res://Rooms/Ruins/area_0_room_3.tscn"), preload("res://Rooms/Ruins/area_0_room_4.tscn"), preload("res://Rooms/Ruins/area_0_room_5.tscn")]
 const INTERMEDIATE_ROOMS_AREA_1: Array = []
 const INTERMEDIATE_ROOMS_AREA_2: Array = []
 const INTERMEDIATE_ROOMS_AREA: Array = [INTERMEDIATE_ROOMS_AREA_0, INTERMEDIATE_ROOMS_AREA_1, INTERMEDIATE_ROOMS_AREA_2]
