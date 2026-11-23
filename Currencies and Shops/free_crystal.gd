@@ -7,6 +7,7 @@ const opul_scene: PackedScene = preload("res://Currencies and Shops/opul_currenc
 
 var hp: int = 5
 var broken: bool = false
+var invincible: bool = false
 
 func take_damage(dam: int, _dir: Vector2, _force: int) -> void:
 	if hp > 0:
