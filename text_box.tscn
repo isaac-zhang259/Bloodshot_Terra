@@ -23,11 +23,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
-size = Vector2(264, 68)
-
 [node name="TextBox" type="AnimatedSprite2D" unique_id=698755712]
-position = Vector2(248, 232)
+position = Vector2(248, 234)
 sprite_frames = SubResource("SpriteFrames_thutw")
 animation = &"tutorial"
 script = ExtResource("3_ejigk")
@@ -63,12 +60,13 @@ offset_right = 169.0
 offset_bottom = 36.0
 text = "No"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1724047006]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=831157200]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_thutw")
+[node name="Close" type="Button" parent="." unique_id=81769179]
+offset_left = -33.0
+offset_top = 12.0
+offset_right = 33.0
+offset_bottom = 36.0
+text = "close"
 
 [connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="No" to="." method="_on_no_pressed"]
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

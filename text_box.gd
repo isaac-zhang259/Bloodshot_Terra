@@ -4,6 +4,7 @@ extends AnimatedSprite2D
 
 @onready var yes_button: Button = get_node("Yes")
 @onready var no_button: Button = get_node("No")
+@onready var close_button: Button = get_node("Close")
 
 @export var characters_per_second: int = 12
 @export var tutorial: bool = false
@@ -27,6 +28,7 @@ func _ready() -> void:
 func display_text(new_text: String) -> void:
 	yes_button.hide()
 	no_button.hide()
+	close_button.hide()
 	rich_text_label.text = new_text
 	rich_text_label.visible_ratio = 0
 	self.show()
@@ -44,7 +46,11 @@ func display_question(new_text: String) -> bool:
 	gave_answer = true
 	self.hide()
 	return answer
-	
+
+func display_dialogue(new_text: String) -> void:
+	display_text(new_text)
+	close_button.show()
+
 func ask_yes_or_no() -> void:
 	yes_button.show()
 	no_button.show()
@@ -57,10 +63,6 @@ func _on_no_pressed() -> void:
 	answer = false
 	_gave_answer.emit()
 
-
-func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			#if rich_text_label.visible_ratio == 1:
-			print("text box clicked")
-			self.hide()
+func _on_close_pressed() -> void:
+	self.hide()
+	rich_text_label.text = ""
