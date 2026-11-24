@@ -1,7 +1,7 @@
 extends Node
 
-#2 unique spawn rooms per area
-const SPAWN_ROOMS_AREA_0: Array = [preload("res://Rooms/spawn_room_0.tscn")]
+#3 unique spawn rooms per area
+const SPAWN_ROOMS_AREA_0: Array = [preload("res://Rooms/Ruins/area_0_spawn_room_0.tscn"), preload("res://Rooms/Ruins/area_0_spawn_room_1.tscn"), preload("res://Rooms/Ruins/area_0_spawn_room_2.tscn")]
 const SPAWN_ROOMS_AREA_1: Array = []
 const SPAWN_ROOMS_AREA_2: Array = []
 const SPAWN_ROOMS_AREAS: Array = [SPAWN_ROOMS_AREA_0, SPAWN_ROOMS_AREA_1, SPAWN_ROOMS_AREA_2]
@@ -29,8 +29,8 @@ const SPECIAL_ROOMS_AREA_1: Array = []
 const SPECIAL_ROOMS_AREA_2: Array = []
 const SPECIAL_ROOMS_AREAS: Array = [SPECIAL_ROOMS_AREA_0, SPECIAL_ROOMS_AREA_1, SPECIAL_ROOMS_AREA_2]
 
-#2 unique end rooms per area
-const END_ROOMS_AREA_0: Array = [preload("res://Rooms/end_room_0.tscn")]
+#3 unique end rooms per area
+const END_ROOMS_AREA_0: Array = [preload("res://Rooms/Ruins/area_0_end_room_0.tscn"), preload("res://Rooms/Ruins/area_0_end_room_1.tscn"), preload("res://Rooms/Ruins/area_0_end_room_2.tscn")]
 const END_ROOMS_AREA_1: Array = []
 const END_ROOMS_AREA_2: Array = []
 const END_ROOMS_AREAS: Array = [END_ROOMS_AREA_0, END_ROOMS_AREA_1, END_ROOMS_AREA_2]
