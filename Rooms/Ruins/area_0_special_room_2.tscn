@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://srwq2ypwkkwr"]
+
+[ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_8k6mv"]
+[ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="2_a8dby"]
+[ext_resource type="PackedScene" uid="uid://dhyqj70yegg0p" path="res://Currencies and Shops/scrapyard shop/scrappy_character.tscn" id="3_ly6vp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
+size = Vector2(32, 16)
+
+[node name="Area0SpecialRoom2" unique_id=354325685 instance=ExtResource("1_8k6mv")]
+
+[node name="TileMap" parent="." index="0" unique_id=293665720]
+layer_0/tile_data = PackedInt32Array(327692, 4, 0, 393228, 4, 2, 458764, 65540, 2, 524300, 589828, 2, 589836, 131076, 2, 327693, 4, 0, 393229, 4, 2, 458765, 65540, 2, 524301, 131076, 2, 589837, 589828, 2, 327694, 4, 0, 393230, 4, 0, 458766, 4, 2, 524302, 65540, 2, 589838, 131076, 2, 327695, 4, 0, 393231, 4, 0, 458767, 4, 0, 524303, 4, 2, 589839, 4, 2, 327696, 4, 0, 393232, 4, 0, 458768, 4, 0, 524304, 4, 0, 589840, 4, 0, 327697, 4, 0, 393233, 65540, 0, 458769, 4, 0, 524305, 4, 0, 589841, 4, 0, 327698, 65540, 0, 393234, 131076, 0, 458770, 65540, 0, 524306, 4, 0, 589842, 4, 0, 327699, 4, 0, 393235, 65540, 0, 458771, 131076, 0, 524307, 65540, 0, 589843, 4, 0, 655375, 4, 0, 720911, 4, 0, 720912, 4, 0, 786448, 4, 0, 851984, 4, 0, 851983, 4, 0, 786447, 4, 0, 655376, 4, 0, 262159, 4, 0, 262160, 4, 0, -262129, 4, 0, -196593, 4, 0, -131057, 4, 0, -65521, 4, 0, 15, 4, 0, 65551, 4, 0, 131087, 4, 0, 196623, 4, 0, -262128, 4, 0, -196592, 4, 0, -131056, 4, 0, -65520, 4, 0, 16, 4, 0, 65552, 4, 0, 131088, 4, 0, 196624, 4, 0, 262161, 4, 3, 262162, 65540, 3, 262163, 131076, 3, 262156, 4, 3, 262157, 65540, 3, 262158, 131076, 3, 655377, 131076, 6, 720913, 131076, 6, 786449, 131076, 6, 851985, 131076, 6, 262164, 131076, 6, 327700, 131076, 6, 393236, 131076, 6, 458772, 131076, 6, 524308, 131076, 6, -262127, 131076, 6, -196591, 131076, 6, -131055, 131076, 6, -65519, 131076, 6, 17, 131076, 6, 65553, 131076, 6, 131089, 131076, 6, -262130, 196612, 6, -196594, 196612, 6, -131058, 196612, 6, -65522, 196612, 6, 14, 196612, 6, 65550, 196612, 6, 131086, 196612, 6, 262155, 196612, 6, 327691, 196612, 6, 393227, 196612, 6, 458763, 196612, 6, 524299, 196612, 6, 655374, 196612, 6, 720910, 196612, 6, 786446, 196612, 6, 851982, 196612, 6, 589835, 196612, 7, 589844, 131076, 7, 196625, 4, 8, 196622, 262148, 8, 196621, 65540, 8, 196620, 65540, 8, 196626, 65540, 8, 196627, 65540, 8, 196628, 131076, 5, 196619, 196612, 5)
+
+[node name="TileMap2" parent="." index="1" unique_id=1038422760]
+layer_0/tile_data = PackedInt32Array(589836, 65540, 7, 589837, 65540, 7, 589838, 262148, 7, 589841, 4, 7, 589843, 65540, 7, 589842, 65540, 7)
+
+[node name="Marker2D" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="0" unique_id=1473614550]
+position = Vector2(248, 152)
+
+[node name="Marker2D2" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="1" unique_id=1305683550]
+position = Vector2(264, 152)
+
+[node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_a8dby")]
+position = Vector2(256, 64)
+opened = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(2100298285) index="0" unique_id=1042050846]
+position = Vector2(256, 144)
+shape = SubResource("RectangleShape2D_thutw")
+
+[node name="ScrappyCharacter" parent="." index="10" unique_id=322231290 instance=ExtResource("3_ly6vp")]
+position = Vector2(296, 104)
