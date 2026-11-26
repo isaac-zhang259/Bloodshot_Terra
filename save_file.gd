@@ -130,14 +130,14 @@ func fetch_chapter_completions() -> void:
 	config.load(SAVE_PATH)
 	if config.load(SAVE_PATH) != OK:
 		return
-	SavedData.chapter = config.get_value(PROGRESSION_SECTION, CHAPTER_KEY, 0) + 1
-	if SavedData.chapter > 4:
+	SavedData.completed_chapter = config.get_value(PROGRESSION_SECTION, CHAPTER_KEY, 0)
+	SavedData.current_chapter = SavedData.completed_chapter + 1
+	if SavedData.current_chapter > 4:
 		SavedData.area = 2
-	elif SavedData.chapter > 2:
+	elif SavedData.current_chapter > 2:
 		SavedData.area = 1
 	else:
 		SavedData.area = 0
-	print(SavedData.area)
 	
 func save_font_choice(font: int) -> void:
 	var config = ConfigFile.new()

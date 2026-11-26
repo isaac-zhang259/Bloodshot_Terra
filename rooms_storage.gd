@@ -12,13 +12,13 @@ const INTERMEDIATE_ROOMS_AREA_1: Array = []
 const INTERMEDIATE_ROOMS_AREA_2: Array = []
 const INTERMEDIATE_ROOMS_AREAS: Array = [INTERMEDIATE_ROOMS_AREA_0, INTERMEDIATE_ROOMS_AREA_1, INTERMEDIATE_ROOMS_AREA_2]
 
-#3 unique side rooms per side per area
-const SIDE_ROOMS_RIGHT_AREA_0: Array = [preload("res://Rooms/side_test_room_0.tscn")]
+#2 unique side rooms per side per area
+const SIDE_ROOMS_RIGHT_AREA_0: Array = [preload("res://Rooms/Ruins/area_0_right_side_room_0.tscn"), preload("res://Rooms/Ruins/area_0_right_side_room_1.tscn")]
 const SIDE_ROOMS_RIGHT_AREA_1: Array = []
 const SIDE_ROOMS_RIGHT_AREA_2: Array = []
 const SIDE_ROOMS_RIGHT_AREAS: Array = [SIDE_ROOMS_RIGHT_AREA_0, SIDE_ROOMS_RIGHT_AREA_1, SIDE_ROOMS_RIGHT_AREA_2]
 
-const SIDE_ROOMS_LEFT_AREA_0: Array = [preload("res://Rooms/side_test_room_2.tscn")]
+const SIDE_ROOMS_LEFT_AREA_0: Array = [preload("res://Rooms/Ruins/area_0_left_side_room_0.tscn"), preload("res://Rooms/Ruins/area_0_left_side_room_1.tscn")]
 const SIDE_ROOMS_LEFT_AREA_1: Array = []
 const SIDE_ROOMS_LEFT_AREA_2: Array = []
 const SIDE_ROOMS_LEFT_AREAS: Array = [SIDE_ROOMS_LEFT_AREA_0, SIDE_ROOMS_LEFT_AREA_1, SIDE_ROOMS_LEFT_AREA_2]

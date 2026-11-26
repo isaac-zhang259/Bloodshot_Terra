@@ -4,6 +4,8 @@ var doing_tutorial: bool = false
 var in_boss_fight: bool = false
 
 var num_floor: int = 0
+var current_chapter: int = 0
+var completed_chapter: int = 0
 var chapter: int = 0
 var area: int = 0
 var max_floors: int = 5

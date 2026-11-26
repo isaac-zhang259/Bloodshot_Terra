@@ -8,7 +8,7 @@ func _on_body_entered(body: Node2D) -> void:
 		SaveFile.save_currency()
 		SavedData.reset_data()
 		SaveFile.unsave_safe_area()
-		SaveFile.save_chapter_completion(SavedData.chapter)
+		SaveFile.save_chapter_completion(SavedData.current_chapter)
 		#SceneTransistor.start_transition_to("res://game.tscn")
 		SceneTransistor.start_transition_to("res://pre_game_area.tscn")
 	else:
