@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(32, 16)
 
-[node name="Area0Room3" unique_id=354325685 instance=ExtResource("1_1og5o")]
+[node name="Area0Room4" unique_id=354325685 instance=ExtResource("1_1og5o")]
 can_branch_side = true
 open_side_left = true
 
@@ -24,10 +24,10 @@ position = Vector2(312, 200)
 position = Vector2(328, 200)
 
 [node name="Marker2D" type="Marker2D" parent="SideEntrance" parent_id_path=PackedInt32Array(2035839757) index="0" unique_id=2031575796]
-position = Vector2(-24, 120)
+position = Vector2(-136, 120)
 
 [node name="Marker2D2" type="Marker2D" parent="SideEntrance" parent_id_path=PackedInt32Array(2035839757) index="1" unique_id=2071892843]
-position = Vector2(-24, 136)
+position = Vector2(-136, 136)
 
 [node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_w7t71")]
 position = Vector2(16, 64)

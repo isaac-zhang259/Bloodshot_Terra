@@ -80,9 +80,9 @@ func _spawn_rooms() -> void:
 				var side_room_tilemap: TileMap = side_room.get_node("TileMap")
 				var room_side_exit: Marker2D = room.get_node("SideEntrance/Marker2D2")
 				var side_room_entrance: Marker2D = side_room.get_node("SideEntrance/Marker2D2")
-				side_room.position = room_side_exit.global_position + Vector2.RIGHT * ((room_side_exit.position.x - side_room_entrance.position.x) / 2) + Vector2.UP * (side_room_tilemap.local_to_map(side_room_entrance.position).y + 0.5) * TILE_SIZE
-				side_room.position += Vector2.RIGHT * side_room.force_offset_right * TILE_SIZE
 				add_child(side_room)
+				side_room.global_position = room_side_exit.global_position - side_room_entrance.position
+				side_room.position += Vector2.RIGHT * side_room.force_offset_right * TILE_SIZE
 			if room.open_side_left:
 				var side_room: Node2D = SIDE_ROOMS_LEFT[randi() % SIDE_ROOMS_LEFT.size()].instantiate()
 				var side_room_tilemap: TileMap = side_room.get_node("TileMap")
@@ -92,6 +92,6 @@ func _spawn_rooms() -> void:
 				else:
 					room_side_exit = room.get_node("SideEntrance/Marker2D2")
 				var side_room_entrance: Marker2D = side_room.get_node("SideEntrance/Marker2D2")
-				side_room.position = room_side_exit.global_position + Vector2.LEFT * ((side_room_entrance.position.x - room_side_exit.position.x) * 2) + Vector2.UP * (side_room_tilemap.local_to_map(side_room_entrance.position).y + 0.5) * TILE_SIZE
-				side_room.position += Vector2.RIGHT * side_room.force_offset_right * TILE_SIZE
 				add_child(side_room)
+				side_room.global_position = room_side_exit.global_position - side_room_entrance.position
+				side_room.position += Vector2.RIGHT * side_room.force_offset_right * TILE_SIZE
