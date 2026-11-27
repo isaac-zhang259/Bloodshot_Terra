@@ -10,7 +10,7 @@ const TUTORIAL_KEY = "tutorial_completed"
 const SAFE_FLOOR_KEY = "safe_floor"
 const SAFE_ROOM_KEY = "safe_room"
 const HAS_SAVED_KEY = "has_saved"
-const CHAPTER_KEY = "chapter"
+const CHAPTER_KEY = "completed_chapter"
 
 const CURRENCY_SECTION = "Currency"
 const CURRENCY_KEY = "per_save_currency"
