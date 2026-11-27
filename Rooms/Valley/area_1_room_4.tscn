@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cutr201devyrp"]
+
+[ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_cx76h"]
+[ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="2_64js2"]
+[ext_resource type="PackedScene" uid="uid://chxd5vrsiqxyh" path="res://Rooms/Furnitures and Traps/side_facing_door.tscn" id="3_gk241"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
+size = Vector2(32, 16)
+
+[node name="Area1Room4" unique_id=354325685 instance=ExtResource("1_cx76h")]
+can_branch_side = true
+open_side_left = true
+open_side_right = true
+
+[node name="TileMap" parent="." index="0" unique_id=293665720]
+layer_0/tile_data = PackedInt32Array(327689, 720900, 2, 393225, 720900, 2, 458761, 720900, 0, 524297, 720900, 0, 589833, 720900, 0, 655369, 720900, 0, 327690, 720900, 2, 393226, 786436, 2, 458762, 720900, 0, 524298, 720900, 0, 589834, 720900, 0, 655370, 720900, 0, 327691, 786436, 2, 393227, 851972, 2, 458763, 720900, 2, 524299, 720900, 0, 589835, 720900, 0, 655371, 720900, 0, 327692, 851972, 2, 393228, 589828, 2, 458764, 786436, 2, 524300, 720900, 2, 589836, 720900, 0, 655372, 720900, 0, 327693, 786436, 2, 393229, 786436, 2, 458765, 720900, 2, 524301, 720900, 0, 589837, 720900, 0, 655373, 720900, 1, 327694, 720900, 2, 393230, 720900, 2, 458766, 720900, 0, 524302, 720900, 1, 589838, 720900, 1, 655374, 786436, 1, 327695, 720900, 0, 393231, 720900, 0, 458767, 720900, 1, 524303, 786436, 1, 589839, 786436, 1, 655375, 851972, 1, 327696, 720900, 0, 393232, 720900, 0, 458768, 720900, 1, 524304, 786436, 1, 589840, 851972, 1, 655376, 589828, 1, 393233, 720900, 0, 458769, 720900, 0, 393234, 720900, 0, 458770, 720900, 0, 393235, 720900, 0, 458771, 720900, 0, 393236, 720900, 0, 458772, 720900, 0, 393237, 720900, 0, 458773, 720900, 0, 393238, 720900, 0, 458774, 720900, 0, 393239, 720900, 0, 458775, 720900, 0, 393240, 720900, 0, 458776, 720900, 0, 524289, 720900, 0, 589825, 720900, 0, 524290, 720900, 0, 589826, 720900, 0, 524291, 720900, 0, 589827, 720900, 0, 524292, 720900, 0, 589828, 720900, 0, 524293, 720900, 0, 589829, 720900, 0, 524294, 720900, 0, 589830, 720900, 0, 524295, 720900, 0, 589831, 720900, 0, 524296, 720900, 0, 589832, 720900, 0, 720907, 720900, 0, 786443, 720900, 0, 851979, 720900, 0, 917515, 720900, 0, 720908, 720900, 0, 786444, 720900, 0, 851980, 720900, 0, 917516, 720900, 0, -196594, 720900, 0, -131058, 720900, 0, -65522, 720900, 0, 14, 720900, 0, 65550, 720900, 0, 131086, 720900, 0, 196622, 720900, 0, 262158, 720900, 0, -196593, 720900, 0, -131057, 720900, 0, -65521, 720900, 0, 15, 720900, 0, 65551, 720900, 0, 131087, 720900, 0, 196623, 720900, 0, 262159, 720900, 0, 524305, 458756, 6, 589841, 458756, 6, 720909, 458756, 6, 786445, 458756, 6, 851981, 458756, 6, 917517, 458756, 6, 196624, 458756, 6, 131088, 458756, 6, 65552, 458756, 6, 16, 458756, 6, -65520, 458756, 6, -131056, 458756, 6, -196592, 458756, 6, 196621, 524292, 6, 131085, 524292, 6, 65549, 524292, 6, 13, 524292, 6, -65523, 524292, 6, -131059, 524292, 6, -196595, 524292, 6, 393224, 524292, 6, 327688, 524292, 6, 327697, 327684, 8, 262160, 327684, 8, 262157, 589828, 8, 458760, 589828, 8, 327698, 393220, 8, 327699, 393220, 8, 327700, 393220, 8, 327701, 393220, 8, 327702, 393220, 8, 327703, 393220, 8, 327704, 393220, 8, 458759, 393220, 8, 458758, 393220, 8, 458757, 393220, 8, 458756, 393220, 8, 458755, 393220, 8, 458754, 393220, 8, 458753, 393220, 8, 262156, 393220, 8, 262155, 393220, 8, 262154, 393220, 8, 262153, 393220, 8, 262161, 458756, 5, 262152, 524292, 5, 655377, 458756, 7, 655368, 524292, 7, 720906, 524292, 6, 786442, 524292, 6, 851978, 524292, 6, 917514, 524292, 6)
+
+[node name="TileMap2" parent="." index="1" unique_id=1038422760]
+layer_0/tile_data = PackedInt32Array(458770, 393220, 7, 458771, 393220, 7, 458772, 393220, 7, 458773, 393220, 7, 458774, 393220, 7, 458775, 393220, 7, 458776, 393220, 7, 655374, 393220, 7, 655375, 393220, 7, 655376, 393220, 7, 655369, 393220, 7, 589825, 393220, 7, 589826, 393220, 7, 589827, 393220, 7, 589828, 393220, 7, 589829, 393220, 7, 589830, 393220, 7, 589831, 393220, 7, 589832, 589828, 7, 655370, 589828, 7, 655373, 327684, 7, 458769, 327684, 7)
+
+[node name="Marker2D" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="0" unique_id=1126353654]
+position = Vector2(184, 168)
+
+[node name="Marker2D2" type="Marker2D" parent="Entrance" parent_id_path=PackedInt32Array(1290251783) index="1" unique_id=1525376720]
+position = Vector2(200, 168)
+
+[node name="Marker2D" type="Marker2D" parent="SideEntrance" parent_id_path=PackedInt32Array(2035839757) index="0" unique_id=1646534275]
+position = Vector2(392, 104)
+
+[node name="Marker2D2" type="Marker2D" parent="SideEntrance" parent_id_path=PackedInt32Array(2035839757) index="1" unique_id=997201356]
+position = Vector2(392, 120)
+
+[node name="Marker2D3" type="Marker2D" parent="SideEntrance" parent_id_path=PackedInt32Array(2035839757) index="2" unique_id=1358423326]
+position = Vector2(24, 136)
+
+[node name="Marker2D4" type="Marker2D" parent="SideEntrance" parent_id_path=PackedInt32Array(2035839757) index="3" unique_id=641884239]
+position = Vector2(24, 152)
+
+[node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_64js2")]
+position = Vector2(240, 64)
+
+[node name="FrontFacingDoor2" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="1" unique_id=1426335496 instance=ExtResource("2_64js2")]
+position = Vector2(192, 176)
+
+[node name="SideFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="2" unique_id=639257059 instance=ExtResource("3_gk241")]
+position = Vector2(136, 128)
+
+[node name="SideFacingDoor2" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="3" unique_id=312094230 instance=ExtResource("3_gk241")]
+position = Vector2(280, 96)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="0" unique_id=1524769620]
+position = Vector2(168, 120)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="1" unique_id=1047834386]
+position = Vector2(248, 104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(2100298285) index="0" unique_id=1446049859]
+position = Vector2(192, 160)
+shape = SubResource("RectangleShape2D_thutw")
