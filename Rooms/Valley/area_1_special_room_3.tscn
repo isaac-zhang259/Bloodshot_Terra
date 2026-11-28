@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://m21w8i3bct77"]
+
+[ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_laa2d"]
+
+[node name="Area1SpecialRoom3" unique_id=354325685 instance=ExtResource("1_laa2d")]

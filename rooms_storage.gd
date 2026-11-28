@@ -31,7 +31,7 @@ const SPECIAL_ROOMS_AREAS: Array = [SPECIAL_ROOMS_AREA_0, SPECIAL_ROOMS_AREA_1, 
 
 #3 unique end rooms per area
 const END_ROOMS_AREA_0: Array = [preload("res://Rooms/Ruins/area_0_end_room_0.tscn"), preload("res://Rooms/Ruins/area_0_end_room_1.tscn"), preload("res://Rooms/Ruins/area_0_end_room_2.tscn")]
-const END_ROOMS_AREA_1: Array = [preload("res://Rooms/Ruins/area_0_end_room_0.tscn")]
+const END_ROOMS_AREA_1: Array = [preload("res://Rooms/Valley/area_1_end_room_0.tscn"), preload("res://Rooms/Valley/area_1_end_room_1.tscn"), preload("res://Rooms/Valley/area_1_end_room_2.tscn")]
 const END_ROOMS_AREA_2: Array = []
 const END_ROOMS_AREAS: Array = [END_ROOMS_AREA_0, END_ROOMS_AREA_1, END_ROOMS_AREA_2]
 
