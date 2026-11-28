@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_u2awk"]
 [ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="2_201pk"]
+[ext_resource type="PackedScene" uid="uid://dlppy3lnl6voa" path="res://Characters/Enemies/Fake Crystal/fake_crystal.tscn" id="3_hiijm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(32, 16)
@@ -22,8 +23,13 @@ position = Vector2(232, 200)
 
 [node name="FrontFacingDoor" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="0" unique_id=610126487 instance=ExtResource("2_201pk")]
 position = Vector2(224, 16)
-opened = false
+
+[node name="FrontFacingDoor2" parent="Doors" parent_id_path=PackedInt32Array(484835316) index="1" unique_id=111643564 instance=ExtResource("2_201pk")]
+position = Vector2(224, 208)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(2100298285) index="0" unique_id=1163846823]
 position = Vector2(224, 192)
 shape = SubResource("RectangleShape2D_thutw")
+
+[node name="FakeCrystal" parent="." index="10" unique_id=532086475 instance=ExtResource("3_hiijm")]
+position = Vector2(224, 104)

@@ -25,7 +25,7 @@ const SIDE_ROOMS_LEFT_AREAS: Array = [SIDE_ROOMS_LEFT_AREA_0, SIDE_ROOMS_LEFT_AR
 
 #4 unique special rooms per area
 const SPECIAL_ROOMS_AREA_0: Array = [preload("res://Rooms/Ruins/area_0_special_room_0.tscn"), preload("res://Rooms/Ruins/area_0_special_room_1.tscn"), preload("res://Rooms/Ruins/area_0_special_room_2.tscn"), preload("res://Rooms/Ruins/area_0_special_room_3.tscn")]
-const SPECIAL_ROOMS_AREA_1: Array = [preload("res://Rooms/Ruins/area_0_special_room_0.tscn")]
+const SPECIAL_ROOMS_AREA_1: Array = [preload("res://Rooms/Valley/area_1_special_room_0.tscn"), preload("res://Rooms/Valley/area_1_special_room_1.tscn"), preload("res://Rooms/Valley/area_1_special_room_2.tscn"), preload("res://Rooms/Valley/area_1_special_room_3.tscn")]
 const SPECIAL_ROOMS_AREA_2: Array = []
 const SPECIAL_ROOMS_AREAS: Array = [SPECIAL_ROOMS_AREA_0, SPECIAL_ROOMS_AREA_1, SPECIAL_ROOMS_AREA_2]
 

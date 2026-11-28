@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cm0xoljngpsyv" path="res://Rooms/room.tscn" id="1_vecoc"]
 [ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="2_ykfgh"]
+[ext_resource type="PackedScene" uid="uid://d1c434rng4pr" path="res://Currencies and Shops/free_crystal.tscn" id="3_8mr5h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(32, 16)
@@ -27,3 +28,6 @@ opened = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(2100298285) index="0" unique_id=530510099]
 position = Vector2(224, 192)
 shape = SubResource("RectangleShape2D_thutw")
+
+[node name="FreeCrystal" parent="." index="10" unique_id=532086475 instance=ExtResource("3_8mr5h")]
+position = Vector2(224, 120)

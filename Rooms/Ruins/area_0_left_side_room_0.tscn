@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://d3f8c08lmtnly" path="res://Rooms/Furnitures and Traps/front_facing_door.tscn" id="3_x75ae"]
 [ext_resource type="PackedScene" uid="uid://d1c434rng4pr" path="res://Currencies and Shops/free_crystal.tscn" id="4_8trrp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
+size = Vector2(16, 32)
+
 [node name="Area0LeftSideRoom0" unique_id=354325685 instance=ExtResource("1_1bw1x")]
 
 [node name="TileMap" parent="." index="0" unique_id=293665720]
@@ -30,6 +33,10 @@ position = Vector2(200, 88)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyPositions" parent_id_path=PackedInt32Array(784821068) index="1" unique_id=1476518728]
 position = Vector2(136, 120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" parent_id_path=PackedInt32Array(2100298285) index="0" unique_id=1255424038]
+position = Vector2(232, 112)
+shape = SubResource("RectangleShape2D_thutw")
 
 [node name="FreeCrystal" parent="." index="10" unique_id=532086475 instance=ExtResource("4_8trrp")]
 position = Vector2(160, 232)

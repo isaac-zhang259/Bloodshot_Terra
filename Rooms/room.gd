@@ -69,17 +69,16 @@ func _on_enemy_killed() -> void:
 func _open_doors() -> void:
 	SavedData.safety_room = room_number
 	for door in door_container.get_children():
-		door.trigger_change()
+		door.open()
 	
 func _close_entrance() -> void:
 	for door in door_container.get_children():
-		door.trigger_change()
+		door.close()
 		
 func _spawn_enemies() -> void:
 	if spawn_wave < 3:
 		spawn_wave += 1
 		num_enemies = enemy_positions_container.get_child_count()
-		print(num_enemies)
 		Game.player.in_combat = true
 		for enemy_position in enemy_positions_container.get_children():
 			var enemy: CharacterBody2D

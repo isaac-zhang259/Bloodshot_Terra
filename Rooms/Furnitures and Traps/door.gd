@@ -16,9 +16,11 @@ func trigger_change() -> void:
 		open()
 
 func open() -> void:
-	opened = true
-	animation_player.play("open")
+	if not opened:
+		opened = true
+		animation_player.play("open")
 
 func close() -> void:
-	opened = false
-	animation_player.play("close")
+	if opened:
+		opened = false
+		animation_player.play("close")
